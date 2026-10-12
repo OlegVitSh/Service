@@ -123,7 +123,7 @@
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      height: 72px;
+      height: 88px;
     }
 
     .nav-desktop {
@@ -144,7 +144,6 @@
       color: var(--c-accent);
     }
 
-    /* Выпадающее меню услуг */
     .nav-dropdown-wrap {
       position: relative;
       display: inline-block;
@@ -188,14 +187,15 @@
       color: var(--c-accent);
     }
 
+    /* Увеличенное лого */
     .brand-logo-center {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0 20px;
+      padding: 0 24px;
     }
     .brand-logo-img {
-      max-height: 44px;
+      max-height: 64px;
       width: auto;
       object-fit: contain;
       display: block;
@@ -231,7 +231,6 @@
       background: var(--c-black);
     }
 
-    /* Мобильный Drawer */
     .mobile-drawer {
       position: fixed;
       top: 0;
@@ -284,39 +283,46 @@
     .drawer-overlay.active { display: block; }
 
     /* ================================================================= */
-    /* 3. HERO-СЕКЦИЯ С КАРТИНКОЙ                                       */
+    /* 3. HERO-СЕКЦИЯ (ПОЛНОЭКРАННОЕ ИЗОБРАЖЕНИЕ HED1)                   */
     /* ================================================================= */
     .hero-stanq {
       position: relative;
-      min-height: calc(90vh - 72px);
+      min-height: calc(100vh - 88px);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 40px 0 50px 0;
-      background: radial-gradient(circle at 50% 40%, #FFFFFF 0%, #E2E5EA 85%);
+      background: #0C0D10;
       overflow: hidden;
     }
 
-    .hero-centerpiece-image {
+    /* Полноэкранный фон-картинка */
+    .hero-fullscreen-bg {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 90%;
-      max-width: 900px;
-      height: 75%;
-      max-height: 580px;
-      z-index: 2;
-      pointer-events: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .hero-centerpiece-image img {
+      inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-fullscreen-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    /* Градиент поверх картинки для читаемости контента */
+    .hero-fullscreen-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(234, 236, 239, 0.75) 0%,
+        rgba(234, 236, 239, 0.35) 45%,
+        rgba(234, 236, 239, 0.85) 100%
+      );
     }
 
     .hero-top-row {
@@ -335,6 +341,9 @@
       border-bottom: 2px solid var(--c-black);
       display: inline-block;
       padding-bottom: 8px;
+      background: rgba(255, 255, 255, 0.75);
+      padding-left: 6px;
+      padding-right: 6px;
     }
 
     .hero-bottom-row {
@@ -354,6 +363,8 @@
     .hero-meta-right {
       text-align: right;
       max-width: 320px;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 8px 12px;
     }
     .hero-meta-right .meta-label {
       font-size: 11px;
@@ -697,7 +708,7 @@
       gap: 20px;
     }
     .footer-brand img {
-      max-height: 38px;
+      max-height: 48px;
       width: auto;
       object-fit: contain;
       filter: brightness(0) invert(1);
@@ -734,9 +745,11 @@
     @media (max-width: 768px) {
       .container { padding: 0 20px; }
       .top-utility-bar { flex-direction: column; gap: 4px; padding: 8px 20px; }
+      .header-layout { height: 72px; }
+      .brand-logo-img { max-height: 44px; }
       .directions-belt-grid { grid-template-columns: 1fr; }
       .direction-belt-item { border-right: none; border-bottom: 1px solid var(--c-border-dark); }
-      .hero-centerpiece-image { height: 50%; max-height: 320px; }
+      .hero-stanq { min-height: 85vh; padding: 24px 0 36px 0; }
       .hero-bottom-row { flex-direction: column; align-items: flex-start; }
       .hero-meta-right { text-align: left; }
       .precision-content h2 { font-size: 32px; }
@@ -755,7 +768,7 @@
     <div>СКЛАД: МОСКВА // ВЫЕЗДНЫЕ ИНЖЕНЕРЫ ПО ВСЕЙ РОССИИ (24–48Ч)</div>
   </div>
 
-  <!-- ШАПКА САЙТА С ПОЛНЫМ МЕНЮ -->
+  <!-- ШАПКА САЙТА -->
   <header class="site-header">
     <div class="container header-layout">
       
@@ -774,7 +787,7 @@
         <a href="o-servise.html">О лаборатории</a>
       </nav>
 
-      <!-- Логотип строго по центру (картинка) -->
+      <!-- Увеличенный логотип по центру -->
       <a href="index.html" class="brand-logo-center">
         <img src="images/logo.png" alt="LASER SERVICE" class="brand-logo-img">
       </a>
@@ -793,13 +806,13 @@
     </div>
   </header>
 
-  <!-- ВЫЕЗЖАЮЩАЯ МОБИЛЬНАЯ ПАНЕЛЬ НАВИГАЦИИ -->
+  <!-- ВЫЕЗЖАЮЩАЯ МОБИЛЬНАЯ ПАНЕЛЬ -->
   <div class="drawer-overlay" id="drawer-overlay"></div>
   <div class="mobile-drawer" id="mobile-drawer">
     <div>
       <div class="drawer-head">
         <div class="brand-logo-center" style="padding: 0;">
-          <img src="images/logo.png" alt="LASER SERVICE" style="max-height: 32px; width: auto;">
+          <img src="images/logo.png" alt="LASER SERVICE" style="max-height: 40px; width: auto;">
         </div>
         <button class="drawer-close" id="drawer-close">&times;</button>
       </div>
@@ -821,10 +834,10 @@
     </div>
   </div>
 
-  <!-- 1. HERO-СЕКЦИЯ С КАРТИНКОЙ HED1.PNG -->
+  <!-- 1. HERO-СЕКЦИЯ С ПОЛНОЭКРАННЫМ HED1.PNG -->
   <section class="hero-stanq">
-    <div class="hero-centerpiece-image">
-      <img src="images/hed1.png" alt="Лазерное оборудование">
+    <div class="hero-fullscreen-bg">
+      <img src="images/hed1.png" alt="Лазерный сервис">
     </div>
 
     <div class="container hero-top-row">
@@ -835,7 +848,7 @@
           ЗДЕСЬ
         </div>
       </div>
-      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--c-accent); font-weight: 700;">
+      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--c-accent); font-weight: 700; background: rgba(255,255,255,0.75); padding: 4px 8px;">
         [ ЧИСТАЯ ЗОНА ISO &lt; 2 МГ/М³ ]
       </div>
     </div>
@@ -859,7 +872,6 @@
   <section class="black-directions-belt">
     <div class="container directions-belt-grid" style="padding: 0;">
       
-      <!-- Пункт 1: Сварка -->
       <a href="remont-svarok.html" class="direction-belt-item">
         <div class="belt-item-icon-box">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
@@ -871,7 +883,6 @@
         <div class="belt-item-arrow">→</div>
       </a>
 
-      <!-- Пункт 2: Очистка -->
       <a href="remont-ochistok.html" class="direction-belt-item">
         <div class="belt-item-icon-box">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v6m0 6v6M3 12h6m6 0h6"/></svg>
@@ -883,7 +894,6 @@
         <div class="belt-item-arrow">→</div>
       </a>
 
-      <!-- Пункт 3: База знаний кодов ошибок -->
       <a href="baza-znanij.html" class="direction-belt-item">
         <div class="belt-item-icon-box">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
@@ -1071,7 +1081,7 @@
     <div class="container">
       <div class="footer-layout">
         <div class="footer-brand">
-          <img src="/images/logo.png" alt="LASER SERVICE">
+          <img src="images/logo.png" alt="LASER SERVICE">
         </div>
         <div class="footer-links">
           <a href="remont-svarok.html">СВАРКА</a>
