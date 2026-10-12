@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LASER SERVICE // Независимый инжиниринг IPG LightWELD и LaserOne</title>
+
+  <!-- Шрифты: Space Grotesk, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;900&family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================================= */
+    /* 1. БАЗОВАЯ ДИЗАЙН-СИСТЕМА (STANQ / INDUSTRIAL MONOCHROME)         */
+    /* ================================================================= */
+    :root {
+      --c-black: #0C0D10;
+      --c-dark-section: #111317;
+      --c-white: #FFFFFF;
+      --c-studio-bg: #EAECEF;
+      --c-card-bg: #FFFFFF;
+      --c-border: #D8DCE2;
+      --c-border-dark: #262930;
+      --c-text-muted: #6B7280;
+      --c-accent: #E84D0E;
+      
+      --font-display: 'Space Grotesk', -apple-system, sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border-radius: 0px !important;
+    }
+
+    body {
+      background-color: var(--c-studio-bg);
+      color: var(--c-black);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      letter-spacing: -0.01em;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 40px;
+      width: 100%;
+    }
+
+    .btn-solid-black {
+      background: var(--c-black);
+      color: var(--c-white);
+      padding: 14px 28px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.15s;
+      cursor: pointer;
+      border: none;
+      font-family: var(--font-body);
+    }
+    .btn-solid-black:hover {
+      background: var(--c-accent);
+      transform: translateY(-1px);
+    }
+
+    .btn-underlined {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c-black);
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      padding-bottom: 4px;
+      border-bottom: 2px solid var(--c-black);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-underlined:hover {
+      border-color: var(--c-accent);
+      color: var(--c-accent);
+    }
+
+    /* ================================================================= */
+    /* 2. ШАПКА И НАВИГАЦИЯ                                              */
+    /* ================================================================= */
+    .top-utility-bar {
+      background: #000000;
+      color: #9CA3AF;
+      font-size: 11px;
+      padding: 8px 40px;
+      letter-spacing: 0.05em;
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+    }
+
+    .site-header {
+      background: rgba(234, 236, 239, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-layout {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      height: 72px;
+    }
+
+    .nav-desktop {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .nav-desktop a {
+      color: #374151;
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+    .nav-desktop a:hover {
+      color: var(--c-accent);
+    }
+
+    /* Выпадающее меню услуг */
+    .nav-dropdown-wrap {
+      position: relative;
+      display: inline-block;
+    }
+    .nav-dropdown-btn {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: #374151;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .nav-dropdown-btn:hover { color: var(--c-accent); }
+    .dropdown-pane {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--c-white);
+      border: 1px solid var(--c-black);
+      padding: 16px 0;
+      min-width: 250px;
+      display: none;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+      z-index: 150;
+    }
+    .nav-dropdown-wrap:hover .dropdown-pane {
+      display: block;
+    }
+    .dropdown-pane a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--c-black);
+      text-transform: none;
+    }
+    .dropdown-pane a:hover {
+      background: var(--c-studio-bg);
+      color: var(--c-accent);
+    }
+
+    .brand-logo-center {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c-black);
+      text-align: center;
+      font-family: var(--font-display);
+      white-space: nowrap;
+      padding: 0 20px;
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 20px;
+    }
+    .header-phone {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--c-black);
+      white-space: nowrap;
+    }
+
+    .btn-burger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .btn-burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--c-black);
+    }
+
+    /* Мобильный Drawer */
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 340px;
+      height: 100vh;
+      background: #FFFFFF;
+      border-left: 1px solid var(--c-black);
+      z-index: 200;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .mobile-drawer.open { right: 0; }
+    .drawer-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--c-black);
+      padding-bottom: 16px;
+    }
+    .drawer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .drawer-nav a {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--c-black);
+    }
+    .drawer-close {
+      background: none;
+      border: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 150;
+      display: none;
+    }
+    .drawer-overlay.active { display: block; }
+
+    /* ================================================================= */
+    /* 3. HERO-СЕКЦИЯ                                                    */
+    /* ================================================================= */
+    .hero-stanq {
+      position: relative;
+      min-height: calc(90vh - 72px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 0 50px 0;
+      background: radial-gradient(circle at 50% 40%, #FFFFFF 0%, #E2E5EA 85%);
+      overflow: hidden;
+    }
+
+    .hero-giant-wordmark {
+      position: absolute;
+      top: 48%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: clamp(70px, 16vw, 240px);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: rgba(12, 13, 16, 0.94);
+      user-select: none;
+      pointer-events: none;
+      z-index: 1;
+      white-space: nowrap;
+      text-align: center;
+      line-height: 0.85;
+      font-family: var(--font-body);
+    }
+
+    /* Автономная векторная станция вместо ненадежных внешних фото */
+    .hero-hardware-centerpiece {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -46%);
+      width: 90%;
+      max-width: 640px;
+      height: 70%;
+      max-height: 520px;
+      z-index: 2;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-hardware-centerpiece svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.25));
+    }
+
+    .hero-top-row {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tag-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      line-height: 1.6;
+      color: var(--c-black);
+      border-bottom: 2px solid var(--c-black);
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+
+    .hero-bottom-row {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
+    }
+    .hero-btn-group {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .hero-meta-right {
+      text-align: right;
+      max-width: 320px;
+    }
+    .hero-meta-right .meta-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c-black);
+      line-height: 1.6;
+      font-family: var(--font-mono);
+    }
+
+    /* ================================================================= */
+    /* 4. ТЕМНЫЙ ПОЯС НАПРАВЛЕНИЙ                                        */
+    /* ================================================================= */
+    .black-directions-belt {
+      background: var(--c-dark-section);
+      color: var(--c-white);
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
+    }
+    .directions-belt-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .direction-belt-item {
+      display: flex;
+      align-items: center;
+      padding: 34px 32px;
+      border-right: 1px solid var(--c-border-dark);
+      transition: background 0.2s;
+    }
+    .direction-belt-item:last-child {
+      border-right: none;
+    }
+    .direction-belt-item:hover {
+      background: #171A20;
+    }
+    .belt-item-icon-box {
+      width: 70px;
+      height: 70px;
+      background: #1C1F26;
+      border: 1px solid var(--c-border-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 20px;
+      flex-shrink: 0;
+    }
+    .belt-item-icon-box svg {
+      width: 36px;
+      height: 36px;
+      stroke: var(--c-accent);
+    }
+    .belt-item-info h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--c-white);
+    }
+    .belt-item-info p {
+      font-size: 12px;
+      color: #9CA3AF;
+      line-height: 1.4;
+    }
+    .belt-item-arrow {
+      margin-left: auto;
+      color: #9CA3AF;
+      font-size: 20px;
+      transition: transform 0.2s, color 0.2s;
+    }
+    .direction-belt-item:hover .belt-item-arrow {
+      transform: translateX(6px);
+      color: var(--c-white);
+    }
+
+    /* ================================================================= */
+    /* 5. ПОЛНОРАЗМЕРНЫЙ БЛОК                                            */
+    /* ================================================================= */
+    .precision-statement-section {
+      position: relative;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      background: #000000;
+      overflow: hidden;
+    }
+    .precision-vector-bg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60%;
+      height: 100%;
+      opacity: 0.25;
+      background: radial-gradient(circle at 70% 50%, #E84D0E 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .precision-content {
+      position: relative;
+      z-index: 2;
+      max-width: 580px;
+      color: var(--c-white);
+      padding: 70px 0;
+    }
+    .precision-content h2 {
+      font-size: 46px;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .precision-content p {
+      font-size: 15px;
+      color: #9CA3AF;
+      line-height: 1.6;
+      margin-bottom: 34px;
+    }
+
+    /* ================================================================= */
+    /* 6. КАТАЛОГ ЗИП                                                    */
+    /* ================================================================= */
+    .catalog-showcase-section {
+      background: #F4F5F7;
+      padding: 90px 0 100px 0;
+      border-bottom: 1px solid var(--c-border);
+    }
+    .catalog-section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 40px;
+      border-bottom: 2px solid var(--c-black);
+      padding-bottom: 16px;
+    }
+    .catalog-section-title {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--c-black);
+    }
+    .catalog-view-all {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--c-black);
+    }
+    .catalog-view-all:hover { color: var(--c-accent); }
+
+    .catalog-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .catalog-product-card {
+      background: var(--c-card-bg);
+      border: 1px solid var(--c-border);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .catalog-product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06);
+    }
+    .product-img-frame {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      background: #FAFAFA;
+      padding: 16px;
+    }
+    .product-category-code {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--c-text-muted);
+      margin-bottom: 6px;
+    }
+    .product-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--c-black);
+      margin-bottom: 20px;
+      min-height: 40px;
+      line-height: 1.35;
+    }
+    .product-footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid #F0F2F5;
+    }
+    .product-price-label {
+      font-size: 11px;
+      color: var(--c-text-muted);
+      display: block;
+    }
+    .product-price-val {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--c-black);
+      font-family: var(--font-mono);
+    }
+    .btn-add-plus {
+      width: 36px;
+      height: 36px;
+      background: var(--c-black);
+      color: var(--c-white);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-add-plus:hover {
+      background: var(--c-accent);
+    }
+
+    /* ================================================================= */
+    /* 7. ТАБЛИЦА СРАВНЕНИЯ                                              */
+    /* ================================================================= */
+    .matrix-section {
+      padding: 90px 0;
+      background: var(--c-white);
+      border-bottom: 1px solid var(--c-border);
+    }
+    .matrix-head {
+      margin-bottom: 40px;
+    }
+    .matrix-head h2 {
+      font-size: 30px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--c-black);
+    }
+    .matrix-table th {
+      background: var(--c-black);
+      color: var(--c-white);
+      text-align: left;
+      padding: 18px 24px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-family: var(--font-mono);
+    }
+    .matrix-table td {
+      padding: 24px;
+      border: 1px solid var(--c-border);
+      vertical-align: top;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .matrix-table tr:hover td {
+      background: #FAFAFB;
+    }
+    .td-service-highlight {
+      background: #F8F9FA;
+      font-weight: 500;
+    }
+
+    /* ================================================================= */
+    /* 8. ФОРМА ЗАЯВКИ                                                   */
+    /* ================================================================= */
+    .b24-order-section {
+      padding: 90px 0;
+      background: #ECEEF2;
+    }
+    .order-box-center {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--c-white);
+      border: 1px solid var(--c-black);
+      padding: 48px;
+    }
+    .order-box-center h2 {
+      font-size: 26px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .order-box-center p {
+      font-size: 14px;
+      color: var(--c-text-muted);
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+    .form-group-stanq {
+      margin-bottom: 20px;
+    }
+    .form-label-stanq {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .form-input-stanq, .form-select-stanq {
+      width: 100%;
+      height: 48px;
+      border: 1px solid #CBD5E1;
+      padding: 0 16px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+    }
+    .form-input-stanq:focus, .form-select-stanq:focus {
+      border-color: var(--c-black);
+    }
+
+    /* ================================================================= */
+    /* 9. ФУТЕР                                                          */
+    /* ================================================================= */
+    .site-footer {
+      background: #000000;
+      color: #9CA3AF;
+      padding: 60px 0 30px 0;
+      font-size: 13px;
+    }
+    .footer-layout {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #222;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-brand {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      color: var(--c-white);
+      font-family: var(--font-display);
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      font-size: 12px;
+      font-weight: 600;
+      flex-wrap: wrap;
+    }
+    .footer-links a:hover { color: var(--c-white); }
+    .footer-copyright {
+      padding-top: 24px;
+      font-size: 11px;
+      color: #6B7280;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-family: var(--font-mono);
+    }
+
+    /* ================================================================= */
+    /* 10. АДАПТИВНОСТЬ                                                  */
+    /* ================================================================= */
+    @media (max-width: 1100px) {
+      .nav-desktop { display: none; }
+      .btn-burger { display: flex; }
+      .header-layout { grid-template-columns: auto 1fr auto; }
+      .catalog-grid-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+      .top-utility-bar { flex-direction: column; gap: 4px; padding: 8px 20px; }
+      .directions-belt-grid { grid-template-columns: 1fr; }
+      .direction-belt-item { border-right: none; border-bottom: 1px solid var(--c-border-dark); }
+      .hero-giant-wordmark { font-size: 20vw; }
+      .hero-hardware-centerpiece { height: 45%; }
+      .hero-bottom-row { flex-direction: column; align-items: flex-start; }
+      .hero-meta-right { text-align: left; }
+      .precision-content h2 { font-size: 32px; }
+      .catalog-grid-4 { grid-template-columns: 1fr; }
+      .order-box-center { padding: 24px; }
+      .matrix-table th, .matrix-table td { padding: 12px; font-size: 12px; }
+      .header-phone { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ВЕРХНИЙ СЛУЖЕБНЫЙ БАР -->
+  <div class="top-utility-bar">
+    <div>НЕЗАВИСИМЫЙ СЕРВИС И ЗИП // IPG IRE-POLUS & VPG LASERONE</div>
+    <div>СКЛАД: МОСКВА // ВЫЕЗДНЫЕ ИНЖЕНЕРЫ ПО ВСЕЙ РОССИИ (24–48Ч)</div>
+  </div>
+
+  <!-- ШАПКА САЙТА С ПОЛНЫМ МЕНЮ -->
+  <header class="site-header">
+    <div class="container header-layout">
+      
+      <!-- Меню слева -->
+      <nav class="nav-desktop">
+        <div class="nav-dropdown-wrap">
+          <span class="nav-dropdown-btn">Услуги и ремонт ▾</span>
+          <div class="dropdown-pane">
+            <a href="remont-svarok.html">Ремонт сварки LightWELD / LiteWELD</a>
+            <a href="remont-ochistok.html">Ремонт очистки LightCLEAN</a>
+            <a href="reglament.html">Регламент выезда по всей РФ</a>
+          </div>
+        </div>
+        <a href="katalog.html">Каталог ЗИП</a>
+        <a href="baza-znanij.html">База ошибок ErXX</a>
+        <a href="o-servise.html">О лаборатории</a>
+      </nav>
+
+      <!-- Логотип строго по центру -->
+      <a href="index.html" class="brand-logo-center">
+        LASERWELD
+      </a>
+
+      <!-- Действия справа -->
+      <div class="header-actions">
+        <a href="tel:+74950000000" class="header-phone">+7 (495) 000-00-00</a>
+        <a href="#order" class="btn-solid-black" style="padding: 10px 18px; font-size: 10px;">Вызов инженера</a>
+        <button class="btn-burger" id="burger-btn" aria-label="Открыть меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ВЫЕЗЖАЮЩАЯ МОБИЛЬНАЯ ПАНЕЛЬ НАВИГАЦИИ -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div>
+      <div class="drawer-head">
+        <div class="brand-logo-center" style="font-size: 18px; padding: 0;">НАВИГАЦИЯ</div>
+        <button class="drawer-close" id="drawer-close">&times;</button>
+      </div>
+      <div class="drawer-nav">
+        <a href="index.html">Главная</a>
+        <a href="remont-svarok.html">Сварка LightWELD</a>
+        <a href="remont-ochistok.html">Очистка LightCLEAN</a>
+        <a href="katalog.html">Каталог ЗИП</a>
+        <a href="baza-znanij.html">Коды ошибок Er01–Er32</a>
+        <a href="reglament.html">Выездной сервис по РФ</a>
+        <a href="o-servise.html">О лаборатории ISO</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-family: var(--font-mono); font-size: 11px; margin-bottom: 10px; color: var(--c-text-muted);">
+        ДЕЖУРНЫЙ ИНЖЕНЕР 24/7
+      </div>
+      <a href="tel:+74950000000" class="btn-solid-black" style="width: 100%;">+7 (495) 000-00-00</a>
+    </div>
+  </div>
+
+  <!-- 1. HERO-СЕКЦИЯ С АВТОНОМНЫМ РЕНДЕРОМ -->
+  <section class="hero-stanq">
+    <div class="hero-giant-wordmark">СВАРКА</div>
+
+    <!-- Векторная технологическая модель сварочной головки LHW-1500 -->
+    <div class="hero-hardware-centerpiece">
+      <svg viewBox="0 0 700 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Теневая подложка базы -->
+        <ellipse cx="350" cy="420" rx="260" ry="22" fill="#000000" fill-opacity="0.28"/>
+        <!-- Корпус моноблока / рукоятка -->
+        <rect x="220" y="160" width="260" height="150" fill="#1C1E24" stroke="#000000" stroke-width="4"/>
+        <rect x="240" y="180" width="220" height="40" fill="#0E1013"/>
+        <text x="255" y="206" fill="#00E575" font-family="JetBrains Mono" font-size="14" font-weight="bold">SYSTEM: READY [1070nm]</text>
+        <!-- Оптический ввод / Кабельный ввод рукава QBH -->
+        <path d="M120 235 L220 235" stroke="#111317" stroke-width="32" stroke-linecap="round"/>
+        <path d="M120 235 L220 235" stroke="#E84D0E" stroke-width="6" stroke-dasharray="8 6"/>
+        <!-- Оптический тубус и сопловой узел -->
+        <polygon points="480,185 580,210 580,260 480,285" fill="#2B2F38" stroke="#000000" stroke-width="3"/>
+        <!-- Медное сопло Cu-ETP -->
+        <polygon points="580,220 645,230 645,240 580,250" fill="#E84D0E" stroke="#872900" stroke-width="2"/>
+        <!-- Фокусирующий картридж и Wobble модуль -->
+        <rect x="330" y="90" width="70" height="70" fill="#242831" stroke="#000000" stroke-width="3"/>
+        <line x1="365" y1="95" x2="365" y2="155" stroke="#E84D0E" stroke-width="3"/>
+        <!-- Лазерный коаксиальный луч пилота -->
+        <line x1="645" y1="235" x2="695" y2="235" stroke="#FF2A00" stroke-width="3" stroke-dasharray="4 2"/>
+      </svg>
+    </div>
+
+    <div class="container hero-top-row">
+      <div>
+        <div class="tag-title">
+          ТОЧНОСТЬ<br>
+          НАЧИНАЕТСЯ<br>
+          ЗДЕСЬ
+        </div>
+      </div>
+      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--c-accent); font-weight: 700;">
+        [ ЧИСТАЯ ЗОНА ISO < 2 МГ/М³ ]
+      </div>
+    </div>
+
+    <div class="container hero-bottom-row">
+      <div class="hero-btn-group">
+        <a href="katalog.html" class="btn-solid-black">ПЕРЕЙТИ В КАТАЛОГ ЗИП</a>
+        <a href="#order" class="btn-underlined">РАССЧИТАТЬ ВЫЕЗД В ЦЕХ</a>
+      </div>
+
+      <div class="hero-meta-right">
+        <div class="meta-label">
+          РЕШЕНИЯ ДЛЯ ВАШЕГО ПРОИЗВОДСТВА<br>
+          ВОССТАНОВЛЕНИЕ ПОСТОВ ЗА 24–48 ЧАСОВ
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. ЧЕРНЫЙ ПОЯС НАПРАВЛЕНИЙ -->
+  <section class="black-directions-belt">
+    <div class="container directions-belt-grid" style="padding: 0;">
+      
+      <!-- Пункт 1: Сварка -->
+      <a href="remont-svarok.html" class="direction-belt-item">
+        <div class="belt-item-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div class="belt-item-info">
+          <h3>Сварка LightWELD</h3>
+          <p>Ремонт головки LHW, зеркал Wobble и линз</p>
+        </div>
+        <div class="belt-item-arrow">→</div>
+      </a>
+
+      <!-- Пункт 2: Очистка -->
+      <a href="remont-ochistok.html" class="direction-belt-item">
+        <div class="belt-item-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v6m0 6v6M3 12h6m6 0h6"/></svg>
+        </div>
+        <div class="belt-item-info">
+          <h3>Очистка LightCLEAN</h3>
+          <p>Развертка до 200 Гц, объективы F300/F600</p>
+        </div>
+        <div class="belt-item-arrow">→</div>
+      </a>
+
+      <!-- Пункт 3: База знаний кодов ошибок -->
+      <a href="baza-znanij.html" class="direction-belt-item">
+        <div class="belt-item-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="belt-item-info">
+          <h3>Коды ошибок Er01–Er32</h3>
+          <p>Классификатор неисправностей и сброс аварий</p>
+        </div>
+        <div class="belt-item-arrow">→</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- 3. БЛОК «ТОЧНОСТЬ В КАЖДОЙ ДЕТАЛИ» -->
+  <section class="precision-statement-section">
+    <div class="precision-vector-bg"></div>
+    <div class="container">
+      <div class="precision-content">
+        <h2>ТОЧНОСТЬ В КАЖДОЙ ДЕТАЛИ</h2>
+        <p>
+          Компонентный ремонт оптического тракта 1070 нм, юстировка осцилляции луча Wobble до 300 Гц и восстановление сенсоров безопасности в условиях действующего производства.
+        </p>
+        <a href="#order" class="btn-solid-black">ВЫЗВАТЬ ИНЖЕНЕРА В ЦЕХ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. КАТАЛОГ ОРИГИНАЛЬНОГО ЗИП -->
+  <section class="catalog-showcase-section">
+    <div class="container">
+      
+      <div class="catalog-section-head">
+        <div class="catalog-section-title">ВЫБОР ПРОИЗВОДСТВ // ОРИГИНАЛЬНЫЙ ЗИП</div>
+        <a href="katalog.html" class="catalog-view-all">Смотреть весь склад ЗИП →</a>
+      </div>
+
+      <div class="catalog-grid-4">
+        
+        <div class="catalog-product-card">
+          <div class="product-img-frame">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#0C0D10" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5" stroke-dasharray="2 2"/></svg>
+          </div>
+          <div class="product-category-code">АРТИКУЛ COPWXEX014U</div>
+          <div class="product-title">Защитное стекло D20/D15 (кварц 1070 нм)</div>
+          <div class="product-footer-row">
+            <div>
+              <span class="product-price-label">в наличии</span>
+              <span class="product-price-val">от 3 400 ₽</span>
+            </div>
+            <a href="katalog.html" class="btn-add-plus" title="Запросить счет">+</a>
+          </div>
+        </div>
+
+        <div class="catalog-product-card">
+          <div class="product-img-frame">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#0C0D10" stroke-width="1.5"><rect x="5" y="4" width="14" height="16"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+          <div class="product-category-code">СПЕЦИФИКАЦИЯ ЭИП 1728</div>
+          <div class="product-title">Картридж фокусирующей линзы со скошенной пружиной</div>
+          <div class="product-footer-row">
+            <div>
+              <span class="product-price-label">в наличии</span>
+              <span class="product-price-val">от 48 000 ₽</span>
+            </div>
+            <a href="katalog.html" class="btn-add-plus" title="Запросить счет">+</a>
+          </div>
+        </div>
+
+        <div class="catalog-product-card">
+          <div class="product-img-frame">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#0C0D10" stroke-width="1.5"><polygon points="12 2 2 22 22 22"/></svg>
+          </div>
+          <div class="product-category-code">ГАЛЬВОПРИВОД IPG</div>
+          <div class="product-title">Зеркало гальвосканатора Wobble (до 2500 Вт)</div>
+          <div class="product-footer-row">
+            <div>
+              <span class="product-price-label">в наличии</span>
+              <span class="product-price-val">от 65 000 ₽</span>
+            </div>
+            <a href="katalog.html" class="btn-add-plus" title="Запросить счет">+</a>
+          </div>
+        </div>
+
+        <div class="catalog-product-card">
+          <div class="product-img-frame">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#0C0D10" stroke-width="1.5"><path d="M12 2L8 8h8l-4-6zM8 8v10h8V8"/></svg>
+          </div>
+          <div class="product-category-code">ОСНАСТКА СВАРКИ</div>
+          <div class="product-title">Набор медных сопел Cu-ETP (6/9 мм, угол, срез)</div>
+          <div class="product-footer-row">
+            <div>
+              <span class="product-price-label">в наличии</span>
+              <span class="product-price-val">от 12 500 ₽</span>
+            </div>
+            <a href="katalog.html" class="btn-add-plus" title="Запросить счет">+</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. ТАБЛИЦА СРАВНЕНИЯ («ЗАВОДСКОЙ РЕГЛАМЕНТ VS НАШ СЕРВИС») -->
+  <section class="matrix-section">
+    <div class="container">
+      <div class="matrix-head">
+        <h2>Заводской регламент vs Наш выездной сервис</h2>
+      </div>
+
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Критический фактор</th>
+            <th style="width: 37.5%;">Регламент завода / Официалов</th>
+            <th style="width: 37.5%;">Наш независимый инжиниринг</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Подход к ремонту</strong></td>
+            <td>Исключительно узловая замена оптической головы со шланг-пакетом целиком (стоимость 550 000 – 850 000 ₽).</td>
+            <td class="td-service-highlight">Локальная замена сгоревшего зеркала сканатора, ремонт шлейфа, замена картриджа линзы. <strong>Экономия до 70%.</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Сроки возврата поста</strong></td>
+            <td>От 4 до 12 недель. Бюрократия согласования рекламаций, очередь на диагностику на заводе.</td>
+            <td class="td-service-highlight"><strong>24–48 часов.</strong> Анализ логов за 30 минут, срочный выезд инженера с ремкомплектом по РФ.</td>
+          </tr>
+          <tr>
+            <td><strong>Логистические риски</strong></td>
+            <td>Требование отправить весь аппарат 60 кг. Риск повреждения оптоволоконного кабеля транспортной компанией.</td>
+            <td class="td-service-highlight">Аппарат остается неподвижен в цеху заказчика. Доставка только снятого пистолета через СДЭК за 24ч.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 6. ФОРМА ЗАЯВКИ И РАСЧЕТА ВЫЕЗДА ПО РФ -->
+  <section class="b24-order-section" id="order">
+    <div class="container">
+      <div class="order-box-center">
+        <h2>Заявка на срочный выезд инженера в цех</h2>
+        <p>Укажите модель лазерного аппарата и код ошибки с дисплея. Дежурный сервисный инженер свяжется с вами в течение 15 минут для согласования сметы.</p>
+
+        <form id="order-form">
+          <div class="form-group-stanq">
+            <label class="form-label-stanq">Модель установки</label>
+            <select class="form-select-stanq" name="model">
+              <option>IPG LightWELD 1500 / XC / XR</option>
+              <option>LaserOne LiteWELD Pro / Plus / XR Lite</option>
+              <option>IPG LightCLEAN / LightCLEAN 2.0</option>
+              <option>LaserOne LHC-F300 / LHCX-F300</option>
+            </select>
+          </div>
+
+          <div class="form-group-stanq">
+            <label class="form-label-stanq">Код ошибки (Er01–Er32) или симптом</label>
+            <input type="text" name="error_code" class="form-input-stanq" placeholder="Например: Er09 (перегрев), прогар защитного стекла" required>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="form-group-stanq">
+            <div>
+              <label class="form-label-stanq">Город / Производственная площадка</label>
+              <input type="text" name="city" class="form-input-stanq" placeholder="Например: Самара, Челябинск" required>
+            </div>
+            <div>
+              <label class="form-label-stanq">Телефон для оперативной связи</label>
+              <input type="tel" name="phone" class="form-input-stanq" placeholder="+7 (___) ___-__-__" required>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-solid-black" style="width: 100%; height: 52px; font-size: 13px; margin-top: 10px;">
+            ПОЛУЧИТЬ РАСЧЕТ СМЕТЫ И ВЫЕЗДА
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. ФУТЕР -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-layout">
+        <div class="footer-brand">LASERWELD</div>
+        <div class="footer-links">
+          <a href="remont-svarok.html">СВАРКА</a>
+          <a href="remont-ochistok.html">ОЧИСТКА</a>
+          <a href="katalog.html">КАТАЛОГ ЗИП</a>
+          <a href="baza-znanij.html">КОДЫ ОШИБОК</a>
+          <a href="reglament.html">ВЫЕЗД ПО РФ</a>
+          <a href="o-servise.html">О ЛАБОРАТОРИИ</a>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div>© 2026 LASER SERVICE ENGINEERING. ВСЕ ПРАВА ЗАЩИЩЕНЫ. РАБОТА С ЮРЛИЦАМИ (ИП, БЕЗ НДС).</div>
+        <div>ДИЗАЙН-СИСТЕМА: INDUSTRIAL MONOCHROME</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ИНТЕРАКТИВНЫЙ СКРИПТ: МОБИЛЬНОЕ МЕНЮ И ОБРАБОТКА ФОРМЫ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const burgerBtn = document.getElementById('burger-btn');
+      const mobileDrawer = document.getElementById('mobile-drawer');
+      const drawerClose = document.getElementById('drawer-close');
+      const drawerOverlay = document.getElementById('drawer-overlay');
+
+      function toggleMenu(open) {
+        if (open) {
+          mobileDrawer.classList.add('open');
+          drawerOverlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        } else {
+          mobileDrawer.classList.remove('open');
+          drawerOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+
+      burgerBtn.addEventListener('click', () => toggleMenu(true));
+      drawerClose.addEventListener('click', () => toggleMenu(false));
+      drawerOverlay.addEventListener('click', () => toggleMenu(false));
+
+      const form = document.getElementById('order-form');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        btn.textContent = 'ОТПРАВЛЕНО! СВЯЖЕМСЯ ЧЕРЕЗ 15 МИН';
+        btn.style.background = '#0D8249';
+        setTimeout(() => {
+          btn.textContent = 'ПОЛУЧИТЬ РАСЧЕТ СМЕТЫ И ВЫЕЗДА';
+          btn.style.background = '';
+          form.reset();
+        }, 4000);
+      });
+    });
+  </script>
+
+</body>
+</html>
