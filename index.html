@@ -97,7 +97,7 @@
     }
 
     /* ================================================================= */
-    /* 2. ШАПКА И НАВИГАЦИЯ                                              */
+    /* 2. ШАПКА И НАВИГАЦИЯ (ВАРИАНТ 3: УВЕЛИЧЕННЫЙ ЛОГОТИП)             */
     /* ================================================================= */
     .top-utility-bar {
       background: #000000;
@@ -119,11 +119,12 @@
       z-index: 100;
     }
 
+    /* Увеличена высота шапки под крупный логотип */
     .header-layout {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      height: 88px;
+      height: 100px;
     }
 
     .nav-desktop {
@@ -187,18 +188,22 @@
       color: var(--c-accent);
     }
 
-    /* Увеличенное лого */
+    /* Стили крупного логотипа с отступами и ховером */
     .brand-logo-center {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0 24px;
+      padding: 0 32px;
     }
     .brand-logo-img {
-      max-height: 64px;
+      max-height: 80px;
       width: auto;
       object-fit: contain;
       display: block;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .brand-logo-center:hover .brand-logo-img {
+      transform: scale(1.04);
     }
 
     .header-actions {
@@ -283,11 +288,11 @@
     .drawer-overlay.active { display: block; }
 
     /* ================================================================= */
-    /* 3. HERO-СЕКЦИЯ (ПОЛНОЭКРАННОЕ ИЗОБРАЖЕНИЕ HED1)                   */
+    /* 3. HERO-СЕКЦИЯ                                                    */
     /* ================================================================= */
     .hero-stanq {
       position: relative;
-      min-height: calc(100vh - 88px);
+      min-height: calc(100vh - 100px);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -296,7 +301,6 @@
       overflow: hidden;
     }
 
-    /* Полноэкранный фон-картинка */
     .hero-fullscreen-bg {
       position: absolute;
       inset: 0;
@@ -312,7 +316,6 @@
       object-position: center;
       display: block;
     }
-    /* Градиент поверх картинки для читаемости контента */
     .hero-fullscreen-bg::after {
       content: '';
       position: absolute;
@@ -738,7 +741,8 @@
     @media (max-width: 1100px) {
       .nav-desktop { display: none; }
       .btn-burger { display: flex; }
-      .header-layout { grid-template-columns: auto 1fr auto; }
+      .header-layout { grid-template-columns: auto 1fr auto; height: 80px; }
+      .brand-logo-img { max-height: 60px; }
       .catalog-grid-4 { grid-template-columns: repeat(2, 1fr); }
     }
 
@@ -746,7 +750,8 @@
       .container { padding: 0 20px; }
       .top-utility-bar { flex-direction: column; gap: 4px; padding: 8px 20px; }
       .header-layout { height: 72px; }
-      .brand-logo-img { max-height: 44px; }
+      .brand-logo-center { padding: 0 10px; }
+      .brand-logo-img { max-height: 48px; }
       .directions-belt-grid { grid-template-columns: 1fr; }
       .direction-belt-item { border-right: none; border-bottom: 1px solid var(--c-border-dark); }
       .hero-stanq { min-height: 85vh; padding: 24px 0 36px 0; }
@@ -787,7 +792,7 @@
         <a href="o-servise.html">О лаборатории</a>
       </nav>
 
-      <!-- Увеличенный логотип по центру -->
+      <!-- Увеличенный заметный логотип по центру -->
       <a href="index.html" class="brand-logo-center">
         <img src="images/logo.png" alt="LASER SERVICE" class="brand-logo-img">
       </a>
@@ -812,7 +817,7 @@
     <div>
       <div class="drawer-head">
         <div class="brand-logo-center" style="padding: 0;">
-          <img src="images/logo.png" alt="LASER SERVICE" style="max-height: 40px; width: auto;">
+          <img src="images/logo.png" alt="LASER SERVICE" style="max-height: 48px; width: auto;">
         </div>
         <button class="drawer-close" id="drawer-close">&times;</button>
       </div>
