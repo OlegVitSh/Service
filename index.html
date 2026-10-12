@@ -187,6 +187,7 @@
       color: var(--c-accent);
     }
 
+    /* Увеличенный логотип по центру */
     .brand-logo-center {
       display: flex;
       align-items: center;
@@ -234,6 +235,7 @@
       background: var(--c-black);
     }
 
+    /* Мобильный Drawer */
     .mobile-drawer {
       position: fixed;
       top: 0;
@@ -286,7 +288,7 @@
     .drawer-overlay.active { display: block; }
 
     /* ================================================================= */
-    /* 3. HERO-СЕКЦИЯ                                                    */
+    /* 3. HERO-СЕКЦИЯ С ПОЛНОЭКРАННОЙ КАРТИНКОЙ HED1                     */
     /* ================================================================= */
     .hero-stanq {
       position: relative;
@@ -691,35 +693,34 @@
     }
 
     /* ================================================================= */
-    /* 9. ФУТЕР (ЛОГОТИП БЕЗ ФИЛЬТРОВ, В ОРИГИНАЛЬНЫХ ЦВЕТАХ)             */
+    /* 9. ФУТЕР (БЕЗ ЛОГОТИПА)                                           */
     /* ================================================================= */
     .site-footer {
       background: #000000;
       color: #9CA3AF;
-      padding: 60px 0 30px 0;
+      padding: 50px 0 30px 0;
       font-size: 13px;
     }
     .footer-layout {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
-      padding-bottom: 40px;
+      padding-bottom: 30px;
       border-bottom: 1px solid #222;
       flex-wrap: wrap;
       gap: 20px;
     }
-    .footer-brand img {
-      max-height: 48px;
-      width: auto;
-      object-fit: contain;
-      /* Фильтр инверсии убран — отображаются оригинальные цвета */
-    }
     .footer-links {
       display: flex;
-      gap: 24px;
+      gap: 32px;
       font-size: 12px;
       font-weight: 600;
       flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: #9CA3AF;
+      letter-spacing: 0.04em;
+      transition: color 0.15s;
     }
     .footer-links a:hover { color: var(--c-white); }
     .footer-copyright {
@@ -771,7 +772,7 @@
     <div>СКЛАД: МОСКВА // ВЫЕЗДНЫЕ ИНЖЕНЕРЫ ПО ВСЕЙ РОССИИ (24–48Ч)</div>
   </div>
 
-  <!-- ШАПКА САЙТА -->
+  <!-- ШАПКА САЙТА С УВЕЛИЧЕННЫМ ЛОГОТИПОМ ПО ЦЕНТРУ -->
   <header class="site-header">
     <div class="container header-layout">
       
@@ -790,7 +791,7 @@
         <a href="o-servise.html">О лаборатории</a>
       </nav>
 
-      <!-- Увеличенный заметный логотип по центру -->
+      <!-- Логотип по центру (крупный) -->
       <a href="index.html" class="brand-logo-center">
         <img src="images/logo.png" alt="LASER SERVICE" class="brand-logo-img">
       </a>
@@ -837,7 +838,7 @@
     </div>
   </div>
 
-  <!-- 1. HERO-СЕКЦИЯ С ПОЛНОЭКРАННЫМ HED1.PNG -->
+  <!-- 1. HERO-СЕКЦИЯ С ПОЛНОЭКРАННОЙ КАРТИНКОЙ HED1.PNG -->
   <section class="hero-stanq">
     <div class="hero-fullscreen-bg">
       <img src="images/hed1.png" alt="Лазерный сервис">
@@ -899,7 +900,7 @@
 
       <a href="baza-znanij.html" class="direction-belt-item">
         <div class="belt-item-icon-box">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
         </div>
         <div class="belt-item-info">
           <h3>Коды ошибок Er01–Er32</h3>
@@ -1079,13 +1080,10 @@
     </div>
   </section>
 
-  <!-- 7. ФУТЕР (ОРИГИНАЛЬНЫЙ ЛОГОТИП) -->
+  <!-- 7. ФУТЕР БЕЗ ЛОГОТИПА -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-layout">
-        <div class="footer-brand">
-          <img src="images/logo.png" alt="LASER SERVICE">
-        </div>
         <div class="footer-links">
           <a href="remont-svarok.html">СВАРКА</a>
           <a href="remont-ochistok.html">ОЧИСТКА</a>
