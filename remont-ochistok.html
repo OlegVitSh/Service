@@ -124,7 +124,7 @@
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      height: 72px;
+      height: 100px;
     }
 
     .nav-desktop {
@@ -188,16 +188,22 @@
       color: var(--c-accent);
     }
 
+    /* Крупный логотип по центру */
     .brand-logo-center {
-      font-size: 24px;
-      font-weight: 900;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--c-black);
-      text-align: center;
-      font-family: var(--font-display);
-      white-space: nowrap;
-      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 32px;
+    }
+    .brand-logo-img {
+      max-height: 80px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .brand-logo-center:hover .brand-logo-img {
+      transform: scale(1.04);
     }
 
     .header-actions {
@@ -283,57 +289,44 @@
     .drawer-overlay.active { display: block; }
 
     /* ================================================================= */
-    /* 3. HERO РАЗДЕЛА: ОЧИСТКА (FLEX-КОМПОЗИЦИЯ С ВЕКТОРНОЙ ГОЛОВКОЙ)   */
+    /* 3. HERO РАЗДЕЛА: ОЧИСТКА С ПОЛНОЭКРАННОЙ КАРТИНКОЙ CLEAN.PNG      */
     /* ================================================================= */
     .hero-service {
       position: relative;
-      min-height: calc(88vh - 72px);
+      min-height: calc(100vh - 100px);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 40px 0 50px 0;
-      background: radial-gradient(circle at 50% 40%, #FFFFFF 0%, #E2E5EA 85%);
+      background: #0C0D10;
       overflow: hidden;
     }
 
-    .hero-giant-wordmark {
+    .hero-fullscreen-bg {
       position: absolute;
-      top: 48%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: clamp(65px, 15vw, 220px);
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      color: rgba(12, 13, 16, 0.94);
-      user-select: none;
-      pointer-events: none;
-      z-index: 1;
-      white-space: nowrap;
-      text-align: center;
-      line-height: 0.85;
-      font-family: var(--font-body);
-    }
-
-    /* Автономная векторная схема оптической головки лазерной очистки LHC */
-    .hero-gun-visual {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -46%);
-      width: 90%;
-      max-width: 680px;
-      height: 70%;
-      max-height: 520px;
-      z-index: 2;
-      pointer-events: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .hero-gun-visual svg {
+      inset: 0;
       width: 100%;
       height: 100%;
-      filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.28));
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-fullscreen-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .hero-fullscreen-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(234, 236, 239, 0.75) 0%,
+        rgba(234, 236, 239, 0.35) 45%,
+        rgba(234, 236, 239, 0.85) 100%
+      );
     }
 
     .hero-content-grid {
@@ -344,7 +337,7 @@
       align-items: flex-start;
     }
     .hero-tagline-left {
-      max-width: 380px;
+      max-width: 420px;
     }
     .tag-title {
       font-size: 11px;
@@ -356,12 +349,17 @@
       border-bottom: 2px solid var(--c-black);
       display: inline-block;
       padding-bottom: 8px;
+      background: rgba(255, 255, 255, 0.75);
+      padding-left: 6px;
+      padding-right: 6px;
     }
     .hero-service-desc {
       font-size: 14px;
-      color: #4B5563;
+      color: #1F2937;
       margin-top: 14px;
       line-height: 1.5;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 10px 14px;
     }
 
     .hero-bottom-actions {
@@ -381,6 +379,8 @@
     .hero-meta-right {
       text-align: right;
       max-width: 340px;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 8px 12px;
     }
     .hero-meta-right .meta-label {
       font-size: 11px;
@@ -551,7 +551,7 @@
     .btn-quick-fill:hover { text-decoration: underline; }
 
     /* ================================================================= */
-    /* 7. ФОРМА ЗАЯВКИ НА РЕМОНТ ПИСТОЛЕТА ОЧИСТКИ                      */
+    /* 7. ФОРМА ЗАЯВКИ НА РЕМОНТ ПИСТОЛЕТА ОЧИСТКИ                       */
     /* ================================================================= */
     .b24-order-section {
       padding: 90px 0;
@@ -601,36 +601,34 @@
     }
 
     /* ================================================================= */
-    /* 8. ФУТЕР                                                          */
+    /* 8. ФУТЕР (БЕЗ ЛОГОТИПА)                                           */
     /* ================================================================= */
     .site-footer {
       background: #000000;
       color: #9CA3AF;
-      padding: 60px 0 30px 0;
+      padding: 50px 0 30px 0;
       font-size: 13px;
     }
     .footer-layout {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
-      padding-bottom: 40px;
+      padding-bottom: 30px;
       border-bottom: 1px solid #222;
       flex-wrap: wrap;
       gap: 20px;
     }
-    .footer-brand {
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: 0.16em;
-      color: var(--c-white);
-      font-family: var(--font-display);
-    }
     .footer-links {
       display: flex;
-      gap: 24px;
+      gap: 32px;
       font-size: 12px;
       font-weight: 600;
       flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: #9CA3AF;
+      letter-spacing: 0.04em;
+      transition: color 0.15s;
     }
     .footer-links a:hover { color: var(--c-white); }
     .footer-copyright {
@@ -650,7 +648,8 @@
     @media (max-width: 1100px) {
       .nav-desktop { display: none; }
       .btn-burger { display: flex; }
-      .header-layout { grid-template-columns: auto 1fr auto; }
+      .header-layout { grid-template-columns: auto 1fr auto; height: 80px; }
+      .brand-logo-img { max-height: 60px; }
       .operations-belt-grid { grid-template-columns: 1fr 1fr; }
       .physics-grid { grid-template-columns: 1fr; }
     }
@@ -658,9 +657,12 @@
     @media (max-width: 768px) {
       .container { padding: 0 20px; }
       .top-utility-bar { flex-direction: column; gap: 4px; padding: 8px 20px; }
+      .header-layout { height: 72px; }
+      .brand-logo-center { padding: 0 10px; }
+      .brand-logo-img { max-height: 48px; }
       .operations-belt-grid { grid-template-columns: 1fr; }
-      .hero-giant-wordmark { font-size: 18vw; }
-      .hero-gun-visual { height: 45%; }
+      .hero-service { min-height: 85vh; padding: 24px 0 36px 0; }
+      .hero-content-grid { flex-direction: column; gap: 16px; }
       .hero-bottom-actions { flex-direction: column; align-items: flex-start; }
       .hero-meta-right { text-align: left; }
       .order-box-center { padding: 24px; }
@@ -677,7 +679,7 @@
     <div>IPG PHOTONICS LIGHTCLEAN & LASERONE LHC-F300 // ЗИП В МОСКВЕ</div>
   </div>
 
-  <!-- ШАПКА САЙТА С ПОЛНЫМ МЕНЮ -->
+  <!-- ШАПКА САЙТА С УВЕЛИЧЕННЫМ ЛОГОТИПОМ ПО ЦЕНТРУ -->
   <header class="site-header">
     <div class="container header-layout">
       
@@ -696,9 +698,9 @@
         <a href="o-servise.html">О лаборатории</a>
       </nav>
 
-      <!-- Логотип строго по центру -->
+      <!-- Логотип по центру (крупный) -->
       <a href="index.html" class="brand-logo-center">
-        LASERWELD
+        <img src="images/logo.png" alt="LASER SERVICE" class="brand-logo-img">
       </a>
 
       <!-- Действия справа -->
@@ -720,7 +722,9 @@
   <div class="mobile-drawer" id="mobile-drawer">
     <div>
       <div class="drawer-head">
-        <div class="brand-logo-center" style="font-size: 18px; padding: 0;">НАВИГАЦИЯ</div>
+        <div class="brand-logo-center" style="padding: 0;">
+          <img src="images/logo.png" alt="LASER SERVICE" style="max-height: 48px; width: auto;">
+        </div>
         <button class="drawer-close" id="drawer-close">&times;</button>
       </div>
       <div class="drawer-nav">
@@ -741,40 +745,10 @@
     </div>
   </div>
 
-  <!-- 1. HERO: ОЧИСТКА LIGHTCLEAN -->
+  <!-- 1. HERO: ОЧИСТКА LIGHTCLEAN С ПОЛНОЭКРАННОЙ КАРТИНКОЙ CLEAN.PNG -->
   <section class="hero-service">
-    <div class="hero-giant-wordmark">LHC-CLEAN</div>
-
-    <!-- Векторная схема головки лазерной очистки LHC -->
-    <div class="hero-gun-visual">
-      <svg viewBox="0 0 720 440" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Теневая подложка -->
-        <ellipse cx="360" cy="410" rx="270" ry="20" fill="#000000" fill-opacity="0.25"/>
-        <!-- Эргономичная рукоятка сканирующего пистолета (1,4 кг) -->
-        <path d="M280 200 L230 350 L290 365 L340 210 Z" fill="#1A1C21" stroke="#000" stroke-width="3"/>
-        <path d="M255 230 Q235 250 255 270" stroke="#E84D0E" stroke-width="6" stroke-linecap="round"/>
-        <!-- Корпус оптико-механической камеры LHC -->
-        <rect x="250" y="130" width="260" height="90" fill="#242831" stroke="#000" stroke-width="3"/>
-        <!-- Сканирующий гальвомотор (развертка до 200 Гц) -->
-        <rect x="340" y="60" width="90" height="70" fill="#15171C" stroke="#000" stroke-width="3"/>
-        <path d="M360 95 L410 95" stroke="#E84D0E" stroke-width="3" stroke-dasharray="4 2"/>
-        <!-- Кабельный ввод шланг-пакета QBH -->
-        <path d="M110 175 L250 175" stroke="#111317" stroke-width="26" stroke-linecap="round"/>
-        <path d="M110 175 L250 175" stroke="#00E575" stroke-width="4" stroke-dasharray="6 4"/>
-        <!-- Сменный объектив F300/F600 и прямоугольный защитный картридж -->
-        <polygon points="510,140 610,150 610,210 510,220" fill="#303540" stroke="#000" stroke-width="2"/>
-        <rect x="610" y="152" width="22" height="56" fill="#15171C" stroke="#E84D0E" stroke-width="2"/>
-        <!-- Щелевая насадка продувки (ширина 15 мм) -->
-        <polygon points="632,156 670,160 670,200 632,204" fill="#E84D0E" stroke="#8A2B00" stroke-width="2"/>
-        <!-- Развернутая полоса лазерного луча очистки (10-100 мм) -->
-        <polygon points="670,180 720,130 720,230" fill="url(#beam-gradient)" opacity="0.35"/>
-        <defs>
-          <linearGradient id="beam-gradient" x1="670" y1="180" x2="720" y2="180" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#FF2600"/>
-            <stop offset="1" stop-color="#FF7A00" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-      </svg>
+    <div class="hero-fullscreen-bg">
+      <img src="images/clean.png" alt="Ремонт головок лазерной очистки LightCLEAN">
     </div>
 
     <div class="container hero-content-grid">
@@ -785,11 +759,11 @@
           IPG &amp; LASERONE
         </div>
         <p class="hero-service-desc">
-          Восстановление оптического тракта, встроенной развертки пучка до 200 Гц и юстировка длиннофокусных объективов F300 и F600 без узловой замены за миллион рублей[cite: 5, 7].
+          Восстановление оптического тракта, встроенной развертки пучка до 200 Гц и юстировка длиннофокусных объективов F300 и F600 без узловой замены за миллион рублей.
         </p>
       </div>
-      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--c-accent); font-weight: 700;">
-        [ ШИРИНА РАЗВЕРТКИ ДО 200 ММ ][cite: 5, 7]
+      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--c-accent); font-weight: 700; background: rgba(255,255,255,0.75); padding: 4px 8px;">
+        [ ШИРИНА РАЗВЕРТКИ ДО 200 ММ ]
       </div>
     </div>
 
@@ -801,8 +775,8 @@
 
       <div class="hero-meta-right">
         <div class="meta-label">
-          СКОРОСТЬ ДО 29 М/С[cite: 5, 7]<br>
-          ВЫЕЗД С ЧИСТОЙ ЗОНОЙ ПО РФ ЗА 24–48Ч[cite: 5, 7]
+          СКОРОСТЬ ДО 29 М/С<br>
+          ВЫЕЗД С ЧИСТОЙ ЗОНОЙ ПО РФ ЗА 24–48Ч
         </div>
       </div>
     </div>
@@ -815,25 +789,25 @@
       <div class="operation-belt-item">
         <div class="op-num">01 // СИСТЕМА СКАНИРОВАНИЯ</div>
         <div class="op-title">Развертка луча до 200 Гц</div>
-        <div class="op-desc">Замена зеркал осциллятора 1070 нм, калибровка синусоидальной скорости до 29 м/с и ширины полосы очистки 10–100 мм[cite: 5, 7].</div>
+        <div class="op-desc">Замена зеркал осциллятора 1070 нм, калибровка синусоидальной скорости до 29 м/с и ширины полосы очистки 10–100 мм.</div>
       </div>
 
       <div class="operation-belt-item">
         <div class="op-num">02 // СМЕННЫЕ ОБЪЕКТИВЫ</div>
         <div class="op-title">Юстировка линз F300 и F600</div>
-        <div class="op-desc">Монтаж объектива F600 с проставкой для расширения полосы до 200 мм (рабочая дистанция 59 см) с микроскопическим контролем[cite: 5, 7].</div>
+        <div class="op-desc">Монтаж объектива F600 с проставкой для расширения полосы до 200 мм (рабочая дистанция 59 см) с микроскопическим контролем.</div>
       </div>
 
       <div class="operation-belt-item">
         <div class="op-num">03 // ТЕПЛОВОЙ БАЛАНС</div>
         <div class="op-title">Устранение перегрева Er09</div>
-        <div class="op-desc">Замена деградировавших оптических окон, устранение потерь на поглощение, ревизия датчика температуры оптической камеры (&gt;70°C)[cite: 5, 7].</div>
+        <div class="op-desc">Замена деградировавших оптических окон, устранение потерь на поглощение, ревизия датчика температуры оптической камеры (>70°C).</div>
       </div>
 
       <div class="operation-belt-item">
         <div class="op-num">04 // БЕЗОПАСНОСТЬ ВОЛОКНА</div>
         <div class="op-title">Ремонт интерлока Er21</div>
-        <div class="op-desc">Восстановление электрической цепи блокировки коннектора LC-8 внутри несъемного рукава без отправки тяжелого моноблока 60 кг[cite: 5, 7].</div>
+        <div class="op-desc">Восстановление электрической цепи блокировки коннектора LC-8 внутри несъемного рукава без отправки тяжелого моноблока 60 кг.</div>
       </div>
 
     </div>
@@ -844,7 +818,7 @@
     <div class="container">
       <h2 class="section-title-stanq">Физика отказов: почему горит пистолет лазерной очистки</h2>
       <p class="section-sub-stanq">
-        В отличие от сварки, лазерная абляция сопровождается выбросом пыли, испаренной окалины и агрессивных продуктов горения ЛКП, что создает экстремальные условия для кварцевой оптики[cite: 7].
+        В отличие от сварки, лазерная абляция сопровождается выбросом пыли, испаренной окалины и агрессивных продуктов горения ЛКП, что создает экстремальные условия для кварцевой оптики.
       </p>
 
       <div class="physics-grid">
@@ -853,7 +827,7 @@
           <div class="physics-card-tag">ОТКАЗ 01 // УГОЛ НАКЛОНА</div>
           <div class="physics-card-title">Работа под прямым углом (90°) и рикошет нагара</div>
           <div class="physics-card-text">
-            Регламент требует вести пистолет под углом 60–80° к поверхности на расстоянии 29 см (или 59 см при F600)[cite: 5, 7]. Направление луча под 90° приводит к возврату отраженного излучения и взвеси окалины прямо в апертуру, вызывая аварию Er11 (OverPower) и разрушение зеркал сканатора[cite: 5, 7].
+            Регламент требует вести пистолет под углом 60–80° к поверхности на расстоянии 29 см (или 59 см при F600). Направление луча под 90° приводит к возврату отраженного излучения и взвеси окалины прямо в апертуру, вызывая аварию Er11 (OverPower) и разрушение зеркал сканатора.
           </div>
         </div>
 
@@ -861,7 +835,7 @@
           <div class="physics-card-tag">ОТКАЗ 02 // ТЕПЛОВОЙ ШОК КВАРЦА</div>
           <div class="physics-card-title">Прогар прямоугольного картриджа защитного стекла</div>
           <div class="physics-card-text">
-            При испарении ржавчины и масел взвесь оседает на внешнем окне картриджа[cite: 5, 7]. Микрочастицы нагара при непрерывной мощности 1000 Вт вызывают локальный перегрев, налипание брызг и прогар стекла, открывая путь цеховому абразиву к сканирующему гальвомотору[cite: 5, 7].
+            При испарении ржавчины и масел взвесь оседает на внешнем окне картриджа. Микрочастицы нагара при непрерывной мощности 1000 Вт вызывают локальный перегрев, налипание брызг и прогар стекла, открывая путь цеховому абразиву к сканирующему гальвомотору.
           </div>
         </div>
 
@@ -869,7 +843,7 @@
           <div class="physics-card-tag">ОТКАЗ 03 // ПЕРЕГРЕВ РУКОЯТКИ</div>
           <div class="physics-card-title">Критический нагрев головки (Er09 — TempGun)</div>
           <div class="physics-card-text">
-            Температура оптики контролируется встроенным сенсором и не должна превышать +70°C[cite: 5, 7]. При непрерывной абляции без технологических пауз, забитых решетках обдува или загрязненном защитном окне система глушит лазер, требуя 40–60 минут на принудительное остывание[cite: 5, 7].
+            Температура оптики контролируется встроенным сенсором и не должна превышать +70°C. При непрерывной абляции без технологических пауз, забитых решетках обдува или загрязненном защитном окне система глушит лазер, требуя 40–60 минут на принудительное остывание.
           </div>
         </div>
 
@@ -877,7 +851,7 @@
           <div class="physics-card-tag">ОТКАЗ 04 // СБОЙ СКАНИРОВАНИЯ</div>
           <div class="physics-card-title">Заклинивание развертки (Er02 — Galvo Position)</div>
           <div class="physics-card-text">
-            Отказ или заклинивание осциллирующего зеркала приводит к ошибке позиционирования[cite: 5, 7]. Луч перестает формировать широкую полосу (до 100–200 мм) и схлопывается в статичную точку, создавая риск глубокого прожига и порчи обрабатываемой детали[cite: 5, 7].
+            Отказ или заклинивание осциллирующего зеркала приводит к ошибке позиционирования. Луч перестает формировать широкую полосу (до 100–200 мм) и схлопывается в статичную точку, создавая риск глубокого прожига и порчи обрабатываемой детали.
           </div>
         </div>
 
@@ -890,7 +864,7 @@
     <div class="container">
       <div style="margin-bottom: 36px;">
         <h2 class="section-title-stanq">Матрица неисправностей головки очистки LHC</h2>
-        <p style="font-size: 14px; color: var(--c-text-muted);">Чек-лист для операторов и технологов перед обращением в сервис (кликните на код для расчета)[cite: 7]</p>
+        <p style="font-size: 14px; color: var(--c-text-muted);">Чек-лист для операторов и технологов перед обращением в сервис (кликните на код для расчета)</p>
       </div>
 
       <table class="matrix-table">
@@ -905,46 +879,46 @@
         <tbody>
           <tr>
             <td><span class="err-code-pill" onclick="setErrorCode('Er02 (Galvo Position)')">Er02</span></td>
-            <td><strong>Galvo Position</strong>[cite: 5, 7]</td>
-            <td>Полоса очистки не разворачивается, луч застыл в точке, развертка заблокирована[cite: 7].</td>
+            <td><strong>Galvo Position</strong></td>
+            <td>Полоса очистки не разворачивается, луч застыл в точке, развертка заблокирована.</td>
             <td>
-              Замена зеркала гальвомотора 1070 нм, компонентный ремонт платы драйвера сканатора в головке[cite: 7].
+              Замена зеркала гальвомотора 1070 нм, компонентный ремонт платы драйвера сканатора в головке.
               <button class="btn-quick-fill" onclick="setErrorCode('Er02: сбой развертки полосы')">Выбрать в заявку →</button>
             </td>
           </tr>
           <tr>
             <td><span class="err-code-pill" onclick="setErrorCode('Er09 (TempGun Overheat)')">Er09</span></td>
-            <td><strong>TempGun Overheat</strong>[cite: 7]</td>
-            <td>Корпус головки горячий (>70°C), на дисплее пистолета мигает перегрев, лазер гаснет[cite: 7].</td>
+            <td><strong>TempGun Overheat</strong></td>
+            <td>Корпус головки горячий (>70°C), на дисплее пистолета мигает перегрев, лазер гаснет.</td>
             <td>
-              Замена деградировавших оптических окон, устранение потерь на кварце, продувка каналов охлаждения[cite: 7].
+              Замена деградировавших оптических окон, устранение потерь на кварце, продувка каналов охлаждения.
               <button class="btn-quick-fill" onclick="setErrorCode('Er09: перегрев головки очистки')">Выбрать в заявку →</button>
             </td>
           </tr>
           <tr>
             <td><span class="err-code-pill" onclick="setErrorCode('Er11 (OverPower Alarm)')">Er11</span></td>
-            <td><strong>OverPower Alarm</strong>[cite: 7]</td>
-            <td>Срыв процесса при очистке углов, кромок или полированного металла (обратная засветка)[cite: 7].</td>
+            <td><strong>OverPower Alarm</strong></td>
+            <td>Срыв процесса при очистке углов, кромок или полированного металла (обратная засветка).</td>
             <td>
-              Юстировка фотодатчика, калибровка порога аварии в веб-панели, корректировка угла наклона до 60°[cite: 7].
+              Юстировка фотодатчика, калибровка порога аварии в веб-панели, корректировка угла наклона до 60°.
               <button class="btn-quick-fill" onclick="setErrorCode('Er11: обратная засветка мощности')">Выбрать в заявку →</button>
             </td>
           </tr>
           <tr>
             <td><span class="err-code-pill" onclick="setErrorCode('Er21 (Fiber Interlock)')">Er21</span></td>
-            <td><strong>Fiber Interlock Shutdown</strong>[cite: 7]</td>
-            <td>Зеленые полукольца готовности гаснут, излучение пропадает прямо во время движения горелки[cite: 7].</td>
+            <td><strong>Fiber Interlock Shutdown</strong></td>
+            <td>Зеленые полукольца готовности гаснут, излучение пропадает прямо во время движения горелки.</td>
             <td>
-              Ревизия и восстановление цепи безопасности коннектора оптоволокна LC-8 в шланг-пакете[cite: 7].
+              Ревизия и восстановление цепи безопасности коннектора оптоволокна LC-8 в шланг-пакете.
               <button class="btn-quick-fill" onclick="setErrorCode('Er21: обрыв волоконного интерлока')">Выбрать в заявку →</button>
             </td>
           </tr>
           <tr>
             <td><span class="err-code-pill" onclick="setErrorCode('Er23 (Trigger 1 Shutdown)')">Er23</span></td>
-            <td><strong>Trigger 1 Shutdown</strong>[cite: 7]</td>
-            <td>Авария при нажатии кнопок; срыв излучения из-за отжатия кнопки 1 при зажатом курке 2[cite: 7].</td>
+            <td><strong>Trigger 1 Shutdown</strong></td>
+            <td>Авария при нажатии кнопок; срыв излучения из-за отжатия кнопки 1 при зажатом курке 2.</td>
             <td>
-              Замена контактных микропереключателей клавиш рукоятки, восстановление таймингов задержки[cite: 7].
+              Замена контактных микропереключателей клавиш рукоятки, восстановление таймингов задержки.
               <button class="btn-quick-fill" onclick="setErrorCode('Er23: сбой кнопок управления')">Выбрать в заявку →</button>
             </td>
           </tr>
@@ -958,7 +932,7 @@
     <div class="container">
       <div class="order-box-center">
         <h2>Заявка на дефектовку пистолета очистки</h2>
-        <p>Укажите модель аппарата и опишите дефект развертки луча или код ошибки. Сервисный инженер рассчитает стоимость компонентного ремонта в течение 15 минут[cite: 7].</p>
+        <p>Укажите модель аппарата и опишите дефект развертки луча или код ошибки. Сервисный инженер рассчитает стоимость компонентного ремонта в течение 15 минут.</p>
 
         <form id="order-form">
           <div class="form-group-stanq">
@@ -995,11 +969,10 @@
     </div>
   </section>
 
-  <!-- 6. ФУТЕР -->
+  <!-- 6. ФУТЕР БЕЗ ЛОГОТИПА -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-layout">
-        <div class="footer-brand">LASERWELD</div>
         <div class="footer-links">
           <a href="remont-svarok.html">СВАРКА</a>
           <a href="remont-ochistok.html" style="color: var(--c-white);">ОЧИСТКА</a>
