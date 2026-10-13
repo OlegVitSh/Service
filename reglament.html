@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регламент выездного сервиса по всей России // LASER SERVICE</title>
+
+  <!-- Шрифты: Space Grotesk, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;900&family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================================= */
+    /* 1. БАЗОВАЯ ДИЗАЙН-СИСТЕМА (STANQ / INDUSTRIAL MONOCHROME)         */
+    /* ================================================================= */
+    :root {
+      --c-black: #0C0D10;
+      --c-dark-section: #111317;
+      --c-white: #FFFFFF;
+      --c-studio-bg: #EAECEF;
+      --c-card-bg: #FFFFFF;
+      --c-border: #D8DCE2;
+      --c-border-dark: #262930;
+      --c-text-muted: #6B7280;
+      --c-accent: #E84D0E;
+      
+      --font-display: 'Space Grotesk', -apple-system, sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border-radius: 0px !important;
+    }
+
+    body {
+      background-color: var(--c-studio-bg);
+      color: var(--c-black);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      letter-spacing: -0.01em;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 40px;
+      width: 100%;
+    }
+
+    .btn-solid-black {
+      background: var(--c-black);
+      color: var(--c-white);
+      padding: 14px 28px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.15s;
+      cursor: pointer;
+      border: none;
+      font-family: var(--font-body);
+    }
+    .btn-solid-black:hover {
+      background: var(--c-accent);
+      transform: translateY(-1px);
+    }
+
+    .btn-underlined {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c-black);
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      padding-bottom: 4px;
+      border-bottom: 2px solid var(--c-black);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-underlined:hover {
+      border-color: var(--c-accent);
+      color: var(--c-accent);
+    }
+
+    /* ================================================================= */
+    /* 2. ШАПКА И СКВОЗНАЯ НАВИГАЦИЯ                                     */
+    /* ================================================================= */
+    .top-utility-bar {
+      background: #000000;
+      color: #9CA3AF;
+      font-size: 11px;
+      padding: 8px 40px;
+      letter-spacing: 0.05em;
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+    }
+
+    .site-header {
+      background: rgba(234, 236, 239, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-layout {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      height: 72px;
+    }
+
+    .nav-desktop {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .nav-desktop a {
+      color: #374151;
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+    .nav-desktop a:hover, .nav-desktop a.active {
+      color: var(--c-accent);
+    }
+
+    .nav-dropdown-wrap {
+      position: relative;
+      display: inline-block;
+    }
+    .nav-dropdown-btn {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: #374151;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .nav-dropdown-btn:hover { color: var(--c-accent); }
+    .dropdown-pane {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--c-white);
+      border: 1px solid var(--c-black);
+      padding: 16px 0;
+      min-width: 250px;
+      display: none;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+      z-index: 150;
+    }
+    .nav-dropdown-wrap:hover .dropdown-pane {
+      display: block;
+    }
+    .dropdown-pane a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--c-black);
+      text-transform: none;
+    }
+    .dropdown-pane a:hover {
+      background: var(--c-studio-bg);
+      color: var(--c-accent);
+    }
+
+    .brand-logo-center {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c-black);
+      text-align: center;
+      font-family: var(--font-display);
+      white-space: nowrap;
+      padding: 0 20px;
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 20px;
+    }
+    .header-phone {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--c-black);
+      white-space: nowrap;
+    }
+
+    .btn-burger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .btn-burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--c-black);
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 340px;
+      height: 100vh;
+      background: #FFFFFF;
+      border-left: 1px solid var(--c-black);
+      z-index: 200;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .mobile-drawer.open { right: 0; }
+    .drawer-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--c-black);
+      padding-bottom: 16px;
+    }
+    .drawer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .drawer-nav a {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--c-black);
+    }
+    .drawer-close {
+      background: none;
+      border: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 150;
+      display: none;
+    }
+    .drawer-overlay.active { display: block; }
+
+    /* ================================================================= */
+    /* 3. HERO: РЕГЛАМЕНТ ПО РОССИИ (RUSSIA SLA)                         */
+    /* ================================================================= */
+    .hero-logistics {
+      position: relative;
+      min-height: calc(88vh - 72px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 0 50px 0;
+      background: radial-gradient(circle at 50% 40%, #FFFFFF 0%, #E2E5EA 85%);
+      overflow: hidden;
+    }
+
+    .hero-giant-wordmark {
+      position: absolute;
+      top: 48%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: clamp(60px, 14vw, 210px);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: rgba(12, 13, 16, 0.94);
+      user-select: none;
+      pointer-events: none;
+      z-index: 1;
+      white-space: nowrap;
+      text-align: center;
+      line-height: 0.85;
+      font-family: var(--font-body);
+    }
+
+    /* Автономная векторная схема логистической сети РФ */
+    .hero-map-visual {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -46%);
+      width: 90%;
+      max-width: 680px;
+      height: 70%;
+      max-height: 500px;
+      z-index: 2;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-map-visual svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.2));
+    }
+
+    .hero-content-grid {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .hero-tagline-left {
+      max-width: 380px;
+    }
+    .tag-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      line-height: 1.6;
+      color: var(--c-black);
+      border-bottom: 2px solid var(--c-black);
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+    .hero-service-desc {
+      font-size: 14px;
+      color: #4B5563;
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+
+    .hero-bottom-actions {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
+    }
+    .hero-btn-group {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .hero-meta-right {
+      text-align: right;
+      max-width: 340px;
+    }
+    .hero-meta-right .meta-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c-black);
+      line-height: 1.6;
+      font-family: var(--font-mono);
+    }
+
+    /* ================================================================= */
+    /* 4. ТЕМНЫЙ ПОЯС: СТАНДАРТЫ РЕАГИРОВАНИЯ SLA ПО РФ                  */
+    /* ================================================================= */
+    .black-sla-belt {
+      background: var(--c-dark-section);
+      color: var(--c-white);
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
+    }
+    .sla-belt-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .sla-belt-item {
+      padding: 36px 30px;
+      border-right: 1px solid var(--c-border-dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 200px;
+    }
+    .sla-belt-item:last-child {
+      border-right: none;
+    }
+    .sla-num {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--c-accent);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .sla-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--c-white);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .sla-desc {
+      font-size: 12px;
+      color: #9CA3AF;
+      line-height: 1.5;
+    }
+
+    /* ================================================================= */
+    /* 5. ИНЖЕНЕРНО-ЛОГИСТИЧЕСКОЕ СРАВНЕНИЕ РИСКОВ                       */
+    /* ================================================================= */
+    .matrix-section {
+      padding: 90px 0;
+      background: var(--c-white);
+      border-bottom: 1px solid var(--c-border);
+    }
+    .section-title-stanq {
+      font-size: 32px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+      color: var(--c-black);
+    }
+    .section-sub-stanq {
+      font-size: 15px;
+      color: var(--c-text-muted);
+      max-width: 820px;
+      margin-bottom: 50px;
+      line-height: 1.55;
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--c-black);
+      background: var(--c-white);
+    }
+    .matrix-table th {
+      background: var(--c-black);
+      color: var(--c-white);
+      text-align: left;
+      padding: 18px 24px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-family: var(--font-mono);
+    }
+    .matrix-table td {
+      padding: 24px;
+      border: 1px solid var(--c-border);
+      vertical-align: top;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .matrix-table tr:hover td {
+      background: #FAFAFC;
+    }
+    .td-service-highlight {
+      background: #F8F9FA;
+      font-weight: 500;
+    }
+
+    /* ================================================================= */
+    /* 6. ОСНАЩЕНИЕ ВЫЕЗДНОЙ МОБИЛЬНОЙ СТАНЦИИ                           */
+    /* ================================================================= */
+    .lab-equipment-section {
+      padding: 90px 0;
+      background: #F4F5F7;
+      border-bottom: 1px solid var(--c-border);
+    }
+    .equipment-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .equipment-card {
+      background: var(--c-white);
+      border: 1px solid var(--c-border);
+      padding: 30px 24px;
+      display: flex;
+      flex-direction: column;
+    }
+    .eq-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--c-accent);
+      margin-bottom: 12px;
+    }
+    .eq-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--c-black);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+    .eq-desc {
+      font-size: 13px;
+      color: #4B5563;
+      line-height: 1.55;
+    }
+
+    /* ================================================================= */
+    /* 7. АЛЬТЕРНАТИВНЫЙ ФОРМАТ: СДЭК В МОСКВУ                           */
+    /* ================================================================= */
+    .cdek-format-section {
+      padding: 90px 0;
+      background: var(--c-white);
+      border-bottom: 1px solid var(--c-border);
+    }
+    .cdek-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .cdek-box-content h3 {
+      font-size: 26px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      color: var(--c-black);
+    }
+    .cdek-box-content p {
+      font-size: 14px;
+      color: #4B5563;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .cdek-rules-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 13px;
+    }
+    .cdek-rules-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .cdek-bullet {
+      background: var(--c-black);
+      color: var(--c-white);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      margin-top: 2px;
+    }
+    .cdek-visual-card {
+      border: 1px solid var(--c-black);
+      padding: 36px;
+      background: #F8F9FA;
+    }
+    .cdek-visual-card h4 {
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .cdek-visual-card p {
+      font-size: 13px;
+      color: var(--c-text-muted);
+      line-height: 1.55;
+      margin-bottom: 24px;
+    }
+
+    /* ================================================================= */
+    /* 8. ФОРМА СОГЛАСОВАНИЯ ВЫЕЗДА ПО РОССИИ                            */
+    /* ================================================================= */
+    .b24-order-section {
+      padding: 90px 0;
+      background: #E5E7EB;
+    }
+    .order-box-center {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--c-white);
+      border: 1px solid var(--c-black);
+      padding: 48px;
+    }
+    .order-box-center h2 {
+      font-size: 26px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .order-box-center p {
+      font-size: 14px;
+      color: var(--c-text-muted);
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+    .form-group-stanq {
+      margin-bottom: 20px;
+    }
+    .form-label-stanq {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .form-input-stanq, .form-select-stanq {
+      width: 100%;
+      height: 48px;
+      border: 1px solid #CBD5E1;
+      padding: 0 16px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+    }
+    .form-input-stanq:focus, .form-select-stanq:focus {
+      border-color: var(--c-black);
+    }
+
+    /* ================================================================= */
+    /* 9. ФУТЕР                                                          */
+    /* ================================================================= */
+    .site-footer {
+      background: #000000;
+      color: #9CA3AF;
+      padding: 60px 0 30px 0;
+      font-size: 13px;
+    }
+    .footer-layout {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #222;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-brand {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      color: var(--c-white);
+      font-family: var(--font-display);
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      font-size: 12px;
+      font-weight: 600;
+      flex-wrap: wrap;
+    }
+    .footer-links a:hover { color: var(--c-white); }
+    .footer-copyright {
+      padding-top: 24px;
+      font-size: 11px;
+      color: #6B7280;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-family: var(--font-mono);
+    }
+
+    /* ================================================================= */
+    /* 10. АДАПТИВНОСТЬ                                                  */
+    /* ================================================================= */
+    @media (max-width: 1100px) {
+      .nav-desktop { display: none; }
+      .btn-burger { display: flex; }
+      .header-layout { grid-template-columns: auto 1fr auto; }
+      .sla-belt-grid { grid-template-columns: 1fr 1fr; }
+      .equipment-grid { grid-template-columns: 1fr 1fr; }
+      .cdek-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+      .top-utility-bar { flex-direction: column; gap: 4px; padding: 8px 20px; }
+      .sla-belt-grid { grid-template-columns: 1fr; }
+      .equipment-grid { grid-template-columns: 1fr; }
+      .hero-giant-wordmark { font-size: 18vw; }
+      .hero-map-visual { height: 45%; }
+      .hero-bottom-actions { flex-direction: column; align-items: flex-start; }
+      .hero-meta-right { text-align: left; }
+      .order-box-center { padding: 24px; }
+      .matrix-table th, .matrix-table td { padding: 12px; font-size: 12px; }
+      .header-phone { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ВЕРХНИЙ СЛУЖЕБНЫЙ БАР -->
+  <div class="top-utility-bar">
+    <div>ФЕДЕРАЛЬНЫЙ СЕРВИСНЫЙ ПРОТОКОЛ // ВЫЕЗДНЫЕ ИНЖЕНЕРЫ ПО ВСЕЙ РОССИИ</div>
+    <div>SLA РЕАГИРОВАНИЯ 15 МИНУТ // ВЫЕЗД/ВЫЛЕТ ЗА 12–24 ЧАСА</div>
+  </div>
+
+  <!-- ШАПКА САЙТА С ПОЛНЫМ МЕНЮ -->
+  <header class="site-header">
+    <div class="container header-layout">
+      
+      <!-- Меню слева -->
+      <nav class="nav-desktop">
+        <div class="nav-dropdown-wrap">
+          <span class="nav-dropdown-btn">Услуги и ремонт ▾</span>
+          <div class="dropdown-pane">
+            <a href="remont-svarok.html">Ремонт сварки LightWELD / LiteWELD</a>
+            <a href="remont-ochistok.html">Ремонт очистки LightCLEAN</a>
+            <a href="reglament.html" style="color: var(--c-accent); font-weight: 700;">Регламент выезда по всей РФ</a>
+          </div>
+        </div>
+        <a href="katalog.html">Каталог ЗИП</a>
+        <a href="baza-znanij.html">База ошибок ErXX</a>
+        <a href="o-servise.html">О лаборатории</a>
+      </nav>
+
+      <!-- Логотип строго по центру -->
+      <a href="index.html" class="brand-logo-center">
+        LASERWELD
+      </a>
+
+      <!-- Действия справа -->
+      <div class="header-actions">
+        <a href="tel:+74950000000" class="header-phone">+7 (495) 000-00-00</a>
+        <a href="#order" class="btn-solid-black" style="padding: 10px 18px; font-size: 10px;">Вызов инженера</a>
+        <button class="btn-burger" id="burger-btn" aria-label="Открыть меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ВЫЕЗЖАЮЩАЯ МОБИЛЬНАЯ ПАНЕЛЬ НАВИГАЦИИ -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div>
+      <div class="drawer-head">
+        <div class="brand-logo-center" style="font-size: 18px; padding: 0;">НАВИГАЦИЯ</div>
+        <button class="drawer-close" id="drawer-close">&times;</button>
+      </div>
+      <div class="drawer-nav">
+        <a href="index.html">Главная</a>
+        <a href="remont-svarok.html">Сварка LightWELD</a>
+        <a href="remont-ochistok.html">Очистка LightCLEAN</a>
+        <a href="katalog.html">Каталог ЗИП</a>
+        <a href="baza-znanij.html">Коды ошибок Er01–Er32</a>
+        <a href="reglament.html" style="color: var(--c-accent);">Выездной сервис по РФ</a>
+        <a href="o-servise.html">О лаборатории ISO</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-family: var(--font-mono); font-size: 11px; margin-bottom: 10px; color: var(--c-text-muted);">
+        ДЕЖУРНЫЙ ИНЖЕНЕР 24/7
+      </div>
+      <a href="tel:+74950000000" class="btn-solid-black" style="width: 100%;">+7 (495) 000-00-00</a>
+    </div>
+  </div>
+
+  <!-- 1. HERO: РЕГЛАМЕНТ ПО РОССИИ (RUSSIA SLA) -->
+  <section class="hero-logistics">
+    <div class="hero-giant-wordmark">RUSSIA SLA</div>
+
+    <!-- Векторная схема транспортных лучей и федерального охвата РФ -->
+    <div class="hero-map-visual">
+      <svg viewBox="0 0 720 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Контурная сетка матрицы -->
+        <rect x="80" y="70" width="560" height="300" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="8 8"/>
+        <!-- Опорный хаб: Москва (лаборатория и центральный склад) -->
+        <circle cx="200" cy="190" r="10" fill="#E84D0E"/>
+        <circle cx="200" cy="190" r="24" stroke="#E84D0E" stroke-width="2" stroke-dasharray="4 4"/>
+        <text x="145" y="165" fill="#0C0D10" font-family="JetBrains Mono" font-size="12" font-weight="bold">МОСКВА [ХАБ / ЗИП]</text>
+        <!-- Лучи экстренного вылета по регионам РФ -->
+        <line x1="200" y1="190" x2="160" y2="120" stroke="#0C0D10" stroke-width="2"/>
+        <circle cx="160" cy="120" r="6" fill="#0C0D10"/>
+        <text x="75" y="115" fill="#6B7280" font-family="JetBrains Mono" font-size="10">СЗФО (СПб)</text>
+
+        <line x1="200" y1="190" x2="280" y2="240" stroke="#0C0D10" stroke-width="2"/>
+        <circle cx="280" cy="240" r="6" fill="#0C0D10"/>
+        <text x="290" y="245" fill="#6B7280" font-family="JetBrains Mono" font-size="10">Поволжье (Самара / Казань)</text>
+
+        <line x1="200" y1="190" x2="380" y2="180" stroke="#0C0D10" stroke-width="2"/>
+        <circle cx="380" cy="180" r="6" fill="#0C0D10"/>
+        <text x="390" y="185" fill="#6B7280" font-family="JetBrains Mono" font-size="10">Урал (Екатеринбург / Челябинск)</text>
+
+        <line x1="200" y1="190" x2="510" y2="220" stroke="#0C0D10" stroke-width="2"/>
+        <circle cx="510" cy="220" r="6" fill="#0C0D10"/>
+        <text x="520" y="225" fill="#6B7280" font-family="JetBrains Mono" font-size="10">Сибирь (Новосибирск / Красноярск)</text>
+
+        <line x1="200" y1="190" x2="620" y2="160" stroke="#0C0D10" stroke-width="2"/>
+        <circle cx="620" cy="160" r="6" fill="#0C0D10"/>
+        <text x="560" y="145" fill="#6B7280" font-family="JetBrains Mono" font-size="10">Дальний Восток</text>
+
+        <!-- Статусный бейдж SLA -->
+        <rect x="235" y="325" width="250" height="32" fill="#0C0D10"/>
+        <text x="250" y="346" fill="#00E575" font-family="JetBrains Mono" font-size="12" font-weight="bold">SLA: ВЫЕЗД/ВЫЛЕТ 12–24 ЧАСА</text>
+      </svg>
+    </div>
+
+    <div class="container hero-content-grid">
+      <div class="hero-tagline-left">
+        <div class="tag-title">
+          ЭКСТРЕННЫЙ ВЫЕЗД<br>
+          В ЛЮБОЙ РЕГИОН РФ<br>
+          БЕЗ ОТПРАВКИ СТАНКА
+        </div>
+        <p class="hero-service-desc">
+          Восстановление лазерных постов IPG LightWELD и LaserOne непосредственно в цеху заказчика с мобильной чистой зоной и оригинальным ЗИП[cite: 5, 6].
+        </p>
+      </div>
+      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--c-accent); font-weight: 700;">
+        [ ОХВАТ: ВСЕ РЕГИОНЫ РОССИИ ][cite: 5, 6]
+      </div>
+    </div>
+
+    <div class="container hero-bottom-actions">
+      <div class="hero-btn-group">
+        <a href="#order" class="btn-solid-black">СОГЛАСОВАТЬ ВЫЕЗД СПЕЦИАЛИСТА</a>
+        <a href="#matrix" class="btn-underlined">СРАВНЕНИЕ РИСКОВ ДОСТАВКИ</a>
+      </div>
+
+      <div class="hero-meta-right">
+        <div class="meta-label">
+          ТЕЛЕМЕТРИЯ ЗА 30 МИНУТ[cite: 5, 6]<br>
+          КОНТРОЛЬНЫЙ ПРОВАР В ВАШЕМ ЦЕХУ[cite: 5, 6]
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. ЧЕРНЫЙ ПОЯС: СТАНДАРТЫ РЕАГИРОВАНИЯ SLA ПО РФ -->
+  <section class="black-sla-belt">
+    <div class="container sla-belt-grid" style="padding: 0;">
+      
+      <div class="sla-belt-item">
+        <div class="sla-num">01 // ВСЯ РОССИЯ</div>
+        <div class="sla-title">Федеральный охват</div>
+        <div class="sla-desc">Центральный регион, Поволжье, Урал, Сибирь, Юг и Дальний Восток. Выезд в действующие промышленные цеха[cite: 5, 6].</div>
+      </div>
+
+      <div class="sla-belt-item">
+        <div class="sla-num">02 // 30 МИНУТ</div>
+        <div class="sla-title">Экспресс-телеметрия</div>
+        <div class="sla-desc">Дистанционная расшифровка аварийных битов по фото/видео из Telegram. Фиксация сметы до вылета специалиста[cite: 5, 6].</div>
+      </div>
+
+      <div class="sla-belt-item">
+        <div class="sla-num">03 // 12–24 ЧАСА</div>
+        <div class="sla-title">Вылет инженера</div>
+        <div class="sla-desc">Бронирование билетов и выезд специалиста с ремкомплектом сразу после подписания договора через ЭДО[cite: 5, 6].</div>
+      </div>
+
+      <div class="sla-belt-item">
+        <div class="sla-num">04 // 100% В ЦЕХУ</div>
+        <div class="sla-title">Контрольный провар</div>
+        <div class="sla-desc">Обязательное тестирование и сдача сварочного шва на ваших серийных деталях и вашем технологическом газе[cite: 5, 6].</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. ИНЖЕНЕРНО-ЛОГИСТИЧЕСКОЕ СРАВНЕНИЕ РИСКОВ -->
+  <section class="matrix-section" id="matrix">
+    <div class="container">
+      <h2 class="section-title-stanq">Почему выезд инженера безопаснее и быстрее отправки станка</h2>
+      <p class="section-sub-stanq">
+        Сравнение рисков отправки 60-килограммового аппарата на завод-изготовитель против компонентного ремонта в цеху заказчика[cite: 5, 6].
+      </p>
+
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Параметр сервиса</th>
+            <th style="width: 37.5%;">Отправка аппарата на завод (Фрязино / Дилеры)</th>
+            <th style="width: 37.5%;">Выездной сервис в ваш цех</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Транспортные риски</strong></td>
+            <td>Требуется заводской ящик, датчики удара (ShockWatch 15G) и угла наклона[cite: 5, 6]. При перегрузке в ТК велик риск излома несъемного оптоволокна внутри рукава[cite: 5, 6].</td>
+            <td class="td-service-highlight">Аппарат остается неподвижен в цеху[cite: 5, 6]. Полностью исключены логистические повреждения корпуса, оптоволоконного кабеля и плат[cite: 5, 6].</td>
+          </tr>
+          <tr>
+            <td><strong>Сроки простоя линии</strong></td>
+            <td>От 4 до 12 недель[cite: 5, 6]. Логистика в оба конца + очередь на входную диагностику на заводе + ожидание узлов[cite: 5, 6]. Срыв производственных контрактов[cite: 5, 6].</td>
+            <td class="td-service-highlight"><strong>24–48 часов до запуска[cite: 5, 6].</strong> Инженер прибывает со стендом, локализует неисправность за 1–2 часа и восстанавливает узел на месте[cite: 5, 6].</td>
+          </tr>
+          <tr>
+            <td><strong>Отказы по регламенту</strong></td>
+            <td>Высокий риск формального отказа в гарантии из-за следов цеховой копоти или пыли на защитном стекле (акт «негарантийного случая»)[cite: 5, 6].</td>
+            <td class="td-service-highlight">Реальный производственный опыт[cite: 5, 6]. Понимаем жесткие цеховые условия, устраняем последствия загрязнений и настраиваем режимы[cite: 5, 6].</td>
+          </tr>
+          <tr>
+            <td><strong>Сдача работы</strong></td>
+            <td>Станок тестируется на заводских пластинах[cite: 5, 6]. После возвращения в цех параметры могут уплыть из-за вашей сети 220 В или давления газа[cite: 5, 6].</td>
+            <td class="td-service-highlight">Прямая пусконаладка[cite: 5, 6]. Контрольные проходы выполняются на ваших серийных деталях (нержавейка, алюминий, медь) в вашем цеху[cite: 5, 6].</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 4. ОСНАЩЕНИЕ ВЫЕЗДНОЙ МОБИЛЬНОЙ СТАНЦИИ -->
+  <section class="lab-equipment-section">
+    <div class="container">
+      <div style="margin-bottom: 36px;">
+        <h2 class="section-title-stanq">Оснащение мобильного комплекса инженера</h2>
+        <p style="font-size: 14px; color: var(--c-text-muted);">Специалист прибывает с полным набором метрологического и оптического оборудования[cite: 5, 6]</p>
+      </div>
+
+      <div class="equipment-grid">
+        
+        <div class="equipment-card">
+          <div class="eq-tag">СТАНДАРТ ЧИСТОТЫ</div>
+          <h3 class="eq-title">Ламинарный бокс ISO</h3>
+          <p class="eq-desc">Портативная станция с HEPA-фильтрацией создает чистую зону (&lt; 2 мг/м³ пыли), полностью отсекая цеховую взвесь от оптической камеры[cite: 5, 6].</p>
+        </div>
+
+        <div class="equipment-card">
+          <div class="eq-tag">МЕТРОЛОГИЯ 100×</div>
+          <h3 class="eq-title">Оптический микроскоп</h3>
+          <p class="eq-desc">Инспекция диэлектрических напылений зеркал сканатора, торцов кварцевых блоков волокна LC-8 и защитных окон в косом свете[cite: 5, 6].</p>
+        </div>
+
+        <div class="equipment-card">
+          <div class="eq-tag">СПЕЦОСНАСТКА IPG</div>
+          <h3 class="eq-title">Заводские ключи</h3>
+          <p class="eq-desc">Специальные ключи для извлечения картриджей фокусирующих линз с поворотом на 30° и динамометрический инструмент для цанг (до 15 Нм)[cite: 5, 6].</p>
+        </div>
+
+        <div class="equipment-card">
+          <div class="eq-tag">РЕАГЕНТЫ ОСЧ</div>
+          <h3 class="eq-title">Оптическая химия</h3>
+          <p class="eq-desc">Обезвоженный ацетон ОСЧ 9-5, безворсовые свапы TexWipe Alpha, изопропанол IPA и оригинальная смазка Molykote HP-870[cite: 5, 6].</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. АЛЬТЕРНАТИВНЫЙ ФОРМАТ: СДЭК В МОСКВУ -->
+  <section class="cdek-format-section">
+    <div class="container cdek-grid">
+      
+      <div class="cdek-box-content">
+        <h3>Альтернативный вариант: экспресс-ремонт пистолета в Москве (без выезда)</h3>
+        <p>
+          Если производственный график допускает паузу в 2–3 дня, вам не нужно оплачивать командировочные расходы инженера[cite: 5, 6]. Вы снимаете с аппарата только горелку со шланг-пакетом и отправляете её курьерской службой СДЭК / Деловые Линии в нашу лабораторию[cite: 5, 6].
+        </p>
+
+        <ul class="cdek-rules-list">
+          <li>
+            <span class="cdek-bullet">01</span>
+            <span>Тяжелый 60-килограммовый моноблок остается неподвижен у вас в цеху[cite: 5, 6].</span>
+          </li>
+          <li>
+            <span class="cdek-bullet">02</span>
+            <span>Обязательно: силиконовый колпачок на сопло и заглушка на оптический коннектор QBH[cite: 5, 6].</span>
+          </li>
+          <li>
+            <span class="cdek-bullet">03</span>
+            <span>Входная дефектовка за 2 часа, компонентный ремонт за 24 часа и обратная экспресс-авиаотправка[cite: 5, 6].</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="cdek-visual-card">
+        <h4>Юридическая прозрачность B2B</h4>
+        <p>Работаем по прямому официальному договору с Индивидуальным предпринимателем (ИП)[cite: 5, 6]. Оплата по безналичному расчету (без НДС)[cite: 5, 6].</p>
+        <p>Фиксированная смета закрепляется в договоре до выезда инженера и не меняется[cite: 5, 6]. Предоставляется официальная гарантия на работы и ЗИП с закрывающими документами по ЭДО (Диадок / СБИС)[cite: 4, 5, 6].</p>
+        <a href="#order" class="btn-solid-black" style="width: 100%;">ЗАПРОСИТЬ ДОГОВОР И СМЕТУ</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. ФОРМА СОГЛАСОВАНИЯ ВЫЕЗДА ПО РОССИИ -->
+  <section class="b24-order-section" id="order">
+    <div class="container">
+      <div class="order-box-center">
+        <h2>Заявка на срочный выезд сервисного инженера</h2>
+        <p>Укажите город нахождения производственной площадки, модель аппарата и код ошибки. Дежурный сервисный инженер свяжется с вами в течение 15 минут для расчета тайминга прибытия[cite: 6].</p>
+
+        <form id="order-form">
+          <div class="form-group-stanq">
+            <label class="form-label-stanq">Город и производственная площадка</label>
+            <input type="text" name="city" class="form-input-stanq" placeholder="Например: Челябинск, ПАО ЧТПЗ / Екатеринбург" required>
+          </div>
+
+          <div class="form-group-stanq">
+            <label class="form-label-stanq">Модель установки лазерной сварки / очистки</label>
+            <select class="form-select-stanq" name="model">
+              <option>IPG LightWELD 1500 / XC / XR</option>
+              <option>LaserOne LiteWELD Pro / Plus / XR Lite</option>
+              <option>IPG LightCLEAN / LightCLEAN 2.0</option>
+              <option>LaserOne LHC-F300 / LHCX-F300</option>
+              <option>Не уверен / Требуется консультация</option>
+            </select>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="form-group-stanq">
+            <div>
+              <label class="form-label-stanq">Код ошибки с дисплея или симптом</label>
+              <input type="text" name="error_code" class="form-input-stanq" placeholder="Например: Er01, Er09, прогар зеркала">
+            </div>
+            <div>
+              <label class="form-label-stanq">Телефон ответственного лица / Telegram</label>
+              <input type="tel" name="phone" class="form-input-stanq" placeholder="+7 (___) ___-__-__" required>
+            </div>
+          </div>
+
+          <div class="form-group-stanq">
+            <label class="form-label-stanq">Формат обслуживания</label>
+            <select class="form-select-stanq" name="service_format">
+              <option>Экстренный выезд инженера в цех (24–48 часов по РФ)</option>
+              <option>Экспресс-доставка снятого пистолета в Москву через СДЭК (24 часа)</option>
+              <option>Консультация дежурного инженера по телеметрии</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-solid-black" style="width: 100%; height: 52px; font-size: 13px; margin-top: 10px;">
+            РАССЧИТАТЬ ВРЕМЯ ПРИБЫТИЯ И СМЕТУ
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. ФУТЕР -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-layout">
+        <div class="footer-brand">LASERWELD</div>
+        <div class="footer-links">
+          <a href="remont-svarok.html">СВАРКА</a>
+          <a href="remont-ochistok.html">ОЧИСТКА</a>
+          <a href="katalog.html">КАТАЛОГ ЗИП</a>
+          <a href="baza-znanij.html">КОДЫ ОШИБОК</a>
+          <a href="reglament.html" style="color: var(--c-white);">ВЫЕЗД ПО РФ</a>
+          <a href="o-servise.html">О ЛАБОРАТОРИИ</a>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div>© 2026 LASER SERVICE ENGINEERING. ВСЕ ПРАВА ЗАЩИЩЕНЫ. ОФИЦИАЛЬНЫЙ B2B ДОГОВОР.</div>
+        <div>РЕГЛАМЕНТ ЛОГИСТИКИ: ALL-RUSSIA SLA PROTOCOL</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ИНТЕРАКТИВНЫЙ СКРИПТ: МОБИЛЬНОЕ МЕНЮ И ОБРАБОТКА ФОРМЫ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const burgerBtn = document.getElementById('burger-btn');
+      const mobileDrawer = document.getElementById('mobile-drawer');
+      const drawerClose = document.getElementById('drawer-close');
+      const drawerOverlay = document.getElementById('drawer-overlay');
+
+      function toggleMenu(open) {
+        if (open) {
+          mobileDrawer.classList.add('open');
+          drawerOverlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        } else {
+          mobileDrawer.classList.remove('open');
+          drawerOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+
+      burgerBtn.addEventListener('click', () => toggleMenu(true));
+      drawerClose.addEventListener('click', () => toggleMenu(false));
+      drawerOverlay.addEventListener('click', () => toggleMenu(false));
+
+      const form = document.getElementById('order-form');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        btn.textContent = 'ОТПРАВЛЕНО! ИНЖЕНЕР СВЯЖЕТСЯ ЧЕРЕЗ 15 МИН';
+        btn.style.background = '#0D8249';
+        setTimeout(() => {
+          btn.textContent = 'РАССЧИТАТЬ ВРЕМЯ ПРИБЫТИЯ И СМЕТУ';
+          btn.style.background = '';
+          form.reset();
+        }, 4000);
+      });
+    });
+  </script>
+
+</body>
+</html>
