@@ -123,7 +123,7 @@
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      height: 72px;
+      height: 100px;
     }
 
     .nav-desktop {
@@ -187,16 +187,22 @@
       color: var(--c-accent);
     }
 
+    /* Крупный логотип по центру */
     .brand-logo-center {
-      font-size: 24px;
-      font-weight: 900;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--c-black);
-      text-align: center;
-      font-family: var(--font-display);
-      white-space: nowrap;
-      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 32px;
+    }
+    .brand-logo-img {
+      max-height: 80px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .brand-logo-center:hover .brand-logo-img {
+      transform: scale(1.04);
     }
 
     .header-actions {
@@ -281,57 +287,44 @@
     .drawer-overlay.active { display: block; }
 
     /* ================================================================= */
-    /* 3. HERO: О ЛАБОРАТОРИИ (СЛОВО «LABORATORY»)                       */
+    /* 3. HERO: О ЛАБОРАТОРИИ С ПОЛНОЭКРАННОЙ КАРТИНКОЙ SERV.PNG          */
     /* ================================================================= */
     .hero-about {
       position: relative;
-      min-height: calc(88vh - 72px);
+      min-height: calc(100vh - 100px);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 40px 0 50px 0;
-      background: radial-gradient(circle at 50% 40%, #FFFFFF 0%, #E2E5EA 85%);
+      background: #0C0D10;
       overflow: hidden;
     }
 
-    .hero-giant-wordmark {
+    .hero-fullscreen-bg {
       position: absolute;
-      top: 48%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: clamp(55px, 13vw, 195px);
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      color: rgba(12, 13, 16, 0.94);
-      user-select: none;
-      pointer-events: none;
-      z-index: 1;
-      white-space: nowrap;
-      text-align: center;
-      line-height: 0.85;
-      font-family: var(--font-body);
-    }
-
-    /* Автономная векторная схема оптического поста и микроскопа */
-    .hero-lab-visual {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -46%);
-      width: 90%;
-      max-width: 680px;
-      height: 70%;
-      max-height: 500px;
-      z-index: 2;
-      pointer-events: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .hero-lab-visual svg {
+      inset: 0;
       width: 100%;
       height: 100%;
-      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.2));
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-fullscreen-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .hero-fullscreen-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(234, 236, 239, 0.75) 0%,
+        rgba(234, 236, 239, 0.35) 45%,
+        rgba(234, 236, 239, 0.85) 100%
+      );
     }
 
     .hero-content-grid {
@@ -342,7 +335,7 @@
       align-items: flex-start;
     }
     .hero-tagline-left {
-      max-width: 380px;
+      max-width: 420px;
     }
     .tag-title {
       font-size: 11px;
@@ -354,12 +347,17 @@
       border-bottom: 2px solid var(--c-black);
       display: inline-block;
       padding-bottom: 8px;
+      background: rgba(255, 255, 255, 0.75);
+      padding-left: 6px;
+      padding-right: 6px;
     }
     .hero-service-desc {
       font-size: 14px;
-      color: #4B5563;
+      color: #1F2937;
       margin-top: 14px;
       line-height: 1.5;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 10px 14px;
     }
 
     .hero-bottom-actions {
@@ -379,6 +377,8 @@
     .hero-meta-right {
       text-align: right;
       max-width: 360px;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 8px 12px;
     }
     .hero-meta-right .meta-label {
       font-size: 11px;
@@ -667,36 +667,34 @@
     }
 
     /* ================================================================= */
-    /* 9. ФУТЕР                                                          */
+    /* 9. ФУТЕР (БЕЗ ЛОГОТИПА)                                           */
     /* ================================================================= */
     .site-footer {
       background: #000000;
       color: #9CA3AF;
-      padding: 60px 0 30px 0;
+      padding: 50px 0 30px 0;
       font-size: 13px;
     }
     .footer-layout {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
-      padding-bottom: 40px;
+      padding-bottom: 30px;
       border-bottom: 1px solid #222;
       flex-wrap: wrap;
       gap: 20px;
     }
-    .footer-brand {
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: 0.16em;
-      color: var(--c-white);
-      font-family: var(--font-display);
-    }
     .footer-links {
       display: flex;
-      gap: 24px;
+      gap: 32px;
       font-size: 12px;
       font-weight: 600;
       flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: #9CA3AF;
+      letter-spacing: 0.04em;
+      transition: color 0.15s;
     }
     .footer-links a:hover { color: var(--c-white); }
     .footer-copyright {
@@ -716,7 +714,8 @@
     @media (max-width: 1100px) {
       .nav-desktop { display: none; }
       .btn-burger { display: flex; }
-      .header-layout { grid-template-columns: auto 1fr auto; }
+      .header-layout { grid-template-columns: auto 1fr auto; height: 80px; }
+      .brand-logo-img { max-height: 60px; }
       .clean-belt-grid { grid-template-columns: 1fr 1fr; }
       .physics-grid { grid-template-columns: 1fr; }
       .legal-grid { grid-template-columns: 1fr; }
@@ -726,9 +725,12 @@
     @media (max-width: 768px) {
       .container { padding: 0 20px; }
       .top-utility-bar { flex-direction: column; gap: 4px; padding: 8px 20px; }
+      .header-layout { height: 72px; }
+      .brand-logo-center { padding: 0 10px; }
+      .brand-logo-img { max-height: 48px; }
       .clean-belt-grid { grid-template-columns: 1fr; }
-      .hero-giant-wordmark { font-size: 16vw; }
-      .hero-lab-visual { height: 45%; }
+      .hero-about { min-height: 85vh; padding: 24px 0 36px 0; }
+      .hero-content-grid { flex-direction: column; gap: 16px; }
       .hero-bottom-actions { flex-direction: column; align-items: flex-start; }
       .hero-meta-right { text-align: left; }
       .order-box-center { padding: 24px; }
@@ -746,7 +748,7 @@
     <div>СТАНДАРТ ЧИСТОТЫ ISO // ЭЛЕКТРОННЫЙ ДОКУМЕНТООБОРОТ (ДИАДОК / СБИС)</div>
   </div>
 
-  <!-- ШАПКА САЙТА С ПОЛНЫМ МЕНЮ -->
+  <!-- ШАПКА САЙТА С УВЕЛИЧЕННЫМ ЛОГОТИПОМ ПО ЦЕНТРУ -->
   <header class="site-header">
     <div class="container header-layout">
       
@@ -765,9 +767,9 @@
         <a href="o-servise.html" style="color: var(--c-accent); font-weight: 700;">О лаборатории</a>
       </nav>
 
-      <!-- Логотип строго по центру -->
+      <!-- Логотип по центру (крупный) -->
       <a href="index.html" class="brand-logo-center">
-        LASERWELD
+        <img src="images/logo.png" alt="LASER SERVICE" class="brand-logo-img">
       </a>
 
       <!-- Действия справа -->
@@ -789,7 +791,9 @@
   <div class="mobile-drawer" id="mobile-drawer">
     <div>
       <div class="drawer-head">
-        <div class="brand-logo-center" style="font-size: 18px; padding: 0;">НАВИГАЦИЯ</div>
+        <div class="brand-logo-center" style="padding: 0;">
+          <img src="images/logo.png" alt="LASER SERVICE" style="max-height: 48px; width: auto;">
+        </div>
         <button class="drawer-close" id="drawer-close">&times;</button>
       </div>
       <div class="drawer-nav">
@@ -810,33 +814,10 @@
     </div>
   </div>
 
-  <!-- 1. HERO: О ЛАБОРАТОРИИ И ЧИСТОТЕ (СЛОВО «LABORATORY») -->
+  <!-- 1. HERO: О ЛАБОРАТОРИИ И ЧИСТОТЕ С ПОЛНОЭКРАННОЙ КАРТИНКОЙ SERV.PNG -->
   <section class="hero-about">
-    <div class="hero-giant-wordmark">LABORATORY</div>
-
-    <!-- Векторная технологическая схема ламинарного бокса и микроскопического контроля -->
-    <div class="hero-lab-visual">
-      <svg viewBox="0 0 720 440" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Теневая база -->
-        <ellipse cx="360" cy="410" rx="270" ry="20" fill="#000000" fill-opacity="0.25"/>
-        <!-- Ламинарный бокс с фильтром -->
-        <rect x="180" y="70" width="360" height="280" fill="#F8F9FA" stroke="#000" stroke-width="3"/>
-        <rect x="200" y="85" width="320" height="40" fill="#262A33"/>
-        <text x="215" y="110" fill="#00E575" font-family="JetBrains Mono" font-size="11" font-weight="bold">HEPA AIRFLOW: CLEANROOM ISO [&lt; 2 mg/m³]</text>
-        <!-- Рабочая зона внутри бокса -->
-        <rect x="200" y="140" width="320" height="190" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
-        <!-- Инспекционный оптический микроскоп 100x -->
-        <rect x="250" y="270" width="80" height="16" fill="#1C1E24"/>
-        <rect x="285" y="190" width="10" height="80" fill="#323742"/>
-        <polygon points="275,180 305,180 295,210 285,210" fill="#E84D0E"/>
-        <circle cx="290" cy="165" r="14" fill="#1C1E24"/>
-        <!-- Косой бестеневой осветитель оптики -->
-        <line x1="335" y1="230" x2="300" y2="255" stroke="#FFB800" stroke-width="3" stroke-dasharray="3 2"/>
-        <!-- Разбираемый оптический узел горелки на антистатическом коврике -->
-        <rect x="360" y="275" width="110" height="10" fill="#0C0D10"/>
-        <rect x="380" y="255" width="70" height="20" fill="#2B2F38" stroke="#E84D0E" stroke-width="2"/>
-        <circle cx="415" cy="265" r="6" stroke="#00E575" stroke-width="2"/>
-      </svg>
+    <div class="hero-fullscreen-bg">
+      <img src="images/serv.png" alt="Лаборатория и чистая зона ремонта лазерной оптики">
     </div>
 
     <div class="container hero-content-grid">
@@ -847,11 +828,11 @@
           В ЦЕХУ ЗАКАЗЧИКА
         </div>
         <p class="hero-service-desc">
-          Независимый инженерный центр по компонентному ремонту, юстировке и регламентному ТО ручных волоконных систем IPG IRE-Polus и VPG LaserOne[cite: 4, 5].
+          Независимый инженерный центр по компонентному ремонту, юстировке и регламентному ТО ручных волоконных систем IPG IRE-Polus и VPG LaserOne.
         </p>
       </div>
-      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--c-accent); font-weight: 700;">
-        [ КЛАСС ЧИСТОТЫ ВОЗДУХА &lt; 2 МГ/М³ ][cite: 4, 5]
+      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--c-accent); font-weight: 700; background: rgba(255,255,255,0.75); padding: 4px 8px;">
+        [ КЛАСС ЧИСТОТЫ ВОЗДУХА &lt; 2 МГ/М³ ]
       </div>
     </div>
 
@@ -863,8 +844,8 @@
 
       <div class="hero-meta-right">
         <div class="meta-label">
-          БЕСТЕНЕВАЯ МИКРОСКОПИЯ 100×[cite: 4, 5]<br>
-          ОРИГИНАЛЬНАЯ ОСНАСТКА И РЕАКТИВЫ ОСЧ[cite: 4, 5]
+          БЕСТЕНЕВАЯ МИКРОСКОПИЯ 100×<br>
+          ОРИГИНАЛЬНАЯ ОСНАСТКА И РЕАКТИВЫ ОСЧ
         </div>
       </div>
     </div>
@@ -877,25 +858,25 @@
       <div class="clean-belt-item">
         <div class="clean-num">01 // HEPA-ФИЛЬТРАЦИЯ</div>
         <div class="clean-title">Ламинарный бокс в цеху</div>
-        <div class="clean-desc">Развертывание мобильной чистой зоны непосредственно на объекте заказчика с контролем взвешенных частиц не более 2 мг/м³[cite: 4, 5].</div>
+        <div class="clean-desc">Развертывание мобильной чистой зоны непосредственно на объекте заказчика с контролем взвешенных частиц не более 2 мг/м³.</div>
       </div>
 
       <div class="clean-belt-item">
         <div class="clean-num">02 // МИКРОСКОПИЯ 100X</div>
         <div class="clean-title">Инспекционный контроль</div>
-        <div class="clean-desc">Дефектовка кварца коннекторов LC-8 и зеркал сканатора в косом бестеневом освещении перед пуском рабочего излучения[cite: 4, 5].</div>
+        <div class="clean-desc">Дефектовка кварца коннекторов LC-8 и зеркал сканатора в косом бестеневом освещении перед пуском рабочего излучения.</div>
       </div>
 
       <div class="clean-belt-item">
         <div class="clean-num">03 // ОРИГИНАЛЬНАЯ ОСНАСТКА</div>
         <div class="clean-title">Заводские ключи IPG</div>
-        <div class="clean-desc">Монтаж картриджей линз с поворотом на 30° и калибровка цанг сопел динамометрическим инструментом без механических перекосов[cite: 4, 5].</div>
+        <div class="clean-desc">Монтаж картриджей линз с поворотом на 30° и калибровка цанг сопел динамометрическим инструментом без механических перекосов.</div>
       </div>
 
       <div class="clean-belt-item">
         <div class="clean-num">04 // РЕАКТИВЫ ОСЧ</div>
         <div class="clean-title">Химия чистых комнат</div>
-        <div class="clean-desc">Обезвоженный ацетон ОСЧ 9-5, безворсовые свапы TexWipe Alpha, смазка Molykote HP-870 против термических задиров[cite: 4, 5].</div>
+        <div class="clean-desc">Обезвоженный ацетон ОСЧ 9-5, безворсовые свапы TexWipe Alpha, смазка Molykote HP-870 против термических задиров.</div>
       </div>
 
     </div>
@@ -906,7 +887,7 @@
     <div class="container">
       <h2 class="section-title-stanq">Физика процесса: почему оптика не прощает цеховой пыли</h2>
       <p class="section-sub-stanq">
-        Разбор механизма тепловой деградации: почему квалифицированный ремонт оптического тракта 1070 нм невозможен в условиях грязного цехового верстака[cite: 4, 5].
+        Разбор механизма тепловой деградации: почему квалифицированный ремонт оптического тракта 1070 нм невозможен в условиях грязного цехового верстака.
       </p>
 
       <div class="physics-grid">
@@ -915,7 +896,7 @@
           <div class="physics-card-tag">ФАКТОР 01 // ЭНЕРГИЯ В ПЯТНЕ</div>
           <div class="physics-card-title">Концентрация энергии в перетяжке 60–80 мкм</div>
           <div class="physics-card-text">
-            Диаметр фокальной перетяжки пучка составляет всего 60–80 мкм[cite: 5]. При непрерывной мощности 1500–2500 Вт плотность излучения на поверхностях кварца колоссальна: любая микрочастица инородного тела мгновенно разогревается до критических температур[cite: 5].
+            Диаметр фокальной перетяжки пучка составляет всего 60–80 мкм. При непрерывной мощности 1500–2500 Вт плотность излучения на поверхностях кварца колоссальна: любая микрочастица инородного тела мгновенно разогревается до критических температур.
           </div>
         </div>
 
@@ -923,7 +904,7 @@
           <div class="physics-card-tag">ФАКТОР 02 // ТЕПЛОВАЯ ЛИНЗА</div>
           <div class="physics-card-title">Образование тепловой линзы и разрушение напыления</div>
           <div class="physics-card-text">
-            Пылинка размером 5–10 мкм на линзе или защитном окне поглощает инфракрасное излучение, вызывая локальный термический шок[cite: 5]. Диэлектрическое просветляющее напыление растрескивается, вызывая каскадный прогар зеркал сканатора[cite: 5].
+            Пылинка размером 5–10 мкм на линзе или защитном окне поглощает инфракрасное излучение, вызывая локальный термический шок. Диэлектрическое просветляющее напыление растрескивается, вызывая каскадный прогар зеркал сканатора.
           </div>
         </div>
 
@@ -931,7 +912,7 @@
           <div class="physics-card-tag">ФАКТОР 03 // ПОДСОС ВОЗДУХА</div>
           <div class="physics-card-title">Разрежение при остывании и защита от абразива</div>
           <div class="physics-card-text">
-            Во время интенсивной работы головка нагревается, а при остывании внутри создается область разрежения[cite: 5]. Без герметичных колец O-ring со смазкой Molykote HP-870 внутрь неминуемо затягивается абразивная взвесь[cite: 5].
+            Во время интенсивной работы головка нагревается, а при остывании внутри создается область разрежения. Без герметичных колец O-ring со смазкой Molykote HP-870 внутрь неминуемо затягивается абразивная взвесь.
           </div>
         </div>
 
@@ -939,7 +920,7 @@
           <div class="physics-card-tag">ФАКТОР 04 // СПЕКТРАЛЬНАЯ ЧИСТОТА</div>
           <div class="physics-card-title">Недопустимость бытовых спиртов и ватных дисков</div>
           <div class="physics-card-text">
-            Технический спирт содержит до 4–5% влаги и примесей, оставляющих микропленку, которая выгорает при первом импульсе[cite: 5]. Применяются только абсолютированный изопропанол IPA и безворсовые свапы TexWipe Alpha[cite: 4, 5].
+            Технический спирт содержит до 4–5% влаги и примесей, оставляющих микропленку, которая выгорает при первом импульсе. Применяются только абсолютированный изопропанол IPA и безворсовые свапы TexWipe Alpha.
           </div>
         </div>
 
@@ -954,18 +935,18 @@
       <div class="legal-content">
         <h2>Официальный статус и расчеты для предприятий</h2>
         <p>
-          Мы работаем исключительно по прямому официальному договору с юридическими лицами и Индивидуальными предпринимателями[cite: 4]. Фиксированная сервисная смета утверждается до выезда инженера и не меняется в процессе ремонта[cite: 4].
+          Мы работаем исключительно по прямому официальному договору с юридическими лицами и Индивидуальными предпринимателями. Фиксированная сервисная смета утверждается до выезда инженера и не меняется в процессе ремонта.
         </p>
 
         <p>
-          Обмен договорами, счетами и актами выполненных работ (УПД) осуществляется через государственные и коммерческие системы электронного документооборота <strong>Диадок (Контур)</strong> и <strong>СБИС (Тензор)</strong> в течение 5 минут[cite: 4].
+          Обмен договорами, счетами и актами выполненных работ (УПД) осуществляется через государственные и коммерческие системы электронного документооборота <strong>Диадок (Контур)</strong> и <strong>СБИС (Тензор)</strong> в течение 5 минут.
         </p>
 
         <!-- Экономическое обоснование для предприятий на ОСНО -->
         <div class="economic-calc-box">
           <h3>Экономическое обоснование для предприятий на ОСНО</h3>
           <p>
-            Стоимость компонентного ремонта оптики пистолета в нашем сервисе составляет в среднем <strong>120 000 – 180 000 ₽</strong> (без НДС)[cite: 4, 5]. Стоимость покупки новой оптической головы со шланг-пакетом у официалов — от <strong>550 000 до 850 000 ₽</strong> с НДС[cite: 4, 5]. Даже с учетом отсутствия вычета по НДС предприятие экономит более <strong>350 000 ₽ чистыми</strong> на каждом инциденте[cite: 4, 5].
+            Стоимость компонентного ремонта оптики пистолета в нашем сервисе составляет в среднем <strong>120 000 – 180 000 ₽</strong> (без НДС). Стоимость покупки новой оптической головы со шланг-пакетом у официалов — от <strong>550 000 до 850 000 ₽</strong> с НДС. Даже с учетом отсутствия вычета по НДС предприятие экономит более <strong>350 000 ₽ чистыми</strong> на каждом инциденте.
           </p>
         </div>
       </div>
@@ -977,35 +958,35 @@
         <ul class="req-list">
           <li>
             <span class="req-k">ФОРМА:</span>
-            <span class="req-v">Индивидуальный предприниматель</span>[cite: 4, 5]
+            <span class="req-v">Индивидуальный предприниматель</span>
           </li>
           <li>
             <span class="req-k">НАЛОГООБЛОЖЕНИЕ:</span>
-            <span class="req-v">УСН (без НДС)</span>[cite: 4, 5]
+            <span class="req-v">УСН (без НДС)</span>
           </li>
           <li>
             <span class="req-k">ИНН:</span>
-            <span class="req-v">XXXXXXXXXXXX</span>[cite: 4, 5]
+            <span class="req-v">XXXXXXXXXXXX</span>
           </li>
           <li>
             <span class="req-k">ОГРНИП:</span>
-            <span class="req-v">XXXXXXXXXXXXXXX</span>[cite: 4, 5]
+            <span class="req-v">XXXXXXXXXXXXXXX</span>
           </li>
           <li>
             <span class="req-k">БАНК:</span>
-            <span class="req-v">АО «ТБанк» / ПАО «Сбербанк»</span>[cite: 4, 5]
+            <span class="req-v">АО «ТБанк» / ПАО «Сбербанк»</span>
           </li>
           <li>
             <span class="req-k">ЭДО:</span>
-            <span class="req-v">Диадок (Контур) / СБИС (Тензор)</span>[cite: 4, 5]
+            <span class="req-v">Диадок (Контур) / СБИС (Тензор)</span>
           </li>
           <li>
             <span class="req-k">ЛОГИСТИКА:</span>
-            <span class="req-v">Москва (лаборатория) // Выезд по всей РФ</span>[cite: 4, 5]
+            <span class="req-v">Москва (лаборатория) // Выезд по всей РФ</span>
           </li>
         </ul>
 
-        <a href="#order" class="btn-solid-black" style="width: 100%;">ЗАПРОСИТЬ ТИПОВОЙ ДОГОВОР</a>[cite: 4]
+        <a href="#order" class="btn-solid-black" style="width: 100%;">ЗАПРОСИТЬ ТИПОВОЙ ДОГОВОР</a>
       </div>
 
     </div>
@@ -1016,7 +997,7 @@
     <div class="container">
       <div style="margin-bottom: 36px;">
         <h2 style="font-size: 28px; font-weight: 800; text-transform: uppercase;">Прямые каналы инженерной связи</h2>
-        <p style="font-size: 14px; color: var(--c-text-muted);">Оперативные шлюзы для мастеров цеха, технологов и отделов снабжения[cite: 4]</p>
+        <p style="font-size: 14px; color: var(--c-text-muted);">Оперативные шлюзы для мастеров цеха, технологов и отделов снабжения</p>
       </div>
 
       <div class="contacts-grid">
@@ -1025,27 +1006,27 @@
           <div>
             <div class="c-tag">ЭКСТРЕННАЯ ЛИНИЯ 24/7</div>
             <div class="c-val-main">+7 (495) 000-00-00</div>
-            <p class="c-desc">Прямой номер дежурной инженерной группы для оперативного решения вопросов при внезапной остановке производственного поста[cite: 4].</p>
+            <p class="c-desc">Прямой номер дежурной инженерной группы для оперативного решения вопросов при внезапной остановке производственного поста.</p>
           </div>
-          <a href="tel:+74950000000" class="btn-solid-black">Позвонить инженеру</a>[cite: 4]
+          <a href="tel:+74950000000" class="btn-solid-black">Позвонить инженеру</a>
         </div>
 
         <div class="contact-spec-card">
           <div>
             <div class="c-tag">ТЕЛЕМЕТРИЯ // TELEGRAM</div>
             <div class="c-val-main">@laser_service_bot</div>
-            <p class="c-desc">Оперативный прием фото кодов ошибок с дисплеев (Er01–Er32), фото защитных стекол и видео дефектов сварного шва[cite: 4].</p>
+            <p class="c-desc">Оперативный прием фото кодов ошибок с дисплеев (Er01–Er32), фото защитных стекол и видео дефектов сварного шва.</p>
           </div>
-          <a href="https://t.me/" target="_blank" class="btn-solid-black">Написать в Telegram</a>[cite: 4]
+          <a href="https://t.me/" target="_blank" class="btn-solid-black">Написать в Telegram</a>
         </div>
 
         <div class="contact-spec-card">
           <div>
             <div class="c-tag">ДОКУМЕНТООБОРОТ И СЧЕТА</div>
             <div class="c-val-main">service@laser-engineering.ru</div>
-            <p class="c-desc">Направление реквизитов компаний, дефектовочных ведомостей на ЗИП и проектов сервисных соглашений[cite: 4].</p>
+            <p class="c-desc">Направление реквизитов компаний, дефектовочных ведомостей на ЗИП и проектов сервисных соглашений.</p>
           </div>
-          <a href="mailto:service@laser-engineering.ru" class="btn-solid-black">Отправить заявку</a>[cite: 4]
+          <a href="mailto:service@laser-engineering.ru" class="btn-solid-black">Отправить заявку</a>
         </div>
 
       </div>
@@ -1057,7 +1038,7 @@
     <div class="container">
       <div class="order-box-center">
         <h2>Связаться с инженерной группой</h2>
-        <p>Заполните форму для вызова инженера, запроса счета на ЗИП или консультации по расшифровке ошибки. Специалист свяжется с вами в течение 15 минут[cite: 4].</p>
+        <p>Заполните форму для вызова инженера, запроса счета на ЗИП или консультации по расшифровке ошибки. Специалист свяжется с вами в течение 15 минут.</p>
 
         <form id="order-form">
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="form-group-stanq">
@@ -1100,11 +1081,10 @@
     </div>
   </section>
 
-  <!-- 7. ФУТЕР -->
+  <!-- 7. ФУТЕР БЕЗ ЛОГОТИПА -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-layout">
-        <div class="footer-brand">LASERWELD</div>
         <div class="footer-links">
           <a href="remont-svarok.html">СВАРКА</a>
           <a href="remont-ochistok.html">ОЧИСТКА</a>
