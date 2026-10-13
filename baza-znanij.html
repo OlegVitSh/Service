@@ -1247,34 +1247,44 @@
         <h2>Не удается сбросить ошибку штатными методами?</h2>
         <p>Отправьте код ошибки и модель вашего оборудования. Инженер свяжется с вами в течение 15 минут, расшифрует лог телеметрии и рассчитает смету выезда в ваш цех по РФ.</p>
 
-        <form id="order-form">
-          <div class="form-group-stanq">
-            <label class="form-label-stanq">Код ошибки с дисплея</label>
-            <input type="text" id="target-err-field" name="error_code" class="form-input-stanq" placeholder="Например: Er01, Er09, Er21" style="font-family: var(--font-mono); font-weight: 700;" required>
-          </div>
+<form id="order-form">
+  <!-- ВАШ КЛЮЧ WEB3FORMS -->
+  <input type="hidden" name="access_key" value="b70ccca3-099a-47e4-b0c2-0dea22f7c3c5">
+  
+  <!-- Тема входящего письма -->
+  <input type="hidden" name="subject" value="Новая заявка с сайта LASER SERVICE">
+  
+  <!-- Защита от спам-ботов -->
+  <input type="checkbox" name="botcheck" style="display: none;">
 
-          <div class="form-group-stanq">
-            <label class="form-label-stanq">Модель установки</label>
-            <select class="form-select-stanq" name="model">
-              <option>IPG LightWELD 1500 / XC / XR</option>
-              <option>LaserOne LiteWELD Pro / Plus / XR Lite</option>
-              <option>IPG LightCLEAN / LightCLEAN 2.0</option>
-              <option>LaserOne LHC-F300 / LHCX-F300</option>
-            </select>
-          </div>
+  <!-- Поля формы (модель, город, телефон и т.д.) -->
+  <div class="form-group-stanq">
+    <label class="form-label-stanq">Модель установки</label>
+    <select class="form-select-stanq" name="model">
+      <option>IPG LightWELD 1500 / XC / XR</option>
+      <option>LaserOne LiteWELD Pro / Plus / XR Lite</option>
+      <option>IPG LightCLEAN / LightCLEAN 2.0</option>
+      <option>LaserOne LHC-F300 / LHCX-F300</option>
+    </select>
+  </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="form-group-stanq">
-            <div>
-              <label class="form-label-stanq">Город / Производственная площадка</label>
-              <input type="text" name="city" class="form-input-stanq" placeholder="Например: Самара, Челябинск" required>
-            </div>
-            <div>
-              <label class="form-label-stanq">Телефон для оперативной связи</label>
-              <input type="tel" name="phone" class="form-input-stanq" placeholder="+7 (___) ___-__-__" required>
-            </div>
-          </div>
+  <div class="form-group-stanq">
+    <label class="form-label-stanq">Код ошибки (Er01–Er32) или симптом</label>
+    <input type="text" name="error_code" class="form-input-stanq" placeholder="Например: Er09 (перегрев), прогар защитного стекла" required>
+  </div>
 
-          <button type="submit" class="btn-solid-black" style="width: 100%; height: 52px; font-size: 13px; margin-top: 10px;">
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="form-group-stanq">
+    <div>
+      <label class="form-label-stanq">Город / Производственная площадка</label>
+      <input type="text" name="city" class="form-input-stanq" placeholder="Например: Самара, Челябинск" required>
+    </div>
+    <div>
+      <label class="form-label-stanq">Телефон для оперативной связи</label>
+      <input type="tel" name="phone" class="form-input-stanq" placeholder="+7 (___) ___-__-__" required>
+    </div>
+  </div>
+
+  <button type="submit" class="btn-solid-black" style="width: 100%; height: 52px; font-size: 13px; margin-top: 10px;">
             ПОЛУЧИТЬ ЗАКЛЮЧЕНИЕ ИНЖЕНЕРА
           </button>
         </form>
@@ -1423,22 +1433,22 @@ if (form) {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch('send.php', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: formData
       });
 
-      const result = await response.json();
+      const data = await response.json();
 
-      if (response.ok && result.status === 'success') {
+      if (data.success) {
         btn.textContent = 'ОТПРАВЛЕНО! СВЯЖЕМСЯ ЧЕРЕЗ 15 МИН';
         btn.style.background = '#0D8249';
         form.reset();
       } else {
-        throw new Error(result.message || 'Ошибка сервера');
+        throw new Error(data.message || 'Ошибка отправки');
       }
     } catch (err) {
-      alert('Не удалось отправить заявку. Пожалуйста, позвоните нам по номеру на сайте.');
+      alert('Не удалось отправить заявку. Пожалуйста, позвоните нам по телефону на сайте.');
       btn.textContent = originalText;
     } finally {
       btn.disabled = false;
