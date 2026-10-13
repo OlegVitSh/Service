@@ -187,7 +187,7 @@
       color: var(--c-accent);
     }
 
-    /* Увеличенный логотип по центру */
+    /* Крупный логотип по центру */
     .brand-logo-center {
       display: flex;
       align-items: center;
@@ -235,7 +235,6 @@
       background: var(--c-black);
     }
 
-    /* Мобильный Drawer */
     .mobile-drawer {
       position: fixed;
       top: 0;
@@ -288,7 +287,7 @@
     .drawer-overlay.active { display: block; }
 
     /* ================================================================= */
-    /* 3. HERO-СЕКЦИЯ С ПОЛНОЭКРАННОЙ КАРТИНКОЙ HED1                     */
+    /* 3. HERO-СЕКЦИЯ С ПОЛНОЭКРАННОЙ КАРТИНКОЙ HED1.PNG                  */
     /* ================================================================= */
     .hero-stanq {
       position: relative;
@@ -543,6 +542,12 @@
       background: #FAFAFA;
       padding: 16px;
     }
+    .product-img-frame img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
     .product-category-code {
       font-family: var(--font-mono);
       font-size: 11px;
@@ -768,7 +773,7 @@
 
   <!-- ВЕРХНИЙ СЛУЖЕБНЫЙ БАР -->
   <div class="top-utility-bar">
-    <div>НЕЗАВИСИМЫЙ СЕРВИС И ЗИП // IPG IRE-POLUS & VPG LASERONE</div>
+    <div>НЕЗАВИСИМЫЙ СЕРВИС И ЗИП // IPG IRE-POLUS &amp; VPG LASERONE</div>
     <div>СКЛАД: МОСКВА // ВЫЕЗДНЫЕ ИНЖЕНЕРЫ ПО ВСЕЙ РОССИИ (24–48Ч)</div>
   </div>
 
@@ -810,7 +815,7 @@
     </div>
   </header>
 
-  <!-- ВЫЕЗЖАЮЩАЯ МОБИЛЬНАЯ ПАНЕЛЬ -->
+  <!-- ВЫЕЗЖАЮЩАЯ МОБИЛЬНАЯ ПАНЕЛЬ НАВИГАЦИИ -->
   <div class="drawer-overlay" id="drawer-overlay"></div>
   <div class="mobile-drawer" id="mobile-drawer">
     <div>
@@ -876,6 +881,7 @@
   <section class="black-directions-belt">
     <div class="container directions-belt-grid" style="padding: 0;">
       
+      <!-- Пункт 1: Сварка -->
       <a href="remont-svarok.html" class="direction-belt-item">
         <div class="belt-item-icon-box">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
@@ -887,6 +893,7 @@
         <div class="belt-item-arrow">→</div>
       </a>
 
+      <!-- Пункт 2: Очистка -->
       <a href="remont-ochistok.html" class="direction-belt-item">
         <div class="belt-item-icon-box">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v6m0 6v6M3 12h6m6 0h6"/></svg>
@@ -898,6 +905,7 @@
         <div class="belt-item-arrow">→</div>
       </a>
 
+      <!-- Пункт 3: База знаний кодов ошибок -->
       <a href="baza-znanij.html" class="direction-belt-item">
         <div class="belt-item-icon-box">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
@@ -939,7 +947,7 @@
         
         <div class="catalog-product-card">
           <div class="product-img-frame">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#0C0D10" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5" stroke-dasharray="2 2"/></svg>
+            <img src="images/01.png" alt="Защитное стекло D20/D15">
           </div>
           <div class="product-category-code">АРТИКУЛ COPWXEX014U</div>
           <div class="product-title">Защитное стекло D20/D15 (кварц 1070 нм)</div>
@@ -954,7 +962,7 @@
 
         <div class="catalog-product-card">
           <div class="product-img-frame">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#0C0D10" stroke-width="1.5"><rect x="5" y="4" width="14" height="16"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <img src="images/03.png" alt="Картридж фокусирующей линзы">
           </div>
           <div class="product-category-code">СПЕЦИФИКАЦИЯ ЭИП 1728</div>
           <div class="product-title">Картридж фокусирующей линзы со скошенной пружиной</div>
@@ -969,7 +977,7 @@
 
         <div class="catalog-product-card">
           <div class="product-img-frame">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#0C0D10" stroke-width="1.5"><polygon points="12 2 2 22 22 22"/></svg>
+            <img src="images/04.png" alt="Зеркало гальвосканатора Wobble">
           </div>
           <div class="product-category-code">ГАЛЬВОПРИВОД IPG</div>
           <div class="product-title">Зеркало гальвосканатора Wobble (до 2500 Вт)</div>
@@ -984,14 +992,14 @@
 
         <div class="catalog-product-card">
           <div class="product-img-frame">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#0C0D10" stroke-width="1.5"><path d="M12 2L8 8h8l-4-6zM8 8v10h8V8"/></svg>
+            <img src="images/05.png" alt="Набор медных сопел Cu-ETP">
           </div>
           <div class="product-category-code">ОСНАСТКА СВАРКИ</div>
           <div class="product-title">Набор медных сопел Cu-ETP (6/9 мм, угол, срез)</div>
           <div class="product-footer-row">
             <div>
               <span class="product-price-label">в наличии</span>
-              <span class="product-price-val">от 12 500 ₽</span>
+              <span class="product-price-val">от 14 800 ₽</span>
             </div>
             <a href="katalog.html" class="btn-add-plus" title="Запросить счет">+</a>
           </div>
@@ -1046,6 +1054,15 @@
         <p>Укажите модель лазерного аппарата и код ошибки с дисплея. Дежурный сервисный инженер свяжется с вами в течение 15 минут для согласования сметы.</p>
 
         <form id="order-form">
+          <!-- ВАШ КЛЮЧ WEB3FORMS -->
+          <input type="hidden" name="access_key" value="b70ccca3-099a-47e4-b0c2-0dea22f7c3c5">
+          
+          <!-- Тема входящего письма -->
+          <input type="hidden" name="subject" value="Новая заявка на выезд инженера (Главная)">
+          
+          <!-- Защита от спам-ботов -->
+          <input type="checkbox" name="botcheck" style="display: none;">
+
           <div class="form-group-stanq">
             <label class="form-label-stanq">Модель установки</label>
             <select class="form-select-stanq" name="model">
@@ -1100,7 +1117,7 @@
     </div>
   </footer>
 
-  <!-- ИНТЕРАКТИВНЫЙ СКРИПТ: МОБИЛЬНОЕ МЕНЮ И ОБРАБОТКА ФОРМЫ -->
+  <!-- ИНТЕРАКТИВНЫЙ СКРИПТ: МОБИЛЬНОЕ МЕНЮ И ОБРАБОТКА ФОРМЫ ЧЕРЕЗ WEB3FORMS -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const burgerBtn = document.getElementById('burger-btn');
@@ -1109,60 +1126,62 @@
       const drawerOverlay = document.getElementById('drawer-overlay');
 
       function toggleMenu(open) {
+        if (!mobileDrawer) return;
         if (open) {
           mobileDrawer.classList.add('open');
-          drawerOverlay.classList.add('active');
+          if (drawerOverlay) drawerOverlay.classList.add('active');
           document.body.style.overflow = 'hidden';
         } else {
           mobileDrawer.classList.remove('open');
-          drawerOverlay.classList.remove('active');
+          if (drawerOverlay) drawerOverlay.classList.remove('active');
           document.body.style.overflow = '';
         }
       }
 
-      burgerBtn.addEventListener('click', () => toggleMenu(true));
-      drawerClose.addEventListener('click', () => toggleMenu(false));
-      drawerOverlay.addEventListener('click', () => toggleMenu(false));
+      if (burgerBtn) burgerBtn.addEventListener('click', () => toggleMenu(true));
+      if (drawerClose) drawerClose.addEventListener('click', () => toggleMenu(false));
+      if (drawerOverlay) drawerOverlay.addEventListener('click', () => toggleMenu(false));
 
-const form = document.getElementById('order-form');
-if (form) {
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    const originalText = btn.textContent;
+      const form = document.getElementById('order-form');
+      if (form) {
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const btn = form.querySelector('button[type="submit"]');
+          const originalText = btn.textContent;
 
-    btn.disabled = true;
-    btn.textContent = 'ОТПРАВКА...';
+          btn.disabled = true;
+          btn.textContent = 'ОТПРАВКА...';
 
-    const formData = new FormData(form);
+          const formData = new FormData(form);
 
-    try {
-      const response = await fetch('send.php', {
-        method: 'POST',
-        body: formData
-      });
+          try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+              method: 'POST',
+              body: formData
+            });
 
-      const result = await response.json();
+            const data = await response.json();
 
-      if (response.ok && result.status === 'success') {
-        btn.textContent = 'ОТПРАВЛЕНО! СВЯЖЕМСЯ ЧЕРЕЗ 15 МИН';
-        btn.style.background = '#0D8249';
-        form.reset();
-      } else {
-        throw new Error(result.message || 'Ошибка сервера');
+            if (data.success) {
+              btn.textContent = 'ОТПРАВЛЕНО! СВЯЖЕМСЯ ЧЕРЕЗ 15 МИН';
+              btn.style.background = '#0D8249';
+              form.reset();
+            } else {
+              throw new Error(data.message || 'Ошибка отправки');
+            }
+          } catch (err) {
+            alert('Не удалось отправить заявку. Пожалуйста, позвоните нам по номеру на сайте.');
+            btn.textContent = originalText;
+          } finally {
+            btn.disabled = false;
+            setTimeout(() => {
+              btn.textContent = originalText;
+              btn.style.background = '';
+            }, 5000);
+          }
+        });
       }
-    } catch (err) {
-      alert('Не удалось отправить заявку. Пожалуйста, позвоните нам по номеру на сайте.');
-      btn.textContent = originalText;
-    } finally {
-      btn.disabled = false;
-      setTimeout(() => {
-        btn.textContent = originalText;
-        btn.style.background = '';
-      }, 5000);
-    }
-  });
-}
+    });
   </script>
 
 </body>
