@@ -718,6 +718,7 @@
 
   <!-- 1. HERO КАТАЛОГА ЗИП С ФИЛЬТРАМИ -->
   <section class="hero-catalog">
+    <div class="hero-giant-wordmark">SPARE PARTS</div>
 
     <div class="container hero-catalog-container">
       <span class="hero-badge-mono">[ СКЛАДСКОЙ РЕЕСТР // 100% ЗАВОДСКАЯ СОВМЕСТИМОСТЬ ]</span>
@@ -1039,6 +1040,15 @@
         <p>Укажите требуемые позиции, количество и ИНН вашего предприятия. Дежурный специалист склада проверит резерв и направит счет на оплату с договором в течение 20 минут.</p>
 
         <form id="order-form">
+          <!-- ВАШ КЛЮЧ WEB3FORMS -->
+          <input type="hidden" name="access_key" value="b70ccca3-099a-47e4-b0c2-0dea22f7c3c5">
+          
+          <!-- Тема входящего письма -->
+          <input type="hidden" name="subject" value="Новый запрос счета на ЗИП (Каталог)">
+          
+          <!-- Защита от спам-ботов -->
+          <input type="checkbox" name="botcheck" style="display: none;">
+
           <div class="form-group-stanq">
             <label class="form-label-stanq">Выбранная позиция каталога или список</label>
             <input type="text" id="target-product-field" name="product_list" class="form-input-stanq" placeholder="Например: Защитные стекла D20 (5 шт.), Смазка Molykote HP-870" style="font-family: var(--font-mono); font-weight: 700;" required>
@@ -1083,7 +1093,7 @@
     </div>
   </footer>
 
-  <!-- ИНТЕРАКТИВНЫЙ СКРИПТ: ФИЛЬТРАЦИЯ, ПОДСТАНОВКА И МОБИЛЬНОЕ МЕНЮ -->
+  <!-- ИНТЕРАКТИВНЫЙ СКРИПТ: ФИЛЬТРАЦИЯ, ПОДСТАНОВКА И ОТПРАВКА ЧЕРЕЗ WEB3FORMS -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // 1. Мобильное меню
@@ -1144,46 +1154,47 @@
         });
       });
 
-      // 4. Отправка формы счета
-const form = document.getElementById('order-form');
-if (form) {
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    const originalText = btn.textContent;
+      // 4. Отправка формы счета через Web3Forms
+      const form = document.getElementById('order-form');
+      if (form) {
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const btn = form.querySelector('button[type="submit"]');
+          const originalText = btn.textContent;
 
-    btn.disabled = true;
-    btn.textContent = 'ОТПРАВКА...';
+          btn.disabled = true;
+          btn.textContent = 'ОТПРАВКА...';
 
-    const formData = new FormData(form);
+          const formData = new FormData(form);
 
-    try {
-      const response = await fetch('send.php', {
-        method: 'POST',
-        body: formData
-      });
+          try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+              method: 'POST',
+              body: formData
+            });
 
-      const result = await response.json();
+            const data = await response.json();
 
-      if (response.ok && result.status === 'success') {
-        btn.textContent = 'ОТПРАВЛЕНО! СВЯЖЕМСЯ ЧЕРЕЗ 15 МИН';
-        btn.style.background = '#0D8249';
-        form.reset();
-      } else {
-        throw new Error(result.message || 'Ошибка сервера');
+            if (data.success) {
+              btn.textContent = 'СЧЕТ СФОРМИРОВАН! МЕНЕДЖЕР СВЯЖЕТСЯ ЧЕРЕЗ 15 МИН';
+              btn.style.background = '#0D8249';
+              form.reset();
+            } else {
+              throw new Error(data.message || 'Ошибка отправки');
+            }
+          } catch (err) {
+            alert('Не удалось отправить заявку. Пожалуйста, позвоните нам по телефону на сайте.');
+            btn.textContent = originalText;
+          } finally {
+            btn.disabled = false;
+            setTimeout(() => {
+              btn.textContent = originalText;
+              btn.style.background = '';
+            }, 5000);
+          }
+        });
       }
-    } catch (err) {
-      alert('Не удалось отправить заявку. Пожалуйста, позвоните нам по номеру на сайте.');
-      btn.textContent = originalText;
-    } finally {
-      btn.disabled = false;
-      setTimeout(() => {
-        btn.textContent = originalText;
-        btn.style.background = '';
-      }, 5000);
-    }
-  });
-}
+    });
   </script>
 
 </body>
