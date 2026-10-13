@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ремонт сварочных пистолетов LightWELD & LiteWELD // LASER SERVICE</title>
+
+  <!-- Шрифты: Space Grotesk, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;900&family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================================= */
+    /* 1. БАЗОВАЯ ДИЗАЙН-СИСТЕМА (STANQ / INDUSTRIAL MONOCHROME)         */
+    /* ================================================================= */
+    :root {
+      --c-black: #0C0D10;
+      --c-dark-section: #111317;
+      --c-white: #FFFFFF;
+      --c-studio-bg: #EAECEF;
+      --c-card-bg: #FFFFFF;
+      --c-border: #D8DCE2;
+      --c-border-dark: #262930;
+      --c-text-muted: #6B7280;
+      --c-accent: #E84D0E;
+      
+      --font-display: 'Space Grotesk', -apple-system, sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border-radius: 0px !important;
+    }
+
+    body {
+      background-color: var(--c-studio-bg);
+      color: var(--c-black);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      letter-spacing: -0.01em;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 40px;
+      width: 100%;
+    }
+
+    /* Кнопки */
+    .btn-solid-black {
+      background: var(--c-black);
+      color: var(--c-white);
+      padding: 14px 28px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.15s;
+      cursor: pointer;
+      border: none;
+      font-family: var(--font-body);
+    }
+    .btn-solid-black:hover {
+      background: var(--c-accent);
+      transform: translateY(-1px);
+    }
+
+    .btn-underlined {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c-black);
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      padding-bottom: 4px;
+      border-bottom: 2px solid var(--c-black);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-underlined:hover {
+      border-color: var(--c-accent);
+      color: var(--c-accent);
+    }
+
+    /* ================================================================= */
+    /* 2. ШАПКА И СКВОЗНАЯ НАВИГАЦИЯ                                     */
+    /* ================================================================= */
+    .top-utility-bar {
+      background: #000000;
+      color: #9CA3AF;
+      font-size: 11px;
+      padding: 8px 40px;
+      letter-spacing: 0.05em;
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+    }
+
+    .site-header {
+      background: rgba(234, 236, 239, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-layout {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      height: 72px;
+    }
+
+    .nav-desktop {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .nav-desktop a {
+      color: #374151;
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+    .nav-desktop a:hover, .nav-desktop a.active {
+      color: var(--c-accent);
+    }
+
+    /* Выпадающее меню услуг */
+    .nav-dropdown-wrap {
+      position: relative;
+      display: inline-block;
+    }
+    .nav-dropdown-btn {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--c-accent);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .dropdown-pane {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--c-white);
+      border: 1px solid var(--c-black);
+      padding: 16px 0;
+      min-width: 250px;
+      display: none;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+      z-index: 150;
+    }
+    .nav-dropdown-wrap:hover .dropdown-pane {
+      display: block;
+    }
+    .dropdown-pane a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--c-black);
+      text-transform: none;
+    }
+    .dropdown-pane a:hover {
+      background: var(--c-studio-bg);
+      color: var(--c-accent);
+    }
+
+    .brand-logo-center {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c-black);
+      text-align: center;
+      font-family: var(--font-display);
+      white-space: nowrap;
+      padding: 0 20px;
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 20px;
+    }
+    .header-phone {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--c-black);
+      white-space: nowrap;
+    }
+
+    .btn-burger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .btn-burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--c-black);
+    }
+
+    /* Мобильный Drawer */
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 340px;
+      height: 100vh;
+      background: #FFFFFF;
+      border-left: 1px solid var(--c-black);
+      z-index: 200;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .mobile-drawer.open { right: 0; }
+    .drawer-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--c-black);
+      padding-bottom: 16px;
+    }
+    .drawer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .drawer-nav a {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--c-black);
+    }
+    .drawer-close {
+      background: none;
+      border: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 150;
+      display: none;
+    }
+    .drawer-overlay.active { display: block; }
+
+    /* ================================================================= */
+    /* 3. HERO РАЗДЕЛА: СВАРКА (FLEX-КОМПОЗИЦИЯ С ВЕКТОРНЫМ ПИСТОЛЕТОМ)  */
+    /* ================================================================= */
+    .hero-service {
+      position: relative;
+      min-height: calc(88vh - 72px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 0 50px 0;
+      background: radial-gradient(circle at 50% 40%, #FFFFFF 0%, #E2E5EA 85%);
+      overflow: hidden;
+    }
+
+    .hero-giant-wordmark {
+      position: absolute;
+      top: 48%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: clamp(70px, 16vw, 240px);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: rgba(12, 13, 16, 0.94);
+      user-select: none;
+      pointer-events: none;
+      z-index: 1;
+      white-space: nowrap;
+      text-align: center;
+      line-height: 0.85;
+      font-family: var(--font-body);
+    }
+
+    /* Автономная векторная схема сварочного пистолета LHW */
+    .hero-gun-visual {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -46%);
+      width: 90%;
+      max-width: 680px;
+      height: 70%;
+      max-height: 520px;
+      z-index: 2;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-gun-visual svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.28));
+    }
+
+    .hero-content-grid {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .hero-tagline-left {
+      max-width: 360px;
+    }
+    .tag-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      line-height: 1.6;
+      color: var(--c-black);
+      border-bottom: 2px solid var(--c-black);
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+    .hero-service-desc {
+      font-size: 14px;
+      color: #4B5563;
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+
+    .hero-bottom-actions {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
+    }
+    .hero-btn-group {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .hero-meta-right {
+      text-align: right;
+      max-width: 340px;
+    }
+    .hero-meta-right .meta-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c-black);
+      line-height: 1.6;
+      font-family: var(--font-mono);
+    }
+
+    /* ================================================================= */
+    /* 4. ТЕМНЫЙ ПОЯС: 4 БАЗОВЫЕ КОМПОНЕНТНЫЕ ОПЕРАЦИИ                  */
+    /* ================================================================= */
+    .black-operations-belt {
+      background: var(--c-dark-section);
+      color: var(--c-white);
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
+    }
+    .operations-belt-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .operation-belt-item {
+      padding: 36px 30px;
+      border-right: 1px solid var(--c-border-dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 200px;
+    }
+    .operation-belt-item:last-child {
+      border-right: none;
+    }
+    .op-num {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--c-accent);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .op-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--c-white);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .op-desc {
+      font-size: 12px;
+      color: #9CA3AF;
+      line-height: 1.5;
+    }
+
+    /* ================================================================= */
+    /* 5. ИНЖЕНЕРНЫЙ РАЗБОР: ПОЧЕМУ ГОРИТ ОПТИКА                         */
+    /* ================================================================= */
+    .physics-section {
+      padding: 90px 0;
+      background: var(--c-white);
+      border-bottom: 1px solid var(--c-border);
+    }
+    .section-title-stanq {
+      font-size: 32px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+      color: var(--c-black);
+    }
+    .section-sub-stanq {
+      font-size: 15px;
+      color: var(--c-text-muted);
+      max-width: 820px;
+      margin-bottom: 50px;
+      line-height: 1.55;
+    }
+
+    .physics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+    .physics-card {
+      border: 1px solid var(--c-border);
+      padding: 36px;
+      background: #FAFAFC;
+    }
+    .physics-card-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--c-accent);
+      margin-bottom: 12px;
+    }
+    .physics-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--c-black);
+    }
+    .physics-card-text {
+      font-size: 13px;
+      color: #4B5563;
+      line-height: 1.6;
+    }
+
+    /* ================================================================= */
+    /* 6. ТАБЛИЦА ОШИБОК СВАРОЧНОГО ПИСТОЛЕТА (ER01–ER26)                */
+    /* ================================================================= */
+    .errors-table-section {
+      padding: 90px 0;
+      background: #F4F5F7;
+      border-bottom: 1px solid var(--c-border);
+    }
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--c-black);
+      background: var(--c-white);
+    }
+    .matrix-table th {
+      background: var(--c-black);
+      color: var(--c-white);
+      text-align: left;
+      padding: 18px 24px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-family: var(--font-mono);
+    }
+    .matrix-table td {
+      padding: 22px 24px;
+      border: 1px solid var(--c-border);
+      vertical-align: top;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .matrix-table tr:hover td {
+      background: #FAFAFC;
+    }
+    .err-code-pill {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 12px;
+      background: #FEE2E2;
+      color: #B91C1C;
+      padding: 4px 8px;
+      border: 1px solid #FCA5A5;
+      margin-bottom: 4px;
+      cursor: pointer;
+    }
+    .btn-quick-fill {
+      background: none;
+      border: none;
+      color: var(--c-accent);
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: uppercase;
+      padding: 0;
+      margin-top: 8px;
+      display: inline-block;
+    }
+    .btn-quick-fill:hover { text-decoration: underline; }
+
+    /* ================================================================= */
+    /* 7. ФОРМА ЗАЯВКИ НА РЕМОНТ ПИСТОЛЕТА                               */
+    /* ================================================================= */
+    .b24-order-section {
+      padding: 90px 0;
+      background: #E5E7EB;
+    }
+    .order-box-center {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--c-white);
+      border: 1px solid var(--c-black);
+      padding: 48px;
+    }
+    .order-box-center h2 {
+      font-size: 26px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .order-box-center p {
+      font-size: 14px;
+      color: var(--c-text-muted);
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+    .form-group-stanq {
+      margin-bottom: 20px;
+    }
+    .form-label-stanq {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .form-input-stanq, .form-select-stanq {
+      width: 100%;
+      height: 48px;
+      border: 1px solid #CBD5E1;
+      padding: 0 16px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+    }
+    .form-input-stanq:focus, .form-select-stanq:focus {
+      border-color: var(--c-black);
+    }
+
+    /* ================================================================= */
+    /* 8. ФУТЕР                                                          */
+    /* ================================================================= */
+    .site-footer {
+      background: #000000;
+      color: #9CA3AF;
+      padding: 60px 0 30px 0;
+      font-size: 13px;
+    }
+    .footer-layout {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #222;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-brand {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      color: var(--c-white);
+      font-family: var(--font-display);
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      font-size: 12px;
+      font-weight: 600;
+      flex-wrap: wrap;
+    }
+    .footer-links a:hover { color: var(--c-white); }
+    .footer-copyright {
+      padding-top: 24px;
+      font-size: 11px;
+      color: #6B7280;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-family: var(--font-mono);
+    }
+
+    /* ================================================================= */
+    /* 9. АДАПТИВНОСТЬ                                                   */
+    /* ================================================================= */
+    @media (max-width: 1100px) {
+      .nav-desktop { display: none; }
+      .btn-burger { display: flex; }
+      .header-layout { grid-template-columns: auto 1fr auto; }
+      .operations-belt-grid { grid-template-columns: 1fr 1fr; }
+      .physics-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+      .top-utility-bar { flex-direction: column; gap: 4px; padding: 8px 20px; }
+      .operations-belt-grid { grid-template-columns: 1fr; }
+      .hero-giant-wordmark { font-size: 20vw; }
+      .hero-gun-visual { height: 45%; }
+      .hero-bottom-actions { flex-direction: column; align-items: flex-start; }
+      .hero-meta-right { text-align: left; }
+      .order-box-center { padding: 24px; }
+      .matrix-table th, .matrix-table td { padding: 12px; font-size: 12px; }
+      .header-phone { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ВЕРХНИЙ СЛУЖЕБНЫЙ БАР -->
+  <div class="top-utility-bar">
+    <div>СПЕЦИФИКАЦИЯ: РЕМОНТ СВАРОЧНЫХ ГОЛОВОК LIGHTWELD // СЕРИЯ LHW</div>
+    <div>IPG PHOTONICS (ИРЭ-ПОЛЮС) & LASERONE (ВПГ ЛАЗЕРУАН) // ВЫЕЗД ПО РФ</div>
+  </div>
+
+  <!-- ШАПКА САЙТА С ПОЛНЫМ МЕНЮ -->
+  <header class="site-header">
+    <div class="container header-layout">
+      
+      <!-- Меню слева -->
+      <nav class="nav-desktop">
+        <div class="nav-dropdown-wrap">
+          <span class="nav-dropdown-btn">Услуги и ремонт ▾</span>
+          <div class="dropdown-pane">
+            <a href="remont-svarok.html" style="color: var(--c-accent); font-weight: 700;">Ремонт сварки LightWELD / LiteWELD</a>
+            <a href="remont-ochistok.html">Ремонт очистки LightCLEAN</a>
+            <a href="reglament.html">Регламент выезда по всей РФ</a>
+          </div>
+        </div>
+        <a href="katalog.html">Каталог ЗИП</a>
+        <a href="baza-znanij.html">База ошибок ErXX</a>
+        <a href="o-servise.html">О лаборатории</a>
+      </nav>
+
+      <!-- Логотип строго по центру -->
+      <a href="index.html" class="brand-logo-center">
+        LASERWELD
+      </a>
+
+      <!-- Действия справа -->
+      <div class="header-actions">
+        <a href="tel:+74950000000" class="header-phone">+7 (495) 000-00-00</a>
+        <a href="#order" class="btn-solid-black" style="padding: 10px 18px; font-size: 10px;">Вызов инженера</a>
+        <button class="btn-burger" id="burger-btn" aria-label="Открыть меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ВЫЕЗЖАЮЩАЯ МОБИЛЬНАЯ ПАНЕЛЬ НАВИГАЦИИ -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div>
+      <div class="drawer-head">
+        <div class="brand-logo-center" style="font-size: 18px; padding: 0;">НАВИГАЦИЯ</div>
+        <button class="drawer-close" id="drawer-close">&times;</button>
+      </div>
+      <div class="drawer-nav">
+        <a href="index.html">Главная</a>
+        <a href="remont-svarok.html" style="color: var(--c-accent);">Сварка LightWELD</a>
+        <a href="remont-ochistok.html">Очистка LightCLEAN</a>
+        <a href="katalog.html">Каталог ЗИП</a>
+        <a href="baza-znanij.html">Коды ошибок Er01–Er32</a>
+        <a href="reglament.html">Выездной сервис по РФ</a>
+        <a href="o-servise.html">О лаборатории ISO</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-family: var(--font-mono); font-size: 11px; margin-bottom: 10px; color: var(--c-text-muted);">
+        ДЕЖУРНЫЙ ИНЖЕНЕР 24/7
+      </div>
+      <a href="tel:+74950000000" class="btn-solid-black" style="width: 100%;">+7 (495) 000-00-00</a>
+    </div>
+  </div>
+
+  <!-- 1. HERO РАЗДЕЛА: СВАРКА -->
+  <section class="hero-service">
+    <div class="hero-giant-wordmark">LHW-GUN</div>
+
+    <!-- Векторная схема сварочного пистолета LHW -->
+    <div class="hero-gun-visual">
+      <svg viewBox="0 0 720 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Теневая база -->
+        <ellipse cx="360" cy="410" rx="270" ry="20" fill="#000000" fill-opacity="0.25"/>
+        <!-- Рукоятка пистолета с курком -->
+        <path d="M260 210 L210 350 L270 365 L320 220 Z" fill="#1A1C21" stroke="#000" stroke-width="3"/>
+        <path d="M235 240 Q215 260 235 280" stroke="#E84D0E" stroke-width="6" stroke-linecap="round"/>
+        <!-- Корпус оптического блока пистолета -->
+        <rect x="240" y="140" width="260" height="90" fill="#262A33" stroke="#000" stroke-width="3"/>
+        <!-- Модуль качания Wobble (верхняя часть) -->
+        <rect x="310" y="70" width="100" height="70" fill="#15171C" stroke="#000" stroke-width="3"/>
+        <circle cx="360" cy="105" r="22" stroke="#E84D0E" stroke-width="3" stroke-dasharray="4 3"/>
+        <!-- Байонетный ввод коннектора волокна LC-8 -->
+        <path d="M110 185 L240 185" stroke="#111317" stroke-width="26" stroke-linecap="round"/>
+        <path d="M110 185 L240 185" stroke="#E84D0E" stroke-width="4" stroke-dasharray="6 4"/>
+        <!-- Сопловой тубус и удлинительная трубка со шкалой -->
+        <polygon points="500,155 600,170 600,200 500,215" fill="#323742" stroke="#000" stroke-width="2"/>
+        <line x1="520" y1="185" x2="580" y2="185" stroke="#FFF" stroke-width="1" stroke-dasharray="2 3"/>
+        <!-- Медное сопло Cu-ETP и контактная группа сенсора -->
+        <polygon points="600,175 660,180 660,195 600,200" fill="#E84D0E" stroke="#8A2B00" stroke-width="2"/>
+        <!-- Пилотный центрированный луч -->
+        <line x1="660" y1="187" x2="715" y2="187" stroke="#FF2600" stroke-width="3" stroke-dasharray="5 3"/>
+      </svg>
+    </div>
+
+    <div class="container hero-content-grid">
+      <div class="hero-tagline-left">
+        <div class="tag-title">
+          КОМПОНЕНТНЫЙ РЕМОНТ<br>
+          БЕЗ ПОКУПКИ ГОЛОВЫ<br>
+          В СБОРЕ
+        </div>
+        <p class="hero-service-desc">
+          Восстановление оптического тракта и электроники сканаторов IPG LightWELD 1500 / XC / XR и LaserOne LiteWELD Plus / Pro за 24–48 часов по всей РФ[cite: 5, 8].
+        </p>
+      </div>
+      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--c-accent); font-weight: 700;">
+        [ ЭКОНОМИЯ ДО 70% ОТ ЦЕНЫ ЗАВОДА ][cite: 5, 8]
+      </div>
+    </div>
+
+    <div class="container hero-bottom-actions">
+      <div class="hero-btn-group">
+        <a href="#order" class="btn-solid-black">РАССЧИТАТЬ СТОИМОСТЬ РЕМОНТА</a>
+        <a href="#errors" class="btn-underlined">МАТРИЦА ОШИБОК ГОЛОВКИ</a>
+      </div>
+
+      <div class="hero-meta-right">
+        <div class="meta-label">
+          СОХРАНЕНИЕ ШЛАНГ-ПАКЕТА<br>
+          ВЫЕЗД С ЧИСТОЙ ЗОНОЙ ПО РФ ЗА 24–48Ч[cite: 5, 8]
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. ЧЕРНЫЙ ПОЯС: 4 БАЗОВЫЕ КОМПОНЕНТНЫЕ ОПЕРАЦИИ -->
+  <section class="black-operations-belt">
+    <div class="container operations-belt-grid" style="padding: 0;">
+      
+      <div class="operation-belt-item">
+        <div class="op-num">01 // WOBBLE СИСТЕМА</div>
+        <div class="op-title">Замена зеркал гальвопривода</div>
+        <div class="op-desc">Монтаж оригинальных диэлектрических зеркал 1070 нм, юстировка качания луча с частотой до 300 Гц и амплитудой 0–5 мм[cite: 5, 8].</div>
+      </div>
+
+      <div class="operation-belt-item">
+        <div class="op-num">02 // ФОКУСИРУЮЩИЙ ТРАКТ</div>
+        <div class="op-title">Замена картриджей линз</div>
+        <div class="op-desc">Демонтаж заводским ключом с поворотом на 30°, ревизия скошенных пружин термокомпенсации, устранение ошибки нагрева Er09[cite: 5, 8].</div>
+      </div>
+
+      <div class="operation-belt-item">
+        <div class="op-num">03 // КОНТУР БЕЗОПАСНОСТИ</div>
+        <div class="op-title">Ремонт сенсора «сопло-деталь»</div>
+        <div class="op-desc">Восстановление электрической цепи контакта сопла и клеммы М8, устранение аварийных блокировок пуска Er21 и Er25[cite: 5, 8].</div>
+      </div>
+
+      <div class="operation-belt-item">
+        <div class="op-num">04 // ПИЛОТНОЕ НАВЕДЕНИЕ</div>
+        <div class="op-title">Юстировка пилота 600–700 нм</div>
+        <div class="op-desc">Замена красного диода пилотного наведения, коаксиальная центровка пятна строго по оси рабочего инфракрасного луча[cite: 5, 8].</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. ИНЖЕНЕРНЫЙ РАЗБОР: ПОЧЕМУ ГОРИТ ОПТИКА -->
+  <section class="physics-section">
+    <div class="container">
+      <h2 class="section-title-stanq">Физика повреждений: почему выходит из строя пистолет</h2>
+      <p class="section-sub-stanq">
+        Плотность мощности в пятне перетяжки пучка диаметром 60–80 мкм колоссальна[cite: 5, 8]. 90% поломок вызваны типовыми ошибками эксплуатации, которые мы устраняем без дорогостоящей заводской замены[cite: 8].
+      </p>
+
+      <div class="physics-grid">
+        
+        <div class="physics-card">
+          <div class="physics-card-tag">ДЕФЕКТ 01 // ТЕПЛОВАЯ ЛИНЗА</div>
+          <div class="physics-card-title">Прогар зеркала сканатора из-за защитного стекла</div>
+          <div class="physics-card-text">
+            При интенсивной сварке на защитное стекло оседают микрокапли металла[cite: 5, 8]. Если вовремя не сменить стекло, нагар начинает поглощать излучение мощностью 1500–2000 Вт[cite: 5, 8]. Возникает тепловая линза: защитное окно разрушается, и луч выжигает диэлектрическое покрытие зеркала гальвомотора[cite: 5, 8].
+          </div>
+        </div>
+
+        <div class="physics-card">
+          <div class="physics-card-tag">ДЕФЕКТ 02 // РИКОШЕТ ИЗЛУЧЕНИЯ</div>
+          <div class="physics-card-title">Обратное отражение при сварке меди и алюминия под 90°</div>
+          <div class="physics-card-text">
+            Сварка цветных металлов под прямым углом строго запрещена[cite: 5, 8]. Отраженный луч 1070 нм возвращается через сопло внутрь оптической камеры, вызывая нагрев датчиков (Er09), срабатывание фотодиодов обратного отражения (Er08) и повреждение коннектора LC-8[cite: 2, 5, 8].
+          </div>
+        </div>
+
+        <div class="physics-card">
+          <div class="physics-card-tag">ДЕФЕКТ 03 // ЦЕХОВОЙ АБРАЗИВ</div>
+          <div class="physics-card-title">Пыль цеха при неаккуратной смене сопел</div>
+          <div class="physics-card-text">
+            Снятие соплового узла без силиконового защитного колпачка в условиях грязного цеха приводит к попаданию стружки внутрь оптики[cite: 5, 8]. Частица размером 5 мкм на линзе при мощности 2 кВт приводит к мгновенному термическому взрыву кварца[cite: 5, 8].
+          </div>
+        </div>
+
+        <div class="physics-card">
+          <div class="physics-card-tag">ДЕФЕКТ 04 // ОБРЫВ СЕНСОРА</div>
+          <div class="physics-card-title">Отказ контура контакта «сопло — заземленная деталь»</div>
+          <div class="physics-card-text">
+            Для пуска излучения сопло должно замыкать сигнальную цепь с заготовкой через кабель заземления М8[cite: 5, 8]. Из-за нагара, ослабления цанги или обрыва внутреннего сигнального провода в рукоятке система блокирует включение (ошибки Er21, Er25, Er28)[cite: 5, 8].
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. МАТРИЦА ОШИБОК СВАРОЧНОЙ ГОЛОВКИ -->
+  <section class="errors-table-section" id="errors">
+    <div class="container">
+      <div style="margin-bottom: 36px;">
+        <h2 class="section-title-stanq">Матрица неисправностей сварочной головки LHW</h2>
+        <p style="font-size: 14px; color: var(--c-text-muted);">Экспресс-диагностика симптомов перед вызовом сервисного инженера (кликните на код для расчета)</p>
+      </div>
+
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th style="width: 15%;">Код на панели</th>
+            <th style="width: 20%;">Сообщение системы</th>
+            <th style="width: 30%;">Симптоматика на горелке</th>
+            <th style="width: 35%;">Что ремонтируется в сервисе</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="err-code-pill" onclick="setErrorCode('Er01 / Er02 (Galvo Position)')">Er01 / Er02</span></td>
+            <td><strong>Galvo Position</strong>[cite: 5, 8]</td>
+            <td>Луч не качается, линия сварки схлопнулась в точку, сбой геометрии шва[cite: 5, 8].</td>
+            <td>
+              Замена зеркала гальвосканатора, компонентный ремонт платы драйвера сканатора в рукоятке[cite: 5, 8].
+              <button class="btn-quick-fill" onclick="setErrorCode('Er01 / Er02: сбой сканатора')">Выбрать в заявку →</button>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="err-code-pill" onclick="setErrorCode('Er04 / Er09 (OverTemp / TempGun)')">Er04 / Er09</span></td>
+            <td><strong>OverTemp / TempGun</strong>[cite: 5, 8]</td>
+            <td>Рукоятка пистолета сильно греется (>70°C), излучение отключается через 1–2 минуты[cite: 5, 8].</td>
+            <td>
+              Замена прогоревших защитных окон и линзовых картриджей, ревизия воздушного контура продувки[cite: 5, 8].
+              <button class="btn-quick-fill" onclick="setErrorCode('Er09: перегрев рукоятки')">Выбрать в заявку →</button>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="err-code-pill" onclick="setErrorCode('Er08 / Er09 (Back Reflection)')">Er08 / Er09</span></td>
+            <td><strong>Back Reflection</strong>[cite: 5, 8]</td>
+            <td>Падение провара, затухание луча на меди и полированном алюминии, нестабильная ванна[cite: 5, 8].</td>
+            <td>
+              Ревизия зеркал, очистка кварцевого блока коннектора оптоволокна реактивами ОСЧ[cite: 5, 8].
+              <button class="btn-quick-fill" onclick="setErrorCode('Er08: обратное отражение')">Выбрать в заявку →</button>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="err-code-pill" onclick="setErrorCode('Er21 / Er25 (Nozzle Shutdown)')">Er21 / Er25</span></td>
+            <td><strong>Nozzle Shutdown</strong>[cite: 5, 8]</td>
+            <td>Сопло касается металла, но зеленый индикатор готовности не мигает, лазер не стреляет[cite: 5, 8].</td>
+            <td>
+              Восстановление сенсорной цепи сопла, очистка цанги, ревизия кабеля заземления М8[cite: 5, 8].
+              <button class="btn-quick-fill" onclick="setErrorCode('Er21 / Er25: нет контакта сопла')">Выбрать в заявку →</button>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="err-code-pill" onclick="setErrorCode('Er22 / Er26 (Trigger Shutdown)')">Er22 / Er26</span></td>
+            <td><strong>Trigger 1/2 Shutdown</strong>[cite: 5, 8]</td>
+            <td>Срыв процесса при нажатии курка 2, самопроизвольное отключение защитного газа[cite: 5, 8].</td>
+            <td>
+              Замена двухступенчатой контактной микрокнопки в рукоятке пистолета[cite: 5, 8].
+              <button class="btn-quick-fill" onclick="setErrorCode('Er22: залипание кнопок')">Выбрать в заявку →</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 5. ФОРМА ЗАЯВКИ НА РЕМОНТ ПИСТОЛЕТА СВАРКИ -->
+  <section class="b24-order-section" id="order">
+    <div class="container">
+      <div class="order-box-center">
+        <h2>Заявка на дефектовку сварочной горелки</h2>
+        <p>Укажите модель установки и опишите симптом неисправности. Дежурный сервисный инженер свяжется с вами в течение 15 минут для предварительного заключения и расчета сметы[cite: 8].</p>
+
+        <form id="order-form">
+          <div class="form-group-stanq">
+            <label class="form-label-stanq">Модель оборудования</label>
+            <select class="form-select-stanq" name="model">
+              <option>IPG LightWELD 1500 (LHW-1500)</option>
+              <option>IPG LightWELD XC (LHW-XC-05/10-R)</option>
+              <option>IPG LightWELD XR (LHW-XR-05/10-R)</option>
+              <option>LaserOne LiteWELD XC Plus</option>
+              <option>LaserOne LiteWELD XR Pro</option>
+            </select>
+          </div>
+
+          <div class="form-group-stanq">
+            <label class="form-label-stanq">Код ошибки с панели или дефект</label>
+            <input type="text" id="target-error-field" name="error_code" class="form-input-stanq" placeholder="Например: Er01 (Wobble не качается), Er09 (нагрев), прогар зеркала" required>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="form-group-stanq">
+            <div>
+              <label class="form-label-stanq">Город / Предприятие</label>
+              <input type="text" name="city" class="form-input-stanq" placeholder="Например: Екатеринбург, ПАО ТМК" required>
+            </div>
+            <div>
+              <label class="form-label-stanq">Контактный телефон / Telegram</label>
+              <input type="tel" name="phone" class="form-input-stanq" placeholder="+7 (___) ___-__-__" required>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-solid-black" style="width: 100%; height: 52px; font-size: 13px; margin-top: 10px;">
+            ПОЛУЧИТЬ РАСЧЕТ СМЕТЫ РЕМОНТА
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. ФУТЕР -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-layout">
+        <div class="footer-brand">LASERWELD</div>
+        <div class="footer-links">
+          <a href="remont-svarok.html" style="color: var(--c-white);">СВАРКА</a>
+          <a href="remont-ochistok.html">ОЧИСТКА</a>
+          <a href="katalog.html">КАТАЛОГ ЗИП</a>
+          <a href="baza-znanij.html">КОДЫ ОШИБОК</a>
+          <a href="reglament.html">ВЫЕЗД ПО РФ</a>
+          <a href="o-servise.html">О ЛАБОРАТОРИИ</a>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div>© 2026 LASER SERVICE ENGINEERING. ВСЕ ПРАВА ЗАЩИЩЕНЫ. РАБОТА С ЮРЛИЦАМИ (ИП, БЕЗ НДС).</div>
+        <div>СПЕЦИФИКАЦИЯ: LHW REPAIR PROTOCOL</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ИНТЕРАКТИВНЫЙ СКРИПТ: МОБИЛЬНОЕ МЕНЮ И ОБРАБОТКА ФОРМЫ -->
+  <script>
+    function setErrorCode(code) {
+      const field = document.getElementById('target-error-field');
+      if (field) {
+        field.value = code;
+        document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const burgerBtn = document.getElementById('burger-btn');
+      const mobileDrawer = document.getElementById('mobile-drawer');
+      const drawerClose = document.getElementById('drawer-close');
+      const drawerOverlay = document.getElementById('drawer-overlay');
+
+      function toggleMenu(open) {
+        if (open) {
+          mobileDrawer.classList.add('open');
+          drawerOverlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        } else {
+          mobileDrawer.classList.remove('open');
+          drawerOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+
+      burgerBtn.addEventListener('click', () => toggleMenu(true));
+      drawerClose.addEventListener('click', () => toggleMenu(false));
+      drawerOverlay.addEventListener('click', () => toggleMenu(false));
+
+      const form = document.getElementById('order-form');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        btn.textContent = 'ОТПРАВЛЕНО! ИНЖЕНЕР СВЯЖЕТСЯ ЧЕРЕЗ 15 МИН';
+        btn.style.background = '#0D8249';
+        setTimeout(() => {
+          btn.textContent = 'ПОЛУЧИТЬ РАСЧЕТ СМЕТЫ РЕМОНТА';
+          btn.style.background = '';
+          form.reset();
+        }, 4000);
+      });
+    });
+  </script>
+
+</body>
+</html>
