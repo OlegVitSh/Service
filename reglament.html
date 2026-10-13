@@ -1075,19 +1075,45 @@
       drawerClose.addEventListener('click', () => toggleMenu(false));
       drawerOverlay.addEventListener('click', () => toggleMenu(false));
 
-      const form = document.getElementById('order-form');
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const btn = form.querySelector('button[type="submit"]');
-        btn.textContent = 'ОТПРАВЛЕНО! ИНЖЕНЕР СВЯЖЕТСЯ ЧЕРЕЗ 15 МИН';
-        btn.style.background = '#0D8249';
-        setTimeout(() => {
-          btn.textContent = 'РАССЧИТАТЬ ВРЕМЯ ПРИБЫТИЯ И СМЕТУ';
-          btn.style.background = '';
-          form.reset();
-        }, 4000);
+const form = document.getElementById('order-form');
+if (form) {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    const originalText = btn.textContent;
+
+    btn.disabled = true;
+    btn.textContent = 'ОТПРАВКА...';
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('send.php', {
+        method: 'POST',
+        body: formData
       });
-    });
+
+      const result = await response.json();
+
+      if (response.ok && result.status === 'success') {
+        btn.textContent = 'ОТПРАВЛЕНО! СВЯЖЕМСЯ ЧЕРЕЗ 15 МИН';
+        btn.style.background = '#0D8249';
+        form.reset();
+      } else {
+        throw new Error(result.message || 'Ошибка сервера');
+      }
+    } catch (err) {
+      alert('Не удалось отправить заявку. Пожалуйста, позвоните нам по номеру на сайте.');
+      btn.textContent = originalText;
+    } finally {
+      btn.disabled = false;
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+      }, 5000);
+    }
+  });
+}
   </script>
 
 </body>
