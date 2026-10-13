@@ -106,7 +106,7 @@
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      height: 72px;
+      height: 100px;
     }
 
     .nav-desktop {
@@ -170,16 +170,22 @@
       color: var(--c-accent);
     }
 
+    /* Крупный логотип по центру */
     .brand-logo-center {
-      font-size: 24px;
-      font-weight: 900;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--c-black);
-      text-align: center;
-      font-family: var(--font-display);
-      white-space: nowrap;
-      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 32px;
+    }
+    .brand-logo-img {
+      max-height: 80px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .brand-logo-center:hover .brand-logo-img {
+      transform: scale(1.04);
     }
 
     .header-actions {
@@ -436,9 +442,11 @@
       padding: 20px;
       border-bottom: 1px solid #EEF0F4;
     }
-    .product-visual-wrap svg {
-      width: 80px;
-      height: 80px;
+    .product-visual-wrap img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .product-meta-header {
@@ -516,7 +524,7 @@
     .price-val { font-size: 17px; font-weight: 800; color: var(--c-black); font-family: var(--font-mono); }
 
     /* ================================================================= */
-    /* 6. ФОРМА ЗАКАЗА ЗИП ПО СПЕЦИФИКАЦИИ                              */
+    /* 6. ФОРМА ЗАКАЗА ЗИП ПО СПЕЦИФИКАЦИИ                               */
     /* ================================================================= */
     .b24-order-section {
       padding: 90px 0;
@@ -567,36 +575,34 @@
     }
 
     /* ================================================================= */
-    /* 7. ФУТЕР                                                          */
+    /* 7. ФУТЕР (БЕЗ ЛОГОТИПА)                                           */
     /* ================================================================= */
     .site-footer {
       background: #000000;
       color: #9CA3AF;
-      padding: 60px 0 30px 0;
+      padding: 50px 0 30px 0;
       font-size: 13px;
     }
     .footer-layout {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
-      padding-bottom: 40px;
+      padding-bottom: 30px;
       border-bottom: 1px solid #222;
       flex-wrap: wrap;
       gap: 20px;
     }
-    .footer-brand {
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: 0.16em;
-      color: var(--c-white);
-      font-family: var(--font-display);
-    }
     .footer-links {
       display: flex;
-      gap: 24px;
+      gap: 32px;
       font-size: 12px;
       font-weight: 600;
       flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: #9CA3AF;
+      letter-spacing: 0.04em;
+      transition: color 0.15s;
     }
     .footer-links a:hover { color: var(--c-white); }
     .footer-copyright {
@@ -616,7 +622,8 @@
     @media (max-width: 1100px) {
       .nav-desktop { display: none; }
       .btn-burger { display: flex; }
-      .header-layout { grid-template-columns: auto 1fr auto; }
+      .header-layout { grid-template-columns: auto 1fr auto; height: 80px; }
+      .brand-logo-img { max-height: 60px; }
       .standards-belt-grid { grid-template-columns: 1fr 1fr; }
       .catalog-grid-layout { grid-template-columns: 1fr 1fr; }
     }
@@ -624,6 +631,9 @@
     @media (max-width: 768px) {
       .container { padding: 0 20px; }
       .top-utility-bar { flex-direction: column; gap: 4px; padding: 8px 20px; }
+      .header-layout { height: 72px; }
+      .brand-logo-center { padding: 0 10px; }
+      .brand-logo-img { max-height: 48px; }
       .standards-belt-grid { grid-template-columns: 1fr; }
       .catalog-grid-layout { grid-template-columns: 1fr; }
       .hero-catalog-title { font-size: 28px; }
@@ -636,11 +646,11 @@
 
   <!-- ВЕРХНИЙ СЛУЖЕБНЫЙ БАР -->
   <div class="top-utility-bar">
-    <div>СКЛАДСКОЙ РЕЕСТР: ОРИГИНАЛЬНЫЙ ЗИП IPG & LASERONE // РЕЗЕРВ В МОСКВЕ</div>
+    <div>СКЛАДСКОЙ РЕЕСТР: ОРИГИНАЛЬНЫЙ ЗИП IPG &amp; LASERONE // РЕЗЕРВ В МОСКВЕ</div>
     <div>ЭКСПРЕСС-ОТГРУЗКА ДЕНЬ В ДЕНЬ // СЧЕТА И ДОГОВОРЫ ЧЕРЕЗ ЭДО</div>
   </div>
 
-  <!-- ШАПКА САЙТА С ПОЛНЫМ МЕНЮ -->
+  <!-- ШАПКА САЙТА С УВЕЛИЧЕННЫМ ЛОГОТИПОМ ПО ЦЕНТРУ -->
   <header class="site-header">
     <div class="container header-layout">
       
@@ -659,9 +669,9 @@
         <a href="o-servise.html">О лаборатории</a>
       </nav>
 
-      <!-- Логотип строго по центру -->
+      <!-- Логотип по центру (крупный) -->
       <a href="index.html" class="brand-logo-center">
-        LASERWELD
+        <img src="images/logo.png" alt="LASER SERVICE" class="brand-logo-img">
       </a>
 
       <!-- Действия справа -->
@@ -683,7 +693,9 @@
   <div class="mobile-drawer" id="mobile-drawer">
     <div>
       <div class="drawer-head">
-        <div class="brand-logo-center" style="font-size: 18px; padding: 0;">НАВИГАЦИЯ</div>
+        <div class="brand-logo-center" style="padding: 0;">
+          <img src="images/logo.png" alt="LASER SERVICE" style="max-height: 48px; width: auto;">
+        </div>
         <button class="drawer-close" id="drawer-close">&times;</button>
       </div>
       <div class="drawer-nav">
@@ -712,7 +724,7 @@
       <span class="hero-badge-mono">[ СКЛАДСКОЙ РЕЕСТР // 100% ЗАВОДСКАЯ СОВМЕСТИМОСТЬ ]</span>
       <h1 class="hero-catalog-title">Оригинальный ЗИП и оптика</h1>
       <p class="hero-catalog-desc">
-        Поставка сертифицированных оптических элементов, узлов механики и специализированных расходных материалов для систем лазерной сварки и очистки по безналичному расчету (без НДС)[cite: 3, 5].
+        Поставка сертифицированных оптических элементов, узлов механики и специализированных расходных материалов для систем лазерной сварки и очистки по безналичному расчету (без НДС).
       </p>
 
       <!-- Фильтры по инженерным группам -->
@@ -733,25 +745,25 @@
       <div class="standard-item">
         <div class="std-num">01 // 100% ОРИГИНАЛ</div>
         <div class="std-title">Сертифицированный кварц</div>
-        <div class="std-text">Двустороннее просветление под длину волны 1070 нм[cite: 3]. Исключен перегрев коллиматора, характерный для китайских аналогов[cite: 3].</div>
+        <div class="std-text">Двустороннее просветление под длину волны 1070 нм. Исключен перегрев коллиматора, характерный для китайских аналогов.</div>
       </div>
 
       <div class="standard-item">
         <div class="std-num">02 // НАЛИЧИЕ В МОСКВЕ</div>
         <div class="std-title">Складской буфер 95%</div>
-        <div class="std-text">Защитные окна, картриджи линз, сопла и смазка Molykote постоянно поддерживаются в резерве на центральном складе[cite: 3].</div>
+        <div class="std-text">Защитные окна, картриджи линз, сопла и смазка Molykote постоянно поддерживаются в резерве на центральном складе.</div>
       </div>
 
       <div class="standard-item">
         <div class="std-num">03 // ЭКСПРЕСС-ЛОГИСТИКА</div>
         <div class="std-title">Отгрузка день в день</div>
-        <div class="std-text">Курьерская доставка по Москве за 2–4 часа[cite: 3]. Экспресс-авиадоставка по всей территории РФ через СДЭК и Деловые Линии[cite: 3].</div>
+        <div class="std-text">Курьерская доставка по Москве за 2–4 часа. Экспресс-авиадоставка по всей территории РФ через СДЭК и Деловые Линии.</div>
       </div>
 
       <div class="standard-item">
         <div class="std-num">04 // B2B ДОКУМЕНТООБОРОТ</div>
         <div class="std-title">Счета и акты через ЭДО</div>
-        <div class="std-text">Выставление счета за 15 минут[cite: 3]. Обмен договорами и УПД через системы Диадок (Контур) и СБИС (Тензор)[cite: 3, 4].</div>
+        <div class="std-text">Выставление счета за 15 минут. Обмен договорами и УПД через системы Диадок (Контур) и СБИС (Тензор).</div>
       </div>
 
     </div>
@@ -763,10 +775,10 @@
       
       <div class="catalog-grid-layout" id="products-container">
         
-        <!-- Товар 1: Защитное стекло сварки -->
+        <!-- Товар 1: Защитное стекло сварки (images/01.png) -->
         <div class="b2b-product-card" data-category="optics">
           <div class="product-visual-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#0C0D10" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5" stroke-dasharray="2 2"/></svg>
+            <img src="images/01.png" alt="Защитное стекло D20/1.5">
           </div>
           <div class="product-meta-header">
             <span class="product-sku">АРТИКУЛ: COPWXEX014U</span>
@@ -774,12 +786,12 @@
           </div>
           <div class="product-content-body">
             <h3 class="product-name">Защитное стекло сварочной головки D20/1.5</h3>
-            <div class="product-compat">IPG LightWELD 1500 / XC / XR · LiteWELD Pro[cite: 3]</div>
+            <div class="product-compat">IPG LightWELD 1500 / XC / XR · LiteWELD Pro</div>
             <ul class="product-specs-list">
-              <li><span class="spec-k">Диаметр / Толщина:</span> <span class="spec-v">Ø20 мм × 1,5 мм[cite: 3]</span></li>
-              <li><span class="spec-k">Материал:</span> <span class="spec-v">Оптический кварц JGS1[cite: 3]</span></li>
-              <li><span class="spec-k">Покрытие:</span> <span class="spec-v">AR/AR 1070 нм (R&lt;0.2%)[cite: 3]</span></li>
-              <li><span class="spec-k">Комплектация:</span> <span class="spec-v">Блистер + кольцо O-ring[cite: 3]</span></li>
+              <li><span class="spec-k">Диаметр / Толщина:</span> <span class="spec-v">Ø20 мм × 1,5 мм</span></li>
+              <li><span class="spec-k">Материал:</span> <span class="spec-v">Оптический кварц JGS1</span></li>
+              <li><span class="spec-k">Покрытие:</span> <span class="spec-v">AR/AR 1070 нм (R&lt;0.2%)</span></li>
+              <li><span class="spec-k">Комплектация:</span> <span class="spec-v">Блистер + кольцо O-ring</span></li>
             </ul>
             <div class="product-order-footer">
               <div class="product-price-block">
@@ -791,10 +803,10 @@
           </div>
         </div>
 
-        <!-- Товар 2: Картридж защитного стекла очистки -->
+        <!-- Товар 2: Картридж защитного стекла очистки (images/02.png) -->
         <div class="b2b-product-card" data-category="optics">
           <div class="product-visual-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#0C0D10" stroke-width="1.5"><rect x="4" y="6" width="16" height="12"/><line x1="4" y1="12" x2="20" y2="12" stroke-dasharray="2 2"/></svg>
+            <img src="images/02.png" alt="Картридж защитного стекла очистки">
           </div>
           <div class="product-meta-header">
             <span class="product-sku">АРТИКУЛ: COP-LHC-F300</span>
@@ -802,12 +814,12 @@
           </div>
           <div class="product-content-body">
             <h3 class="product-name">Картридж защитного стекла пистолета очистки</h3>
-            <div class="product-compat">IPG LightCLEAN · LaserOne LHC-F300 / LHCX[cite: 3]</div>
+            <div class="product-compat">IPG LightCLEAN · LaserOne LHC-F300 / LHCX</div>
             <ul class="product-specs-list">
-              <li><span class="spec-k">Конструктив:</span> <span class="spec-v">Прямоугольная металл-оправа[cite: 3]</span></li>
-              <li><span class="spec-k">Фиксация:</span> <span class="spec-v">Шариковый замок (без винтов)[cite: 3]</span></li>
-              <li><span class="spec-k">Длина волны:</span> <span class="spec-v">1070 нм (высокая абляция)[cite: 3]</span></li>
-              <li><span class="spec-k">Фасовка:</span> <span class="spec-v">Комплект 5 шт. в боксе[cite: 3]</span></li>
+              <li><span class="spec-k">Конструктив:</span> <span class="spec-v">Прямоугольная металл-оправа</span></li>
+              <li><span class="spec-k">Фиксация:</span> <span class="spec-v">Шариковый замок (без винтов)</span></li>
+              <li><span class="spec-k">Длина волны:</span> <span class="spec-v">1070 нм (высокая абляция)</span></li>
+              <li><span class="spec-k">Фасовка:</span> <span class="spec-v">Комплект 5 шт. в боксе</span></li>
             </ul>
             <div class="product-order-footer">
               <div class="product-price-block">
@@ -819,10 +831,10 @@
           </div>
         </div>
 
-        <!-- Товар 3: Картридж фокусирующей линзы -->
+        <!-- Товар 3: Картридж фокусирующей линзы (images/03.png) -->
         <div class="b2b-product-card" data-category="optics">
           <div class="product-visual-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#0C0D10" stroke-width="1.5"><rect x="5" y="4" width="14" height="16"/><line x1="5" y1="12" x2="19" y2="12"/><path d="M8 8l8 8"/></svg>
+            <img src="images/03.png" alt="Картридж фокусирующей линзы LHW">
           </div>
           <div class="product-meta-header">
             <span class="product-sku">ЧЕРТЕЖ: ЭИП 1728.400</span>
@@ -830,12 +842,12 @@
           </div>
           <div class="product-content-body">
             <h3 class="product-name">Картридж фокусирующей линзы (в сборе)</h3>
-            <div class="product-compat">Сварочные головки серии LHW (IPG / LaserOne)[cite: 3]</div>
+            <div class="product-compat">Сварочные головки серии LHW (IPG / LaserOne)</div>
             <ul class="product-specs-list">
-              <li><span class="spec-k">Оптика:</span> <span class="spec-v">Кварцевый блок в оправе[cite: 3]</span></li>
-              <li><span class="spec-k">Компенсатор:</span> <span class="spec-v">Скошенная коническая пружина[cite: 3]</span></li>
-              <li><span class="spec-k">Монтаж:</span> <span class="spec-v">Поворот ключом на 30°[cite: 3]</span></li>
-              <li><span class="spec-k">Ресурс:</span> <span class="spec-v">До 2500 Вт излучения[cite: 3]</span></li>
+              <li><span class="spec-k">Оптика:</span> <span class="spec-v">Кварцевый блок в оправе</span></li>
+              <li><span class="spec-k">Компенсатор:</span> <span class="spec-v">Скошенная коническая пружина</span></li>
+              <li><span class="spec-k">Монтаж:</span> <span class="spec-v">Поворот ключом на 30°</span></li>
+              <li><span class="spec-k">Ресурс:</span> <span class="spec-v">До 2500 Вт излучения</span></li>
             </ul>
             <div class="product-order-footer">
               <div class="product-price-block">
@@ -847,10 +859,10 @@
           </div>
         </div>
 
-        <!-- Товар 4: Зеркало сканатора Wobble -->
+        <!-- Товар 4: Зеркало сканатора Wobble (images/04.png) -->
         <div class="b2b-product-card" data-category="optics">
           <div class="product-visual-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#0C0D10" stroke-width="1.5"><polygon points="12 2 2 22 22 22"/><line x1="12" y1="8" x2="12" y2="16" stroke="#E84D0E"/></svg>
+            <img src="images/04.png" alt="Зеркало гальвосканатора Wobble">
           </div>
           <div class="product-meta-header">
             <span class="product-sku">СПЕЦИФИКАЦИЯ: GALVO-1070</span>
@@ -858,12 +870,12 @@
           </div>
           <div class="product-content-body">
             <h3 class="product-name">Зеркало гальвосканатора Wobble (до 300 Гц)</h3>
-            <div class="product-compat">IPG LightWELD 1500 / XC / XR · LiteWELD Pro[cite: 3]</div>
+            <div class="product-compat">IPG LightWELD 1500 / XC / XR · LiteWELD Pro</div>
             <ul class="product-specs-list">
-              <li><span class="spec-k">Подложка:</span> <span class="spec-v">Кремний с малым моментом[cite: 3]</span></li>
-              <li><span class="spec-k">Напыление:</span> <span class="spec-v">Диэлектрик 1070 нм (R&gt;99.8%)[cite: 3]</span></li>
-              <li><span class="spec-k">Лучевая стойкость:</span> <span class="spec-v">&gt; 10 Дж/см² (1064–1080 нм)[cite: 3]</span></li>
-              <li><span class="spec-k">Назначение:</span> <span class="spec-v">Устранение ошибок Er01/Er02[cite: 3]</span></li>
+              <li><span class="spec-k">Подложка:</span> <span class="spec-v">Кремний с малым моментом</span></li>
+              <li><span class="spec-k">Напыление:</span> <span class="spec-v">Диэлектрик 1070 нм (R&gt;99.8%)</span></li>
+              <li><span class="spec-k">Лучевая стойкость:</span> <span class="spec-v">&gt; 10 Дж/см² (1064–1080 нм)</span></li>
+              <li><span class="spec-k">Назначение:</span> <span class="spec-v">Устранение ошибок Er01/Er02</span></li>
             </ul>
             <div class="product-order-footer">
               <div class="product-price-block">
@@ -875,10 +887,10 @@
           </div>
         </div>
 
-        <!-- Товар 5: Набор медных сопел для сварки -->
+        <!-- Товар 5: Набор медных сопел для сварки (images/05.png) -->
         <div class="b2b-product-card" data-category="nozzles">
           <div class="product-visual-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#0C0D10" stroke-width="1.5"><path d="M12 2L8 8h8l-4-6zM8 8v10h8V8"/><circle cx="12" cy="13" r="2" fill="#E84D0E"/></svg>
+            <img src="images/05.png" alt="Комплект медных сопел для сварки">
           </div>
           <div class="product-meta-header">
             <span class="product-sku">СЕРИЯ: CM1728460</span>
@@ -886,12 +898,12 @@
           </div>
           <div class="product-content-body">
             <h3 class="product-name">Комплект медных сопел для сварки (4 шт.)</h3>
-            <div class="product-compat">Сварочные пистолеты LightWELD / LiteWELD[cite: 3]</div>
+            <div class="product-compat">Сварочные пистолеты LightWELD / LiteWELD</div>
             <ul class="product-specs-list">
-              <li><span class="spec-k">Материал:</span> <span class="spec-v">Медь электротехническая Cu-ETP[cite: 3]</span></li>
-              <li><span class="spec-k">Состав комплекта:</span> <span class="spec-v">2-точечные 6/9 мм, угловое, срез[cite: 3]</span></li>
-              <li><span class="spec-k">Изоляция:</span> <span class="spec-v">Керамический барьер сенсора[cite: 3]</span></li>
-              <li><span class="spec-k">Контакт:</span> <span class="spec-v">Замыкание цепи Er21/Er25[cite: 3]</span></li>
+              <li><span class="spec-k">Материал:</span> <span class="spec-v">Медь электротехническая Cu-ETP</span></li>
+              <li><span class="spec-k">Состав комплекта:</span> <span class="spec-v">2-точечные 6/9 мм, угловое, срез</span></li>
+              <li><span class="spec-k">Изоляция:</span> <span class="spec-v">Керамический барьер сенсора</span></li>
+              <li><span class="spec-k">Контакт:</span> <span class="spec-v">Замыкание цепи Er21/Er25</span></li>
             </ul>
             <div class="product-order-footer">
               <div class="product-price-block">
@@ -903,10 +915,10 @@
           </div>
         </div>
 
-        <!-- Товар 6: Сопла для лазерной очистки -->
+        <!-- Товар 6: Сопла для лазерной очистки (images/06.png) -->
         <div class="b2b-product-card" data-category="nozzles">
           <div class="product-visual-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#0C0D10" stroke-width="1.5"><rect x="4" y="4" width="16" height="6"/><path d="M6 10v8l6 3 6-3v-8"/></svg>
+            <img src="images/06.png" alt="Насадки для лазерной очистки">
           </div>
           <div class="product-meta-header">
             <span class="product-sku">СЕРИЯ: СМ172841</span>
@@ -914,12 +926,12 @@
           </div>
           <div class="product-content-body">
             <h3 class="product-name">Насадки для лазерной очистки (Плоскость/Углы)</h3>
-            <div class="product-compat">IPG LightCLEAN · LaserOne LHC-F300[cite: 3]</div>
+            <div class="product-compat">IPG LightCLEAN · LaserOne LHC-F300</div>
             <ul class="product-specs-list">
-              <li><span class="spec-k">Типы насадок:</span> <span class="spec-v">Внутренний угол, внешний, плоскость[cite: 3]</span></li>
-              <li><span class="spec-k">Газовый экран:</span> <span class="spec-v">Ширина щели 15 мм (обдув)[cite: 3]</span></li>
-              <li><span class="spec-k">Стойкость:</span> <span class="spec-v">Защита от теплового рикошета[cite: 3]</span></li>
-              <li><span class="spec-k">Посадка:</span> <span class="spec-v">Быстросъемный цанговый зажим[cite: 3]</span></li>
+              <li><span class="spec-k">Типы насадок:</span> <span class="spec-v">Внутренний угол, внешний, плоскость</span></li>
+              <li><span class="spec-k">Газовый экран:</span> <span class="spec-v">Ширина щели 15 мм (обдув)</span></li>
+              <li><span class="spec-k">Стойкость:</span> <span class="spec-v">Защита от теплового рикошета</span></li>
+              <li><span class="spec-k">Посадка:</span> <span class="spec-v">Быстросъемный цанговый зажим</span></li>
             </ul>
             <div class="product-order-footer">
               <div class="product-price-block">
@@ -931,10 +943,10 @@
           </div>
         </div>
 
-        <!-- Товар 7: Оснастка подачи проволоки (Wire Feeder) -->
+        <!-- Товар 7: Оснастка подачи проволоки (images/07.png) -->
         <div class="b2b-product-card" data-category="wire">
           <div class="product-visual-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#0C0D10" stroke-width="1.5"><circle cx="12" cy="12" r="8"/><path d="M12 4v8l4 4"/></svg>
+            <img src="images/07.png" alt="Кронштейн и наконечники Wire Feeder">
           </div>
           <div class="product-meta-header">
             <span class="product-sku">АРТИКУЛ: CM1728085000</span>
@@ -942,12 +954,12 @@
           </div>
           <div class="product-content-body">
             <h3 class="product-name">Кронштейн и наконечники Wire Feeder</h3>
-            <div class="product-compat">LightWELD 1500 / XC / XR · Податчики IPG/LaserOne[cite: 3]</div>
+            <div class="product-compat">LightWELD 1500 / XC / XR · Податчики IPG/LaserOne</div>
             <ul class="product-specs-list">
-              <li><span class="spec-k">Диаметры проволоки:</span> <span class="spec-v">0.8 / 1.0 / 1.2 мм[cite: 3]</span></li>
-              <li><span class="spec-k">Каналы:</span> <span class="spec-v">Тефлоновые (Al) и стальные[cite: 3]</span></li>
-              <li><span class="spec-k">Кронштейн:</span> <span class="spec-v">Жесткая юстировка угла ввода[cite: 3]</span></li>
-              <li><span class="spec-k">Материал:</span> <span class="spec-v">CuCrZr износостойкий сплав[cite: 3]</span></li>
+              <li><span class="spec-k">Диаметры проволоки:</span> <span class="spec-v">0.8 / 1.0 / 1.2 мм</span></li>
+              <li><span class="spec-k">Каналы:</span> <span class="spec-v">Тефлоновые (Al) и стальные</span></li>
+              <li><span class="spec-k">Кронштейн:</span> <span class="spec-v">Жесткая юстировка угла ввода</span></li>
+              <li><span class="spec-k">Материал:</span> <span class="spec-v">CuCrZr износостойкий сплав</span></li>
             </ul>
             <div class="product-order-footer">
               <div class="product-price-block">
@@ -959,10 +971,10 @@
           </div>
         </div>
 
-        <!-- Товар 8: Фторсиликоновая смазка Molykote HP-870 -->
+        <!-- Товар 8: Фторсиликоновая смазка Molykote HP-870 (images/08.png) -->
         <div class="b2b-product-card" data-category="chem">
           <div class="product-visual-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#0C0D10" stroke-width="1.5"><path d="M12 2a5 5 0 0 0-5 5v14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V7a5 5 0 0 0-5-5z"/><path d="M9 11h6"/></svg>
+            <img src="images/08.png" alt="Термосмазка Molykote HP-870">
           </div>
           <div class="product-meta-header">
             <span class="product-sku">ОРИГИНАЛ: DUPONT MOLYKOTE</span>
@@ -970,12 +982,12 @@
           </div>
           <div class="product-content-body">
             <h3 class="product-name">Термосмазка Molykote HP-870 (100 г)</h3>
-            <div class="product-compat">Обязательный регламент ТО цанг и резьб IPG[cite: 3]</div>
+            <div class="product-compat">Обязательный регламент ТО цанг и резьб IPG</div>
             <ul class="product-specs-list">
-              <li><span class="spec-k">База:</span> <span class="spec-v">Перфторполиэфир (PFPE) / PTFE[cite: 3]</span></li>
-              <li><span class="spec-k">Диапазон темп.:</span> <span class="spec-v">-20°C до +250°C[cite: 3]</span></li>
-              <li><span class="spec-k">Особенность:</span> <span class="spec-v">Не дымит, не сжигает оптику[cite: 3]</span></li>
-              <li><span class="spec-k">Назначение:</span> <span class="spec-v">Защита резьбы сопла от задиров[cite: 3]</span></li>
+              <li><span class="spec-k">База:</span> <span class="spec-v">Перфторполиэфир (PFPE) / PTFE</span></li>
+              <li><span class="spec-k">Диапазон темп.:</span> <span class="spec-v">-20°C до +250°C</span></li>
+              <li><span class="spec-k">Особенность:</span> <span class="spec-v">Не дымит, не сжигает оптику</span></li>
+              <li><span class="spec-k">Назначение:</span> <span class="spec-v">Защита резьбы сопла от задиров</span></li>
             </ul>
             <div class="product-order-footer">
               <div class="product-price-block">
@@ -987,10 +999,10 @@
           </div>
         </div>
 
-        <!-- Товар 9: Сервисный набор очистки чистых помещений -->
+        <!-- Товар 9: Сервисный набор очистки чистых помещений (images/09.png) -->
         <div class="b2b-product-card" data-category="chem">
           <div class="product-visual-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#0C0D10" stroke-width="1.5"><rect x="3" y="3" width="18" height="18"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/></svg>
+            <img src="images/09.png" alt="Комплект чистки оптики TexWipe + IPA">
           </div>
           <div class="product-meta-header">
             <span class="product-sku">КЛАСС: CLEANROOM ISO 5</span>
@@ -998,12 +1010,12 @@
           </div>
           <div class="product-content-body">
             <h3 class="product-name">Комплект чистки оптики (TexWipe + IPA)</h3>
-            <div class="product-compat">Регламент ежедневного ТО оптических трактов[cite: 3]</div>
+            <div class="product-compat">Регламент ежедневного ТО оптических трактов</div>
             <ul class="product-specs-list">
-              <li><span class="spec-k">Свапы:</span> <span class="spec-v">TexWipe Alpha TX714A (50 шт.)[cite: 3]</span></li>
-              <li><span class="spec-k">Растворитель:</span> <span class="spec-v">Оптический изопропанол IPA 99.9%[cite: 3]</span></li>
-              <li><span class="spec-k">Очиститель газа:</span> <span class="spec-v">Аэрозоль DUST OFF 360 HFO[cite: 3]</span></li>
-              <li><span class="spec-k">Защита:</span> <span class="spec-v">Силиконовые колпачки на сопла[cite: 3]</span></li>
+              <li><span class="spec-k">Свапы:</span> <span class="spec-v">TexWipe Alpha TX714A (50 шт.)</span></li>
+              <li><span class="spec-k">Растворитель:</span> <span class="spec-v">Оптический изопропанол IPA 99.9%</span></li>
+              <li><span class="spec-k">Очиститель газа:</span> <span class="spec-v">Аэрозоль DUST OFF 360 HFO</span></li>
+              <li><span class="spec-k">Защита:</span> <span class="spec-v">Силиконовые колпачки на сопла</span></li>
             </ul>
             <div class="product-order-footer">
               <div class="product-price-block">
@@ -1025,7 +1037,7 @@
     <div class="container">
       <div class="order-box-center">
         <h2>Запрос официального счета на ЗИП</h2>
-        <p>Укажите требуемые позиции, количество и ИНН вашего предприятия. Дежурный специалист склада проверит резерв и направит счет на оплату с договором в течение 20 минут[cite: 3].</p>
+        <p>Укажите требуемые позиции, количество и ИНН вашего предприятия. Дежурный специалист склада проверит резерв и направит счет на оплату с договором в течение 20 минут.</p>
 
         <form id="order-form">
           <div class="form-group-stanq">
@@ -1052,11 +1064,10 @@
     </div>
   </section>
 
-  <!-- 5. ФУТЕР -->
+  <!-- 5. ФУТЕР БЕЗ ЛОГОТИПА -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-layout">
-        <div class="footer-brand">LASERWELD</div>
         <div class="footer-links">
           <a href="remont-svarok.html">СВАРКА</a>
           <a href="remont-ochistok.html">ОЧИСТКА</a>
@@ -1068,7 +1079,7 @@
       </div>
       <div class="footer-copyright">
         <div>© 2026 LASER SERVICE ENGINEERING. ВСЕ ПРАВА ЗАЩИЩЕНЫ. ОФИЦИАЛЬНЫЙ ДОГОВОР ПОСТАВКИ.</div>
-        <div>РЕЕСТР ЗИП: IPG & LASERONE ORIGINAL SPEC</div>
+        <div>РЕЕСТР ЗИП: IPG &amp; LASERONE ORIGINAL SPEC</div>
       </div>
     </div>
   </footer>
@@ -1083,20 +1094,21 @@
       const drawerOverlay = document.getElementById('drawer-overlay');
 
       function toggleMenu(open) {
+        if (!mobileDrawer) return;
         if (open) {
           mobileDrawer.classList.add('open');
-          drawerOverlay.classList.add('active');
+          if (drawerOverlay) drawerOverlay.classList.add('active');
           document.body.style.overflow = 'hidden';
         } else {
           mobileDrawer.classList.remove('open');
-          drawerOverlay.classList.remove('active');
+          if (drawerOverlay) drawerOverlay.classList.remove('active');
           document.body.style.overflow = '';
         }
       }
 
-      burgerBtn.addEventListener('click', () => toggleMenu(true));
-      drawerClose.addEventListener('click', () => toggleMenu(false));
-      drawerOverlay.addEventListener('click', () => toggleMenu(false));
+      if (burgerBtn) burgerBtn.addEventListener('click', () => toggleMenu(true));
+      if (drawerClose) drawerClose.addEventListener('click', () => toggleMenu(false));
+      if (drawerOverlay) drawerOverlay.addEventListener('click', () => toggleMenu(false));
 
       // 2. Фильтрация по категориям
       const filterBtns = document.querySelectorAll('.catalog-tab-btn');
@@ -1127,24 +1139,29 @@
           const title = btn.dataset.title;
           if (targetField && title) {
             targetField.value = title;
-            document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+            const orderSection = document.getElementById('order');
+            if (orderSection) orderSection.scrollIntoView({ behavior: 'smooth' });
           }
         });
       });
 
       // 4. Отправка формы счета
       const form = document.getElementById('order-form');
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const btn = form.querySelector('button[type="submit"]');
-        btn.textContent = 'СЧЕТ СФОРМИРОВАН! МЕНЕДЖЕР СВЯЖЕТСЯ ЧЕРЕЗ 15 МИН';
-        btn.style.background = '#0D8249';
-        setTimeout(() => {
-          btn.textContent = 'ВЫСТАВИТЬ ОФИЦИАЛЬНЫЙ СЧЕТ B2B';
-          btn.style.background = '';
-          form.reset();
-        }, 4000);
-      });
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const btn = form.querySelector('button[type="submit"]');
+          if (btn) {
+            btn.textContent = 'СЧЕТ СФОРМИРОВАН! МЕНЕДЖЕР СВЯЖЕТСЯ ЧЕРЕЗ 15 МИН';
+            btn.style.background = '#0D8249';
+            setTimeout(() => {
+              btn.textContent = 'ВЫСТАВИТЬ ОФИЦИАЛЬНЫЙ СЧЕТ B2B';
+              btn.style.background = '';
+              form.reset();
+            }, 4000);
+          }
+        });
+      }
     });
   </script>
 
