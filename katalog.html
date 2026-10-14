@@ -301,7 +301,7 @@
     .hero-catalog-container {
       position: relative;
       z-index: 2;
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
     }
 
@@ -329,7 +329,7 @@
     .hero-catalog-desc {
       font-size: 15px;
       color: #4B5563;
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto 36px auto;
       line-height: 1.5;
     }
@@ -477,11 +477,12 @@
       flex-grow: 1;
     }
     .product-name {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       color: var(--c-black);
       margin-bottom: 8px;
       line-height: 1.35;
+      min-height: 42px;
     }
     .product-compat {
       font-family: var(--font-mono);
@@ -721,19 +722,19 @@
     <div class="hero-giant-wordmark">SPARE PARTS</div>
 
     <div class="container hero-catalog-container">
-      <span class="hero-badge-mono">[ СКЛАДСКОЙ РЕЕСТР // 100% ЗАВОДСКАЯ СОВМЕСТИМОСТЬ ]</span>
+      <span class="hero-badge-mono">[ СКЛАДСКОЙ РЕЕСТР // ОРИГИНАЛЬНАЯ СПЕЦИФИКАЦИЯ 2026 ]</span>
       <h1 class="hero-catalog-title">Оригинальный ЗИП и оптика</h1>
       <p class="hero-catalog-desc">
-        Поставка сертифицированных оптических элементов, узлов механики и специализированных расходных материалов для систем лазерной сварки и очистки по безналичному расчету (без НДС).
+        Поставка сертифицированных сопел, кварцевой оптики, картриджей и средств индивидуальной защиты для аппаратов IPG LightWELD, LightCLEAN и LaserOne по безналичному расчету (без НДС).
       </p>
 
       <!-- Фильтры по инженерным группам -->
       <div class="catalog-tabs-row">
-        <button class="catalog-tab-btn active" data-filter="all">Все позиции (9)</button>
+        <button class="catalog-tab-btn active" data-filter="all">Все позиции (12)</button>
+        <button class="catalog-tab-btn" data-filter="weld">Сварка LightWELD</button>
+        <button class="catalog-tab-btn" data-filter="clean">Очистка LightCLEAN</button>
         <button class="catalog-tab-btn" data-filter="optics">Оптика и картриджи</button>
-        <button class="catalog-tab-btn" data-filter="nozzles">Сопла и механика</button>
-        <button class="catalog-tab-btn" data-filter="wire">Подача проволоки</button>
-        <button class="catalog-tab-btn" data-filter="chem">Спецхимия и ТО</button>
+        <button class="catalog-tab-btn" data-filter="safety">СИЗ и защита</button>
       </div>
     </div>
   </section>
@@ -744,14 +745,14 @@
       
       <div class="standard-item">
         <div class="std-num">01 // 100% ОРИГИНАЛ</div>
-        <div class="std-title">Сертифицированный кварц</div>
-        <div class="std-text">Двустороннее просветление под длину волны 1070 нм. Исключен перегрев коллиматора, характерный для китайских аналогов.</div>
+        <div class="std-title">Заводской стандарт ЭИП</div>
+        <div class="std-text">Оригинальные чертежи и сплавы. Полное соответствие геометрии оптического тракта и посадочных резьб IPG IRE-Polus.</div>
       </div>
 
       <div class="standard-item">
         <div class="std-num">02 // НАЛИЧИЕ В МОСКВЕ</div>
         <div class="std-title">Складской буфер 95%</div>
-        <div class="std-text">Защитные окна, картриджи линз, сопла и смазка Molykote постоянно поддерживаются в резерве на центральном складе.</div>
+        <div class="std-text">Защитные окна, картриджи линз, сопла и аксессуары постоянно поддерживаются в резерве на центральном складе в Москве.</div>
       </div>
 
       <div class="standard-item">
@@ -763,266 +764,350 @@
       <div class="standard-item">
         <div class="std-num">04 // B2B ДОКУМЕНТООБОРОТ</div>
         <div class="std-title">Счета и акты через ЭДО</div>
-        <div class="std-text">Выставление счета за 15 минут. Обмен договорами и УПД через системы Диадок (Контур) и СБИС (Тензор).</div>
+        <div class="std-text">Выставление счета за 15 минут. Обмен договорами и закрывающими актами через системы Диадок (Контур) и СБИС (Тензор).</div>
       </div>
 
     </div>
   </section>
 
-  <!-- 3. МОДУЛЬНАЯ ВИТРИНА СПЕЦИФИКАЦИЙ ЗИП -->
+  <!-- 3. МОДУЛЬНАЯ ВИТРИНА СПЕЦИФИКАЦИЙ ЗИП (12 ПОЗИЦИЙ) -->
   <section class="catalog-grid-section">
     <div class="container">
       
       <div class="catalog-grid-layout" id="products-container">
         
-        <!-- Товар 1: Защитное стекло сварки (images/01.png) -->
-        <div class="b2b-product-card" data-category="optics">
+        <!-- Товар 1: Сопло рогатка малая -->
+        <div class="b2b-product-card" data-category="weld">
           <div class="product-visual-wrap">
-            <img src="images/01.png" alt="Защитное стекло D20/1.5">
+            <img src="images/01.png" alt="Сопло рогатка малая ЭИП 1728.460.011-00">
           </div>
           <div class="product-meta-header">
-            <span class="product-sku">АРТИКУЛ: COPWXEX014U</span>
-            <span class="product-stock-tag">В НАЛИЧИИ: 150+ ШТ</span>
+            <span class="product-sku">АРТИКУЛ: CM172846001100XR</span>
+            <span class="product-stock-tag">В НАЛИЧИИ: 50+ ШТ</span>
           </div>
           <div class="product-content-body">
-            <h3 class="product-name">Защитное стекло сварочной головки D20/1.5</h3>
-            <div class="product-compat">IPG LightWELD 1500 / XC / XR · LiteWELD Pro</div>
+            <h3 class="product-name">Сопло рогатка малая ЭИП 1728.460.011-00</h3>
+            <div class="product-compat">IPG LightWELD · Метрическая резьба</div>
+            <ul class="product-specs-list">
+              <li><span class="spec-k">Тип сопла:</span> <span class="spec-v">Рогатка малая (внешний угол)</span></li>
+              <li><span class="spec-k">Материал:</span> <span class="spec-v">Медь электротехническая Cu-ETP</span></li>
+              <li><span class="spec-k">Резьба:</span> <span class="spec-v">Метрическая (под втулку 1728.460)</span></li>
+              <li><span class="spec-k">Назначение:</span> <span class="spec-v">Стабильное ведение шва по кромке</span></li>
+            </ul>
+            <div class="product-order-footer">
+              <div class="product-price-block">
+                <span class="price-sub">Цена по прайсу 2026:</span>
+                <span class="price-val">4 100 ₽</span>
+              </div>
+              <button class="btn-solid-black product-order-btn" data-title="Сопло рогатка малая ЭИП 1728.460.011-00">Запросить счет</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Товар 2: Сопло рогатка большая -->
+        <div class="b2b-product-card" data-category="weld">
+          <div class="product-visual-wrap">
+            <img src="images/02.png" alt="Сопло рогатка большая ЭИП 1728.460.012-00">
+          </div>
+          <div class="product-meta-header">
+            <span class="product-sku">АРТИКУЛ: CM172846001200XR</span>
+            <span class="product-stock-tag">В НАЛИЧИИ: 40+ ШТ</span>
+          </div>
+          <div class="product-content-body">
+            <h3 class="product-name">Сопло рогатка большая ЭИП 1728.460.012-00</h3>
+            <div class="product-compat">IPG LightWELD · Метрическая резьба</div>
+            <ul class="product-specs-list">
+              <li><span class="spec-k">Тип сопла:</span> <span class="spec-v">Рогатка большая (широкий упор)</span></li>
+              <li><span class="spec-k">Материал:</span> <span class="spec-v">Медь Cu-ETP термостойкая</span></li>
+              <li><span class="spec-k">Контакт сенсора:</span> <span class="spec-v">Замыкание контура цепи Er21/Er25</span></li>
+              <li><span class="spec-k">Назначение:</span> <span class="spec-v">Сварка деталей толщиной от 2 мм</span></li>
+            </ul>
+            <div class="product-order-footer">
+              <div class="product-price-block">
+                <span class="price-sub">Цена по прайсу 2026:</span>
+                <span class="price-val">4 100 ₽</span>
+              </div>
+              <button class="btn-solid-black product-order-btn" data-title="Сопло рогатка большая ЭИП 1728.460.012-00">Запросить счет</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Товар 3: Сопло цилиндрическое -->
+        <div class="b2b-product-card" data-category="weld">
+          <div class="product-visual-wrap">
+            <img src="images/03.png" alt="Сопло цилиндрическое ЭИП 1728.460.010-00">
+          </div>
+          <div class="product-meta-header">
+            <span class="product-sku">АРТИКУЛ: CM172846001000XR</span>
+            <span class="product-stock-tag">В НАЛИЧИИ: 60+ ШТ</span>
+          </div>
+          <div class="product-content-body">
+            <h3 class="product-name">Сопло цилиндрическое ЭИП 1728.460.010-00</h3>
+            <div class="product-compat">IPG LightWELD · LiteWELD Pro</div>
+            <ul class="product-specs-list">
+              <li><span class="spec-k">Тип сопла:</span> <span class="spec-v">Прямое цилиндрическое</span></li>
+              <li><span class="spec-k">Газовый охват:</span> <span class="spec-v">Равномерный ламинарный обдув</span></li>
+              <li><span class="spec-k">Сварка:</span> <span class="spec-v">Стыковые и нахлесточные соединения</span></li>
+              <li><span class="spec-k">Резьба:</span> <span class="spec-v">Метрический стандарт ЭИП</span></li>
+            </ul>
+            <div class="product-order-footer">
+              <div class="product-price-block">
+                <span class="price-sub">Цена по прайсу 2026:</span>
+                <span class="price-val">4 200 ₽</span>
+              </div>
+              <button class="btn-solid-black product-order-btn" data-title="Сопло цилиндрическое ЭИП 1728.460.010-00">Запросить счет</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Товар 4: Сопло конусное 2 в 1 с прорезью -->
+        <div class="b2b-product-card" data-category="weld">
+          <div class="product-visual-wrap">
+            <img src="images/04.png" alt="Сопло конусное с прорезью под присадочную проволоку">
+          </div>
+          <div class="product-meta-header">
+            <span class="product-sku">АРТИКУЛ: CM172846000900XR</span>
+            <span class="product-stock-tag">В НАЛИЧИИ: 75+ ШТ</span>
+          </div>
+          <div class="product-content-body">
+            <h3 class="product-name">Сопло конусное с прорезью под проволоку (2 в 1), ЭИП 1728.460.009-10</h3>
+            <div class="product-compat">IPG LightWELD · Под присадку 0.8–1.2 мм</div>
+            <ul class="product-specs-list">
+              <li><span class="spec-k">Конструкция:</span> <span class="spec-v">Универсальное (2 в 1) с пазом</span></li>
+              <li><span class="spec-k">Режимы:</span> <span class="spec-v">С автоподатчиком и без проволоки</span></li>
+              <li><span class="spec-k">Материал:</span> <span class="spec-v">Высокоочищенная медь Cu-ETP</span></li>
+              <li><span class="spec-k">Назначение:</span> <span class="spec-v">Защита от залипания брызг</span></li>
+            </ul>
+            <div class="product-order-footer">
+              <div class="product-price-block">
+                <span class="price-sub">Цена по прайсу 2026:</span>
+                <span class="price-val">3 550 ₽</span>
+              </div>
+              <button class="btn-solid-black product-order-btn" data-title="Сопло конусное с прорезью ЭИП 1728.460.009-10">Запросить счет</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Товар 5: Линза PCX D=20; f=120; R=54 -->
+        <div class="b2b-product-card" data-category="weld optics">
+          <div class="product-visual-wrap">
+            <img src="images/05.png" alt="Линза PCX D=20; f=120; R=54 ЭИП 1728.400.500">
+          </div>
+          <div class="product-meta-header">
+            <span class="product-sku">АРТИКУЛ: COLENSVO20X5001</span>
+            <span class="product-stock-tag">В НАЛИЧИИ: 25 ШТ</span>
+          </div>
+          <div class="product-content-body">
+            <h3 class="product-name">Линза PCX D=20; f=120; R=54 ЭИП 1728.400.500</h3>
+            <div class="product-compat">LightWELD · Фокусирующая линза без картриджа</div>
+            <ul class="product-specs-list">
+              <li><span class="spec-k">Геометрия:</span> <span class="spec-v">Ø20 мм / f=120 мм (R=54)</span></li>
+              <li><span class="spec-k">Тип линзы:</span> <span class="spec-v">Плоско-выпуклая (PCX), кварц</span></li>
+              <li><span class="spec-k">Просветление:</span> <span class="spec-v">AR/AR 1070 нм (потери &lt;0.2%)</span></li>
+              <li><span class="spec-k">Назначение:</span> <span class="spec-v">Замена сгоревшей оптики в картридже</span></li>
+            </ul>
+            <div class="product-order-footer">
+              <div class="product-price-block">
+                <span class="price-sub">Цена по прайсу 2026:</span>
+                <span class="price-val">7 600 ₽</span>
+              </div>
+              <button class="btn-solid-black product-order-btn" data-title="Линза PCX D=20 f=120 R=54 ЭИП 1728.400.500">Запросить счет</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Товар 6: Стекло защитное D=20; h=1,5 (LightWeld) -->
+        <div class="b2b-product-card" data-category="weld optics">
+          <div class="product-visual-wrap">
+            <img src="images/06.png" alt="Стекло защитное D=20; h=1,5 ЭИП 1728.400.501">
+          </div>
+          <div class="product-meta-header">
+            <span class="product-sku">АРТИКУЛ: COPOWIPO20X5011</span>
+            <span class="product-stock-tag">В НАЛИЧИИ: 150+ УПАК</span>
+          </div>
+          <div class="product-content-body">
+            <h3 class="product-name">Стекло защитное D=20; h=1,5 ЭИП 1728.400.501 (LightWeld)</h3>
+            <div class="product-compat">IPG LightWELD · Упаковка 5 шт.</div>
             <ul class="product-specs-list">
               <li><span class="spec-k">Диаметр / Толщина:</span> <span class="spec-v">Ø20 мм × 1,5 мм</span></li>
-              <li><span class="spec-k">Материал:</span> <span class="spec-v">Оптический кварц JGS1</span></li>
-              <li><span class="spec-k">Покрытие:</span> <span class="spec-v">AR/AR 1070 нм (R&lt;0.2%)</span></li>
-              <li><span class="spec-k">Комплектация:</span> <span class="spec-v">Блистер + кольцо O-ring</span></li>
+              <li><span class="spec-k">Материал:</span> <span class="spec-v">Кварц оптический JGS1</span></li>
+              <li><span class="spec-k">Фасовка:</span> <span class="spec-v">Оригинальный бокс 5 шт.</span></li>
+              <li><span class="spec-k">Стойкость:</span> <span class="spec-v">Защита от перегрева и ошибки Er09</span></li>
             </ul>
             <div class="product-order-footer">
               <div class="product-price-block">
-                <span class="price-sub">Цена за шт:</span>
-                <span class="price-val">3 400 ₽</span>
+                <span class="price-sub">Цена за упаковку (5 шт.):</span>
+                <span class="price-val">12 800 ₽</span>
               </div>
-              <button class="btn-solid-black product-order-btn" data-title="Защитное стекло D20/1.5 (COPWXEX014U)">Запросить счет</button>
+              <button class="btn-solid-black product-order-btn" data-title="Стекло защитное D=20 h=1,5 ЭИП 1728.400.501 (5 шт.)">Запросить счет</button>
             </div>
           </div>
         </div>
 
-        <!-- Товар 2: Картридж защитного стекла очистки (images/02.png) -->
-        <div class="b2b-product-card" data-category="optics">
+        <!-- Товар 7: Сопло ЭИП 1728.411.000-00 -->
+        <div class="b2b-product-card" data-category="clean">
           <div class="product-visual-wrap">
-            <img src="images/02.png" alt="Картридж защитного стекла очистки">
+            <img src="images/07.png" alt="Сопло ЭИП 1728.411.000-00">
           </div>
           <div class="product-meta-header">
-            <span class="product-sku">АРТИКУЛ: COP-LHC-F300</span>
-            <span class="product-stock-tag">В НАЛИЧИИ: 40 ШТ</span>
+            <span class="product-sku">АРТИКУЛ: CM172841100000XR</span>
+            <span class="product-stock-tag">В НАЛИЧИИ: 30+ ШТ</span>
           </div>
           <div class="product-content-body">
-            <h3 class="product-name">Картридж защитного стекла пистолета очистки</h3>
-            <div class="product-compat">IPG LightCLEAN · LaserOne LHC-F300 / LHCX</div>
+            <h3 class="product-name">Сопло ЭИП 1728.411.000-00 (Очистка внешних углов)</h3>
+            <div class="product-compat">IPG LightCLEAN · LightWELD XC</div>
             <ul class="product-specs-list">
-              <li><span class="spec-k">Конструктив:</span> <span class="spec-v">Прямоугольная металл-оправа</span></li>
-              <li><span class="spec-k">Фиксация:</span> <span class="spec-v">Шариковый замок (без винтов)</span></li>
-              <li><span class="spec-k">Длина волны:</span> <span class="spec-v">1070 нм (высокая абляция)</span></li>
-              <li><span class="spec-k">Фасовка:</span> <span class="spec-v">Комплект 5 шт. в боксе</span></li>
+              <li><span class="spec-k">Назначение:</span> <span class="spec-v">Очистка наружных углов металлоконструкций</span></li>
+              <li><span class="spec-k">Обдув:</span> <span class="spec-v">Щелевой экран направления потока</span></li>
+              <li><span class="spec-k">Защита оптики:</span> <span class="spec-v">Отвод окалины и испарений ЛКП</span></li>
+              <li><span class="spec-k">Монтаж:</span> <span class="spec-v">Быстросъемный цанговый зажим</span></li>
             </ul>
             <div class="product-order-footer">
               <div class="product-price-block">
-                <span class="price-sub">Цена за комплект:</span>
-                <span class="price-val">24 500 ₽</span>
+                <span class="price-sub">Цена по прайсу 2026:</span>
+                <span class="price-val">4 800 ₽</span>
               </div>
-              <button class="btn-solid-black product-order-btn" data-title="Картридж защитного стекла очистки (COP-LHC-F300)">Запросить счет</button>
+              <button class="btn-solid-black product-order-btn" data-title="Сопло ЭИП 1728.411.000-00 (внешние углы)">Запросить счет</button>
             </div>
           </div>
         </div>
 
-        <!-- Товар 3: Картридж фокусирующей линзы (images/03.png) -->
-        <div class="b2b-product-card" data-category="optics">
+        <!-- Товар 8: Сопло ЭИП 1728.412.000-00 -->
+        <div class="b2b-product-card" data-category="clean">
           <div class="product-visual-wrap">
-            <img src="images/03.png" alt="Картридж фокусирующей линзы LHW">
+            <img src="images/08.png" alt="Сопло ЭИП 1728.412.000-00">
           </div>
           <div class="product-meta-header">
-            <span class="product-sku">ЧЕРТЕЖ: ЭИП 1728.400</span>
-            <span class="product-stock-tag">В НАЛИЧИИ: 18 ШТ</span>
+            <span class="product-sku">АРТИКУЛ: CM172841200000XR</span>
+            <span class="product-stock-tag">В НАЛИЧИИ: 28 ШТ</span>
           </div>
           <div class="product-content-body">
-            <h3 class="product-name">Картридж фокусирующей линзы (в сборе)</h3>
-            <div class="product-compat">Сварочные головки серии LHW (IPG / LaserOne)</div>
+            <h3 class="product-name">Сопло ЭИП 1728.412.000-00 (Очистка внутренних углов)</h3>
+            <div class="product-compat">IPG LightCLEAN · LightWELD XC</div>
             <ul class="product-specs-list">
-              <li><span class="spec-k">Оптика:</span> <span class="spec-v">Кварцевый блок в оправе</span></li>
-              <li><span class="spec-k">Компенсатор:</span> <span class="spec-v">Скошенная коническая пружина</span></li>
-              <li><span class="spec-k">Монтаж:</span> <span class="spec-v">Поворот ключом на 30°</span></li>
-              <li><span class="spec-k">Ресурс:</span> <span class="spec-v">До 2500 Вт излучения</span></li>
+              <li><span class="spec-k">Назначение:</span> <span class="spec-v">Очистка внутренних углов и тавровых стыков</span></li>
+              <li><span class="spec-k">Особенность:</span> <span class="spec-v">Снижает паразитную засветку Er11</span></li>
+              <li><span class="spec-k">Профиль:</span> <span class="spec-v">Угловая геометрия под 90°</span></li>
+              <li><span class="spec-k">Материал:</span> <span class="spec-v">Антипригарный медный сплав</span></li>
             </ul>
             <div class="product-order-footer">
               <div class="product-price-block">
-                <span class="price-sub">Цена за шт:</span>
-                <span class="price-val">48 000 ₽</span>
+                <span class="price-sub">Цена по прайсу 2026:</span>
+                <span class="price-val">5 100 ₽</span>
               </div>
-              <button class="btn-solid-black product-order-btn" data-title="Картридж фокусирующей линзы LHW (ЭИП 1728.400)">Запросить счет</button>
+              <button class="btn-solid-black product-order-btn" data-title="Сопло ЭИП 1728.412.000-00 (внутренние углы)">Запросить счет</button>
             </div>
           </div>
         </div>
 
-        <!-- Товар 4: Зеркало сканатора Wobble (images/04.png) -->
-        <div class="b2b-product-card" data-category="optics">
+        <!-- Товар 9: Сопло ЭИП 1728.413.000-00 -->
+        <div class="b2b-product-card" data-category="clean">
           <div class="product-visual-wrap">
-            <img src="images/04.png" alt="Зеркало гальвосканатора Wobble">
+            <img src="images/09.png" alt="Сопло ЭИП 1728.413.000-00">
           </div>
           <div class="product-meta-header">
-            <span class="product-sku">СПЕЦИФИКАЦИЯ: GALVO-1070</span>
-            <span class="product-stock-tag">В НАЛИЧИИ: 12 ШТ</span>
-          </div>
-          <div class="product-content-body">
-            <h3 class="product-name">Зеркало гальвосканатора Wobble (до 300 Гц)</h3>
-            <div class="product-compat">IPG LightWELD 1500 / XC / XR · LiteWELD Pro</div>
-            <ul class="product-specs-list">
-              <li><span class="spec-k">Подложка:</span> <span class="spec-v">Кремний с малым моментом</span></li>
-              <li><span class="spec-k">Напыление:</span> <span class="spec-v">Диэлектрик 1070 нм (R&gt;99.8%)</span></li>
-              <li><span class="spec-k">Лучевая стойкость:</span> <span class="spec-v">&gt; 10 Дж/см² (1064–1080 нм)</span></li>
-              <li><span class="spec-k">Назначение:</span> <span class="spec-v">Устранение ошибок Er01/Er02</span></li>
-            </ul>
-            <div class="product-order-footer">
-              <div class="product-price-block">
-                <span class="price-sub">Цена за шт:</span>
-                <span class="price-val">65 000 ₽</span>
-              </div>
-              <button class="btn-solid-black product-order-btn" data-title="Зеркало гальвосканатора Wobble (GALVO-1070)">Запросить счет</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Товар 5: Набор медных сопел для сварки (images/05.png) -->
-        <div class="b2b-product-card" data-category="nozzles">
-          <div class="product-visual-wrap">
-            <img src="images/05.png" alt="Комплект медных сопел для сварки">
-          </div>
-          <div class="product-meta-header">
-            <span class="product-sku">СЕРИЯ: CM1728460</span>
-            <span class="product-stock-tag">В НАЛИЧИИ: 200+ ШТ</span>
-          </div>
-          <div class="product-content-body">
-            <h3 class="product-name">Комплект медных сопел для сварки (4 шт.)</h3>
-            <div class="product-compat">Сварочные пистолеты LightWELD / LiteWELD</div>
-            <ul class="product-specs-list">
-              <li><span class="spec-k">Материал:</span> <span class="spec-v">Медь электротехническая Cu-ETP</span></li>
-              <li><span class="spec-k">Состав комплекта:</span> <span class="spec-v">2-точечные 6/9 мм, угловое, срез</span></li>
-              <li><span class="spec-k">Изоляция:</span> <span class="spec-v">Керамический барьер сенсора</span></li>
-              <li><span class="spec-k">Контакт:</span> <span class="spec-v">Замыкание цепи Er21/Er25</span></li>
-            </ul>
-            <div class="product-order-footer">
-              <div class="product-price-block">
-                <span class="price-sub">Цена за комплект:</span>
-                <span class="price-val">14 800 ₽</span>
-              </div>
-              <button class="btn-solid-black product-order-btn" data-title="Комплект медных сопел сварки (CM1728460)">Запросить счет</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Товар 6: Сопла для лазерной очистки (images/06.png) -->
-        <div class="b2b-product-card" data-category="nozzles">
-          <div class="product-visual-wrap">
-            <img src="images/06.png" alt="Насадки для лазерной очистки">
-          </div>
-          <div class="product-meta-header">
-            <span class="product-sku">СЕРИЯ: СМ172841</span>
+            <span class="product-sku">АРТИКУЛ: CM1728413000000R</span>
             <span class="product-stock-tag">В НАЛИЧИИ: 35 ШТ</span>
           </div>
           <div class="product-content-body">
-            <h3 class="product-name">Насадки для лазерной очистки (Плоскость/Углы)</h3>
+            <h3 class="product-name">Сопло ЭИП 1728.413.000-00 (Очистка ровных поверхностей)</h3>
             <div class="product-compat">IPG LightCLEAN · LaserOne LHC-F300</div>
             <ul class="product-specs-list">
-              <li><span class="spec-k">Типы насадок:</span> <span class="spec-v">Внутренний угол, внешний, плоскость</span></li>
-              <li><span class="spec-k">Газовый экран:</span> <span class="spec-v">Ширина щели 15 мм (обдув)</span></li>
-              <li><span class="spec-k">Стойкость:</span> <span class="spec-v">Защита от теплового рикошета</span></li>
-              <li><span class="spec-k">Посадка:</span> <span class="spec-v">Быстросъемный цанговый зажим</span></li>
+              <li><span class="spec-k">Назначение:</span> <span class="spec-v">Плоскостная скоростная очистка металла</span></li>
+              <li><span class="spec-k">Ширина щели:</span> <span class="spec-v">15 мм под развертку до 100 мм</span></li>
+              <li><span class="spec-k">Абляция:</span> <span class="spec-v">Эффективное удаление ржавчины и оксидов</span></li>
+              <li><span class="spec-k">Фиксация:</span> <span class="spec-v">Цанговое зажимное кольцо</span></li>
             </ul>
             <div class="product-order-footer">
               <div class="product-price-block">
-                <span class="price-sub">Цена за комплект:</span>
-                <span class="price-val">18 500 ₽</span>
+                <span class="price-sub">Цена по прайсу 2026:</span>
+                <span class="price-val">4 800 ₽</span>
               </div>
-              <button class="btn-solid-black product-order-btn" data-title="Насадки для очистки (СМ172841)">Запросить счет</button>
+              <button class="btn-solid-black product-order-btn" data-title="Сопло ЭИП 1728.413.000-00 (плоскость)">Запросить счет</button>
             </div>
           </div>
         </div>
 
-        <!-- Товар 7: Оснастка подачи проволоки (images/07.png) -->
-        <div class="b2b-product-card" data-category="wire">
+        <!-- Товар 10: Картридж фокус. линзы LightWeld 1728.462.000-00 -->
+        <div class="b2b-product-card" data-category="weld optics">
           <div class="product-visual-wrap">
-            <img src="images/07.png" alt="Кронштейн и наконечники Wire Feeder">
+            <img src="images/10.png" alt="Картридж фокус. линзы LightWeld 1728.462.000-00">
           </div>
           <div class="product-meta-header">
-            <span class="product-sku">АРТИКУЛ: CM1728085000</span>
-            <span class="product-stock-tag">В НАЛИЧИИ: 15 ШТ</span>
+            <span class="product-sku">АРТИКУЛ: CDSBOM1728462XXR</span>
+            <span class="product-stock-tag">В НАЛИЧИИ: 18 ШТ</span>
           </div>
           <div class="product-content-body">
-            <h3 class="product-name">Кронштейн и наконечники Wire Feeder</h3>
-            <div class="product-compat">LightWELD 1500 / XC / XR · Податчики IPG/LaserOne</div>
+            <h3 class="product-name">Картридж фокус. линзы LightWeld 1728.462.000-00 (упак.)</h3>
+            <div class="product-compat">IPG LightWELD · Модуль в заводской оправе</div>
             <ul class="product-specs-list">
-              <li><span class="spec-k">Диаметры проволоки:</span> <span class="spec-v">0.8 / 1.0 / 1.2 мм</span></li>
-              <li><span class="spec-k">Каналы:</span> <span class="spec-v">Тефлоновые (Al) и стальные</span></li>
-              <li><span class="spec-k">Кронштейн:</span> <span class="spec-v">Жесткая юстировка угла ввода</span></li>
-              <li><span class="spec-k">Материал:</span> <span class="spec-v">CuCrZr износостойкий сплав</span></li>
+              <li><span class="spec-k">Узел в сборе:</span> <span class="spec-v">Линза + прецизионная оправа</span></li>
+              <li><span class="spec-k">Монтаж:</span> <span class="spec-v">Поворот на 30° заводским ключом</span></li>
+              <li><span class="spec-k">Теплоотвод:</span> <span class="spec-v">Интегрированная коническая пружина</span></li>
+              <li><span class="spec-k">Упаковка:</span> <span class="spec-v">Индивидуальный обеспыленный бокс</span></li>
             </ul>
             <div class="product-order-footer">
               <div class="product-price-block">
-                <span class="price-sub">Цена за комплект:</span>
-                <span class="price-val">22 000 ₽</span>
+                <span class="price-sub">Цена по прайсу 2026:</span>
+                <span class="price-val">15 300 ₽</span>
               </div>
-              <button class="btn-solid-black product-order-btn" data-title="Оснастка Wire Feeder (CM1728085000)">Запросить счет</button>
+              <button class="btn-solid-black product-order-btn" data-title="Картридж фокус. линзы LightWeld 1728.462.000-00">Запросить счет</button>
             </div>
           </div>
         </div>
 
-        <!-- Товар 8: Фторсиликоновая смазка Molykote HP-870 (images/08.png) -->
-        <div class="b2b-product-card" data-category="chem">
+        <!-- Товар 11: Очки защитные LaserPair, YHP FRAME 33 -->
+        <div class="b2b-product-card" data-category="safety">
           <div class="product-visual-wrap">
-            <img src="images/08.png" alt="Термосмазка Molykote HP-870">
+            <img src="images/11.png" alt="Очки защитные LaserPair, YHP FRAME 33">
           </div>
           <div class="product-meta-header">
-            <span class="product-sku">ОРИГИНАЛ: DUPONT MOLYKOTE</span>
-            <span class="product-stock-tag">В НАЛИЧИИ: 25 ТЮБИКОВ</span>
+            <span class="product-sku">АРТИКУЛ: COXXXXX0001002PX</span>
+            <span class="product-stock-tag">В НАЛИЧИИ: 30 ШТ</span>
           </div>
           <div class="product-content-body">
-            <h3 class="product-name">Термосмазка Molykote HP-870 (100 г)</h3>
-            <div class="product-compat">Обязательный регламент ТО цанг и резьб IPG</div>
+            <h3 class="product-name">Очки защитные LaserPair, YHP FRAME 33</h3>
+            <div class="product-compat">LightWELD / LightCLEAN · 900–1100 нм</div>
             <ul class="product-specs-list">
-              <li><span class="spec-k">База:</span> <span class="spec-v">Перфторполиэфир (PFPE) / PTFE</span></li>
-              <li><span class="spec-k">Диапазон темп.:</span> <span class="spec-v">-20°C до +250°C</span></li>
-              <li><span class="spec-k">Особенность:</span> <span class="spec-v">Не дымит, не сжигает оптику</span></li>
-              <li><span class="spec-k">Назначение:</span> <span class="spec-v">Защита резьбы сопла от задиров</span></li>
+              <li><span class="spec-k">Оптическая плотность:</span> <span class="spec-v">OD 7+ (1064–1080 нм)</span></li>
+              <li><span class="spec-k">Оправа:</span> <span class="spec-v">Frame 33 (удобно поверх диоптрийных)</span></li>
+              <li><span class="spec-k">Светопропускание:</span> <span class="spec-v">VLT >45% (отличная видимость ванны)</span></li>
+              <li><span class="spec-k">Сертификация:</span> <span class="spec-v">CE EN207 / ГОСТ 12.4.254-2013</span></li>
             </ul>
             <div class="product-order-footer">
               <div class="product-price-block">
-                <span class="price-sub">Цена за 100 г:</span>
-                <span class="price-val">32 000 ₽</span>
+                <span class="price-sub">Цена по прайсу 2026:</span>
+                <span class="price-val">8 100 ₽</span>
               </div>
-              <button class="btn-solid-black product-order-btn" data-title="Смазка Molykote HP-870 (100г)">Запросить счет</button>
+              <button class="btn-solid-black product-order-btn" data-title="Очки защитные LaserPair YHP FRAME 33">Запросить счет</button>
             </div>
           </div>
         </div>
 
-        <!-- Товар 9: Сервисный набор очистки чистых помещений (images/09.png) -->
-        <div class="b2b-product-card" data-category="chem">
+        <!-- Товар 12: Картридж 1750.026.000-00 (комплект 5шт.) -->
+        <div class="b2b-product-card" data-category="clean optics">
           <div class="product-visual-wrap">
-            <img src="images/09.png" alt="Комплект чистки оптики TexWipe + IPA">
+            <img src="images/12.png" alt="Картридж 1750.026.000-00 (комплект 5шт.)">
           </div>
           <div class="product-meta-header">
-            <span class="product-sku">КЛАСС: CLEANROOM ISO 5</span>
-            <span class="product-stock-tag">В НАЛИЧИИ: 30 КОМПЛ</span>
+            <span class="product-sku">АРТИКУЛ: CM1750026000005R</span>
+            <span class="product-stock-tag">В НАЛИЧИИ: 15 КОМПЛ</span>
           </div>
           <div class="product-content-body">
-            <h3 class="product-name">Комплект чистки оптики (TexWipe + IPA)</h3>
-            <div class="product-compat">Регламент ежедневного ТО оптических трактов</div>
+            <h3 class="product-name">Картридж 1750.026.000-00 (комплект 5шт.)</h3>
+            <div class="product-compat">IPG LightCLEAN · Защитные картриджи головки</div>
             <ul class="product-specs-list">
-              <li><span class="spec-k">Свапы:</span> <span class="spec-v">TexWipe Alpha TX714A (50 шт.)</span></li>
-              <li><span class="spec-k">Растворитель:</span> <span class="spec-v">Оптический изопропанол IPA 99.9%</span></li>
-              <li><span class="spec-k">Очиститель газа:</span> <span class="spec-v">Аэрозоль DUST OFF 360 HFO</span></li>
-              <li><span class="spec-k">Защита:</span> <span class="spec-v">Силиконовые колпачки на сопла</span></li>
+              <li><span class="spec-k">Назначение:</span> <span class="spec-v">Защита объектива и гальвосканатора</span></li>
+              <li><span class="spec-k">Комплектация:</span> <span class="spec-v">Фирменная упаковка 5 шт.</span></li>
+              <li><span class="spec-k">Конструктив:</span> <span class="spec-v">Оправа с шариковым замком</span></li>
+              <li><span class="spec-k">Покрытие:</span> <span class="spec-v">AR 1070 нм высокой лучевой стойкости</span></li>
             </ul>
             <div class="product-order-footer">
               <div class="product-price-block">
-                <span class="price-sub">Цена за комплект:</span>
-                <span class="price-val">16 500 ₽</span>
+                <span class="price-sub">Цена за комплект (5 шт.):</span>
+                <span class="price-val">35 600 ₽</span>
               </div>
-              <button class="btn-solid-black product-order-btn" data-title="Комплект чистки оптики (TexWipe + IPA)">Запросить счет</button>
+              <button class="btn-solid-black product-order-btn" data-title="Картридж 1750.026.000-00 (комплект 5шт.)">Запросить счет</button>
             </div>
           </div>
         </div>
@@ -1051,7 +1136,7 @@
 
           <div class="form-group-stanq">
             <label class="form-label-stanq">Выбранная позиция каталога или список</label>
-            <input type="text" id="target-product-field" name="product_list" class="form-input-stanq" placeholder="Например: Защитные стекла D20 (5 шт.), Смазка Molykote HP-870" style="font-family: var(--font-mono); font-weight: 700;" required>
+            <input type="text" id="target-product-field" name="product_list" class="form-input-stanq" placeholder="Например: Сопло рогатка малая (2 шт.), Стекла защитные D20 (1 упак.)" style="font-family: var(--font-mono); font-weight: 700;" required>
           </div>
 
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="form-group-stanq">
@@ -1119,7 +1204,7 @@
       if (drawerClose) drawerClose.addEventListener('click', () => toggleMenu(false));
       if (drawerOverlay) drawerOverlay.addEventListener('click', () => toggleMenu(false));
 
-      // 2. Фильтрация по категориям
+      // 2. Фильтрация по категориям (поддерживает мульти-категории)
       const filterBtns = document.querySelectorAll('.catalog-tab-btn');
       const cards = document.querySelectorAll('.b2b-product-card');
 
@@ -1130,7 +1215,8 @@
           const filter = btn.dataset.filter;
 
           cards.forEach(card => {
-            if (filter === 'all' || card.dataset.category === filter) {
+            const categories = (card.dataset.category || '').split(' ');
+            if (filter === 'all' || categories.includes(filter)) {
               card.style.display = 'flex';
             } else {
               card.style.display = 'none';
