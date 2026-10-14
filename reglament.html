@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Регламент выездного сервиса по всей России // LASER SERVICE</title>
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <!-- Шрифты: Space Grotesk, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,6 +76,27 @@
     }
     .btn-solid-black:hover {
       background: var(--c-accent);
+      transform: translateY(-1px);
+    }
+
+    .btn-solid-accent {
+      background: var(--c-accent);
+      color: var(--c-white);
+      padding: 14px 28px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.15s;
+      cursor: pointer;
+      border: none;
+      font-family: var(--font-body);
+    }
+    .btn-solid-accent:hover {
+      background: #cf4109;
       transform: translateY(-1px);
     }
 
@@ -188,7 +209,6 @@
       color: var(--c-accent);
     }
 
-    /* Крупный логотип по центру */
     .brand-logo-center {
       display: flex;
       align-items: center;
@@ -288,7 +308,7 @@
     .drawer-overlay.active { display: block; }
 
     /* ================================================================= */
-    /* 3. HERO: РЕГЛАМЕНТ ПО РОССИИ С ПОЛНОЭКРАННОЙ КАРТИНКОЙ REGL.PNG    */
+    /* 3. HERO: РЕГЛАМЕНТ ПО РОССИИ С КАРТИНКОЙ REGL.PNG                 */
     /* ================================================================= */
     .hero-logistics {
       position: relative;
@@ -336,7 +356,7 @@
       align-items: flex-start;
     }
     .hero-tagline-left {
-      max-width: 420px;
+      max-width: 440px;
     }
     .tag-title {
       font-size: 11px;
@@ -348,17 +368,17 @@
       border-bottom: 2px solid var(--c-black);
       display: inline-block;
       padding-bottom: 8px;
-      background: rgba(255, 255, 255, 0.75);
-      padding-left: 6px;
-      padding-right: 6px;
+      background: rgba(255, 255, 255, 0.85);
+      padding-left: 8px;
+      padding-right: 8px;
     }
     .hero-service-desc {
       font-size: 14px;
       color: #1F2937;
       margin-top: 14px;
       line-height: 1.5;
-      background: rgba(255, 255, 255, 0.75);
-      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 12px 16px;
     }
 
     .hero-bottom-actions {
@@ -378,8 +398,8 @@
     .hero-meta-right {
       text-align: right;
       max-width: 360px;
-      background: rgba(255, 255, 255, 0.75);
-      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 10px 14px;
     }
     .hero-meta-right .meta-label {
       font-size: 11px;
@@ -436,7 +456,111 @@
     }
 
     /* ================================================================= */
-    /* 5. ИНЖЕНЕРНО-ЛОГИСТИЧЕСКОЕ СРАВНЕНИЕ РИСКОВ                       */
+    /* 5. НОВЫЙ БЛОК: ДВА СЕРВИСНЫХ ПРОДУКТА (STANQ MONOCHROME)          */
+    /* ================================================================= */
+    .products-tier-section {
+      padding: 90px 0;
+      background: var(--c-studio-bg);
+      border-bottom: 1px solid var(--c-border);
+    }
+    .products-grid-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    .product-box {
+      background: var(--c-white);
+      border: 1px solid var(--c-black);
+      padding: 44px 36px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .product-box.featured-box {
+      border: 2px solid var(--c-accent);
+    }
+    .box-ribbon {
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      background: var(--c-accent);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 4px 12px;
+      text-transform: uppercase;
+    }
+    .prod-code {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--c-accent);
+      margin-bottom: 14px;
+      letter-spacing: 0.08em;
+    }
+    .prod-name {
+      font-size: 26px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: var(--c-black);
+      line-height: 1.2;
+    }
+    .prod-summary {
+      font-size: 14px;
+      color: #4B5563;
+      line-height: 1.6;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #E5E7EB;
+    }
+    .prod-checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .prod-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: #1F2937;
+    }
+    .prod-bullet {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--c-black);
+      color: #FFF;
+      padding: 1px 6px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .prod-bullet.accent {
+      background: var(--c-accent);
+    }
+    .prod-escalation {
+      background: #F8F9FA;
+      border-left: 3px solid var(--c-black);
+      padding: 14px 16px;
+      font-size: 12px;
+      color: #4B5563;
+      line-height: 1.5;
+      margin-top: auto;
+      margin-bottom: 28px;
+    }
+    .prod-escalation strong {
+      color: var(--c-black);
+    }
+
+    /* ================================================================= */
+    /* 6. ИНЖЕНЕРНО-ЛОГИСТИЧЕСКОЕ СРАВНЕНИЕ РИСКОВ                       */
     /* ================================================================= */
     .matrix-section {
       padding: 90px 0;
@@ -492,7 +616,7 @@
     }
 
     /* ================================================================= */
-    /* 6. ОСНАЩЕНИЕ ВЫЕЗДНОЙ МОБИЛЬНОЙ СТАНЦИИ                           */
+    /* 7. ОСНАЩЕНИЕ ВЫЕЗДНОЙ МОБИЛЬНОЙ СТАНЦИИ                           */
     /* ================================================================= */
     .lab-equipment-section {
       padding: 90px 0;
@@ -532,7 +656,7 @@
     }
 
     /* ================================================================= */
-    /* 7. АЛЬТЕРНАТИВНЫЙ ФОРМАТ: СДЭК В МОСКВУ                           */
+    /* 8. АЛЬТЕРНАТИВНЫЙ ФОРМАТ: СДЭК В МОСКВУ                           */
     /* ================================================================= */
     .cdek-format-section {
       padding: 90px 0;
@@ -600,7 +724,7 @@
     }
 
     /* ================================================================= */
-    /* 8. ФОРМА СОГЛАСОВАНИЯ ВЫЕЗДА ПО РОССИИ                            */
+    /* 9. ФОРМА СОГЛАСОВАНИЯ ВЫЕЗДА ПО РОССИИ                            */
     /* ================================================================= */
     .b24-order-section {
       padding: 90px 0;
@@ -650,7 +774,7 @@
     }
 
     /* ================================================================= */
-    /* 9. ФУТЕР (БЕЗ ЛОГОТИПА)                                           */
+    /* 10. ФУТЕР (БЕЗ ЛОГОТИПА)                                          */
     /* ================================================================= */
     .site-footer {
       background: #000000;
@@ -692,7 +816,7 @@
     }
 
     /* ================================================================= */
-    /* 10. АДАПТИВНОСТЬ                                                  */
+    /* 11. АДАПТИВНОСТЬ                                                  */
     /* ================================================================= */
     @media (max-width: 1100px) {
       .nav-desktop { display: none; }
@@ -700,6 +824,7 @@
       .header-layout { grid-template-columns: auto 1fr auto; height: 80px; }
       .brand-logo-img { max-height: 60px; }
       .sla-belt-grid { grid-template-columns: 1fr 1fr; }
+      .products-grid-two { grid-template-columns: 1fr; }
       .equipment-grid { grid-template-columns: 1fr 1fr; }
       .cdek-grid { grid-template-columns: 1fr; }
     }
@@ -716,6 +841,7 @@
       .hero-content-grid { flex-direction: column; gap: 16px; }
       .hero-bottom-actions { flex-direction: column; align-items: flex-start; }
       .hero-meta-right { text-align: left; }
+      .product-box { padding: 30px 20px; }
       .order-box-center { padding: 24px; }
       .matrix-table th, .matrix-table td { padding: 12px; font-size: 12px; }
       .header-phone { display: none; }
@@ -813,14 +939,14 @@
           Восстановление лазерных постов IPG LightWELD и LaserOne непосредственно в цеху заказчика с мобильной чистой зоной и оригинальным ЗИП.
         </p>
       </div>
-      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--c-accent); font-weight: 700; background: rgba(255,255,255,0.75); padding: 4px 8px;">
+      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--c-accent); font-weight: 700; background: rgba(255,255,255,0.85); padding: 4px 8px;">
         [ ОХВАТ: ВСЕ РЕГИОНЫ РОССИИ ]
       </div>
     </div>
 
     <div class="container hero-bottom-actions">
       <div class="hero-btn-group">
-        <a href="#order" class="btn-solid-black">СОГЛАСОВАТЬ ВЫЕЗД СПЕЦИАЛИСТА</a>
+        <a href="#products" class="btn-solid-black">ПРОГРАММЫ СЕРВИСА</a>
         <a href="#matrix" class="btn-underlined">СРАВНЕНИЕ РИСКОВ ДОСТАВКИ</a>
       </div>
 
@@ -864,7 +990,99 @@
     </div>
   </section>
 
-  <!-- 3. ИНЖЕНЕРНО-ЛОГИСТИЧЕСКОЕ СРАВНЕНИЕ РИСКОВ -->
+  <!-- 3. ДВА СЕРВИСНЫХ ПРОДУКТА: РАЗОВЫЙ И АБОНЕМЕНТ -->
+  <section class="products-tier-section" id="products">
+    <div class="container">
+      <div style="margin-bottom: 45px;">
+        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--c-accent); font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px;">
+          ФОРМАТЫ ИНЖЕНЕРНОГО СОТРУДНИЧЕСТВА
+        </div>
+        <h2 class="section-title-stanq">Два продукта сервисного обслуживания</h2>
+        <p class="section-sub-stanq" style="margin-bottom: 0;">
+          Четкое разграничение задач: экстренная локализация неисправности на месте или плановый превентивный контроль оборудования с прогнозируемым бюджетом.
+        </p>
+      </div>
+
+      <div class="products-grid-two">
+        
+        <!-- ПРОДУКТ 1: АВАРИЙНЫЙ ВЫЕЗД -->
+        <div class="product-box">
+          <div class="prod-code">// ПРОДУКТ 01 — РАЗОВЫЙ</div>
+          <h3 class="prod-name">Аварийный выезд</h3>
+          <p class="prod-summary">
+            Экстренный выезд инженера при аварийной остановке линии, ошибках лазерного источника или критическом сбое оптической головки.
+          </p>
+
+          <ul class="prod-checklist">
+            <li>
+              <span class="prod-bullet">01</span>
+              <span><strong>Полная диагностика в цеху:</strong> опрос контроллера, проверка контуров безопасности, газового тракта и чиллера.</span>
+            </li>
+            <li>
+              <span class="prod-bullet">02</span>
+              <span><strong>Мелкий и средний ремонт на месте:</strong> замена защитных стекол, фокусирующих линз, коллиматора, юстировка пилота и сканатора Wobble.</span>
+            </li>
+            <li>
+              <span class="prod-bullet">03</span>
+              <span><strong>Контрольный провар:</strong> тестирование шва и стабильности излучения на серийных деталях заказчика.</span>
+            </li>
+          </ul>
+
+          <div class="prod-escalation">
+            <strong>При обнаружении сложного дефекта:</strong> (деградация диодных линеек, прогар внутреннего волокна или блока питания) выдается официальное техническое заключение с дефектовочной ведомостью. Вы самостоятельно принимаете решение об отправке аппарата на завод-изготовитель либо заказе компонентного ремонта.
+          </div>
+
+          <a href="#order" class="btn-solid-black" onclick="setServiceFormat('Аварийный выезд (разовый: диагностика + ремонт на месте)')" style="width: 100%;">
+            ЗАКАЗАТЬ АВАРИЙНЫЙ ВЫЕЗД
+          </a>
+        </div>
+
+        <!-- ПРОДУКТ 2: ПЛАНОВОЕ ТО (АБОНЕМЕНТ) -->
+        <div class="product-box featured-box">
+          <div class="box-ribbon">РЕГУЛЯРНЫЙ КОНТРОЛЬ</div>
+          <div class="prod-code">// ПРОДУКТ 02 — АБОНЕНТСКИЙ ДОГОВОР</div>
+          <h3 class="prod-name">Плановое ТО (Абонемент)</h3>
+          <p class="prod-summary">
+            Системное регламентное обслуживание лазерных постов по утвержденному календарному графику: раз в квартал или раз в полгода.
+          </p>
+
+          <ul class="prod-checklist">
+            <li>
+              <span class="prod-bullet accent">01</span>
+              <span><strong>Регулярность выездов:</strong> превентивный аудит оборудования каждые 3 или 6 месяцев для исключения внезапного простоя.</span>
+            </li>
+            <li>
+              <span class="prod-bullet accent">02</span>
+              <span><strong>Чистка и юстировка тракта:</strong> глубокая профилактическая очистка зеркал и защитных узлов в мобильном боксе ISO.</span>
+            </li>
+            <li>
+              <span class="prod-bullet accent">03</span>
+              <span><strong>Плановая замена расходников:</strong> уплотнительные кольца, фильтры охлаждения, защитные стекла по наработке моточасов.</span>
+            </li>
+            <li>
+              <span class="prod-bullet accent">04</span>
+              <span><strong>Журнал техобслуживания:</strong> оформление карты технического состояния каждого станка с фиксацией параметров излучения.</span>
+            </li>
+            <li>
+              <span class="prod-bullet accent">05</span>
+              <span><strong>Приоритет в SLA:</strong> резервирование оригинального ЗИП на складе под ваше предприятие и льготный тариф на экстренные вызовы.</span>
+            </li>
+          </ul>
+
+          <div class="prod-escalation" style="border-left-color: var(--c-accent);">
+            <strong>Результат для предприятия:</strong> продление ресурса оптического блока в 2–3 раза, отсутствие аварийных срывов производственных заказов и фиксированная прозрачная смета на сервис.
+          </div>
+
+          <a href="#order" class="btn-solid-accent" onclick="setServiceFormat('Плановое ТО (абонемент: раз в квартал/полгода)')" style="width: 100%;">
+            ЗАКЛЮЧИТЬ ДОГОВОР НА ТО
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. ИНЖЕНЕРНО-ЛОГИСТИЧЕСКОЕ СРАВНЕНИЕ РИСКОВ -->
   <section class="matrix-section" id="matrix">
     <div class="container">
       <h2 class="section-title-stanq">Почему выезд инженера безопаснее и быстрее отправки станка</h2>
@@ -906,7 +1124,7 @@
     </div>
   </section>
 
-  <!-- 4. ОСНАЩЕНИЕ ВЫЕЗДНОЙ МОБИЛЬНОЙ СТАНЦИИ -->
+  <!-- 5. ОСНАЩЕНИЕ ВЫЕЗДНОЙ МОБИЛЬНОЙ СТАНЦИИ -->
   <section class="lab-equipment-section">
     <div class="container">
       <div style="margin-bottom: 36px;">
@@ -944,7 +1162,7 @@
     </div>
   </section>
 
-  <!-- 5. АЛЬТЕРНАТИВНЫЙ ФОРМАТ: СДЭК В МОСКВУ -->
+  <!-- 6. АЛЬТЕРНАТИВНЫЙ ФОРМАТ: СДЭК В МОСКВУ -->
   <section class="cdek-format-section">
     <div class="container cdek-grid">
       
@@ -980,25 +1198,35 @@
     </div>
   </section>
 
-  <!-- 6. ФОРМА СОГЛАСОВАНИЯ ВЫЕЗДА ПО РОССИИ -->
+  <!-- 7. ФОРМА СОГЛАСОВАНИЯ ВЫЕЗДА ПО РОССИИ -->
   <section class="b24-order-section" id="order">
     <div class="container">
       <div class="order-box-center">
-        <h2>Заявка на срочный выезд сервисного инженера</h2>
-        <p>Укажите город нахождения производственной площадки, модель аппарата и код ошибки. Дежурный сервисный инженер свяжется с вами в течение 15 минут для расчета тайминга прибытия.</p>
+        <h2>Заявка на сервисное обслуживание и выезд</h2>
+        <p>Укажите город площадки, модель оборудования и желаемый формат работ. Дежурный сервисный инженер свяжется с вами в течение 15 минут для согласования графика и сметы.</p>
 
         <form id="order-form">
           <!-- ВАШ КЛЮЧ WEB3FORMS -->
           <input type="hidden" name="access_key" value="b70ccca3-099a-47e4-b0c2-0dea22f7c3c5">
           
           <!-- Тема входящего письма -->
-          <input type="hidden" name="subject" value="Новая заявка на выезд инженера (Регламент РФ)">
+          <input type="hidden" name="subject" value="Новая заявка на сервис лазерного оборудования (Регламент РФ)">
           
           <!-- Защита от спам-ботов -->
           <input type="checkbox" name="botcheck" style="display: none;">
 
           <div class="form-group-stanq">
-            <label class="form-label-stanq">Город и производственная площадка</label>
+            <label class="form-label-stanq">Формат обслуживания *</label>
+            <select class="form-select-stanq" name="service_format" id="service-format-select" required>
+              <option value="Аварийный выезд (разовый: диагностика + ремонт на месте)">Аварийный выезд (разовый: диагностика + ремонт на месте / заключение)</option>
+              <option value="Плановое ТО (абонемент: раз в квартал/полгода)">Плановое ТО (абонемент: раз в квартал/полгода с заменой расходников)</option>
+              <option value="Экспресс-доставка пистолета в Москву через СДЭК">Экспресс-доставка снятого пистолета в Москву через СДЭК (24 часа)</option>
+              <option value="Консультация дежурного инженера по телеметрии">Консультация дежурного инженера по телеметрии</option>
+            </select>
+          </div>
+
+          <div class="form-group-stanq">
+            <label class="form-label-stanq">Город и производственная площадка *</label>
             <input type="text" name="city" class="form-input-stanq" placeholder="Например: Челябинск, ПАО ЧТПЗ / Екатеринбург" required>
           </div>
 
@@ -1009,28 +1237,19 @@
               <option>LaserOne LiteWELD Pro / Plus / XR Lite</option>
               <option>IPG LightCLEAN / LightCLEAN 2.0</option>
               <option>LaserOne LHC-F300 / LHCX-F300</option>
-              <option>Не уверен / Требуется консультация</option>
+              <option>Другая марка / Требуется консультация</option>
             </select>
           </div>
 
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="form-group-stanq">
             <div>
-              <label class="form-label-stanq">Код ошибки с дисплея или симптом</label>
-              <input type="text" name="error_code" class="form-input-stanq" placeholder="Например: Er01, Er09, прогар зеркала">
+              <label class="form-label-stanq">Код ошибки или симптом поломки</label>
+              <input type="text" name="error_code" class="form-input-stanq" placeholder="Например: Er01, Er09, пятно на линзе">
             </div>
             <div>
-              <label class="form-label-stanq">Телефон ответственного лица / Telegram</label>
+              <label class="form-label-stanq">Телефон ответственного лица / Telegram *</label>
               <input type="tel" name="phone" class="form-input-stanq" placeholder="+7 (___) ___-__-__" required>
             </div>
-          </div>
-
-          <div class="form-group-stanq">
-            <label class="form-label-stanq">Формат обслуживания</label>
-            <select class="form-select-stanq" name="service_format">
-              <option>Экстренный выезд инженера в цех (24–48 часов по РФ)</option>
-              <option>Экспресс-доставка снятого пистолета в Москву через СДЭК (24 часа)</option>
-              <option>Консультация дежурного инженера по телеметрии</option>
-            </select>
           </div>
 
           <button type="submit" class="btn-solid-black" style="width: 100%; height: 52px; font-size: 13px; margin-top: 10px;">
@@ -1041,7 +1260,7 @@
     </div>
   </section>
 
-  <!-- 7. ФУТЕР БЕЗ ЛОГОТИПА -->
+  <!-- 8. ФУТЕР БЕЗ ЛОГОТИПА -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-layout">
@@ -1061,8 +1280,19 @@
     </div>
   </footer>
 
-  <!-- ИНТЕРАКТИВНЫЙ СКРИПТ: МОБИЛЬНОЕ МЕНЮ И ОБРАБОТКА ФОРМЫ ЧЕРЕЗ WEB3FORMS -->
+  <!-- ИНТЕРАКТИВНЫЙ СКРИПТ: МОБИЛЬНОЕ МЕНЮ, ВЫБОР ПРОДУКТА И WEB3FORMS -->
   <script>
+    function setServiceFormat(val) {
+      const select = document.getElementById('service-format-select');
+      if (!select) return;
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].value.includes(val) || val.includes(select.options[i].value)) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
       const burgerBtn = document.getElementById('burger-btn');
       const mobileDrawer = document.getElementById('mobile-drawer');
