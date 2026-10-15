@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LASER SERVICE // Независимый инжиниринг IPG LightWELD и LaserOne</title>
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <!-- Шрифты: Space Grotesk, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -141,7 +141,7 @@
       transition: color 0.15s;
       white-space: nowrap;
     }
-    .nav-desktop a:hover {
+    .nav-desktop a:hover, .nav-desktop a.active {
       color: var(--c-accent);
     }
 
@@ -513,6 +513,7 @@
       font-size: 12px;
       font-weight: 700;
       color: var(--c-black);
+      transition: color 0.15s;
     }
     .catalog-view-all:hover { color: var(--c-accent); }
 
@@ -528,9 +529,10 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
     }
     .catalog-product-card:hover {
+      border-color: var(--c-black);
       transform: translateY(-4px);
       box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06);
     }
@@ -560,7 +562,7 @@
       font-weight: 700;
       color: var(--c-black);
       margin-bottom: 20px;
-      min-height: 40px;
+      min-height: 42px;
       line-height: 1.35;
     }
     .product-footer-row {
@@ -572,9 +574,11 @@
       border-top: 1px solid #F0F2F5;
     }
     .product-price-label {
-      font-size: 11px;
+      font-size: 10px;
       color: var(--c-text-muted);
       display: block;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
     }
     .product-price-val {
       font-size: 16px;
@@ -774,8 +778,8 @@
 
   <!-- ВЕРХНИЙ СЛУЖЕБНЫЙ БАР -->
   <div class="top-utility-bar">
-    <div>НЕЗАВИСИМЫЙ СЕРВИС И ЗИП // IPG IRE-POLUS &amp; VPG LASERONE</div>
-    <div>СКЛАД: МОСКВА // ВЫЕЗДНЫЕ ИНЖЕНЕРЫ ПО ВСЕЙ РОССИИ (24–48Ч)</div>
+    <div>СКЛАДСКОЙ РЕЕСТР: ОРИГИНАЛЬНЫЙ ЗИП IPG &amp; LASERONE // РЕЗЕРВ В МОСКВЕ</div>
+    <div>ЭКСПРЕСС-ОТГРУЗКА ДЕНЬ В ДЕНЬ // ВЫЕЗДНЫЕ ИНЖЕНЕРЫ ПО ВСЕЙ РОССИИ (24–48Ч)</div>
   </div>
 
   <!-- ШАПКА САЙТА С УВЕЛИЧЕННЫМ ЛОГОТИПОМ ПО ЦЕНТРУ -->
@@ -935,72 +939,76 @@
     </div>
   </section>
 
-  <!-- 4. КАТАЛОГ ОРИГИНАЛЬНОГО ЗИП -->
+  <!-- 4. КАТАЛОГ ОРИГИНАЛЬНОГО ЗИП (ДАННЫЕ ИЗ КАТАЛОГА) -->
   <section class="catalog-showcase-section">
     <div class="container">
       
       <div class="catalog-section-head">
         <div class="catalog-section-title">ВЫБОР ПРОИЗВОДСТВ // ОРИГИНАЛЬНЫЙ ЗИП</div>
-        <a href="katalog.html" class="catalog-view-all">Смотреть весь склад ЗИП →</a>
+        <a href="katalog.html" class="catalog-view-all">Смотреть весь склад ЗИП (12 позиций) →</a>
       </div>
 
       <div class="catalog-grid-4">
         
+        <!-- Позиция 1: Сопло рогатка малая -->
         <div class="catalog-product-card">
           <div class="product-img-frame">
-            <img src="images/01.png" alt="Защитное стекло D20/D15">
+            <img src="images/01.png" alt="Сопло рогатка малая ЭИП 1728.460.011-00">
           </div>
-          <div class="product-category-code">АРТИКУЛ COPWXEX014U</div>
-          <div class="product-title">Защитное стекло D20/D15 (кварц 1070 нм)</div>
+          <div class="product-category-code">АРТИКУЛ: CM172846001100XR</div>
+          <div class="product-title">Сопло рогатка малая ЭИП 1728.460.011-00</div>
           <div class="product-footer-row">
             <div>
-              <span class="product-price-label">в наличии</span>
-              <span class="product-price-val">от 3 400 ₽</span>
+              <span class="product-price-label">в наличии: 50+ шт</span>
+              <span class="product-price-val">4 100 ₽</span>
             </div>
             <a href="katalog.html" class="btn-add-plus" title="Запросить счет">+</a>
           </div>
         </div>
 
+        <!-- Позиция 2: Сопло цилиндрическое -->
         <div class="catalog-product-card">
           <div class="product-img-frame">
-            <img src="images/03.png" alt="Картридж фокусирующей линзы">
+            <img src="images/03.png" alt="Сопло цилиндрическое ЭИП 1728.460.010-00">
           </div>
-          <div class="product-category-code">СПЕЦИФИКАЦИЯ ЭИП 1728</div>
-          <div class="product-title">Картридж фокусирующей линзы со скошенной пружиной</div>
+          <div class="product-category-code">АРТИКУЛ: CM172846001000XR</div>
+          <div class="product-title">Сопло цилиндрическое ЭИП 1728.460.010-00</div>
           <div class="product-footer-row">
             <div>
-              <span class="product-price-label">в наличии</span>
-              <span class="product-price-val">от 48 000 ₽</span>
+              <span class="product-price-label">в наличии: 60+ шт</span>
+              <span class="product-price-val">4 200 ₽</span>
             </div>
             <a href="katalog.html" class="btn-add-plus" title="Запросить счет">+</a>
           </div>
         </div>
 
+        <!-- Позиция 3: Стекло защитное D20 (5 шт.) -->
         <div class="catalog-product-card">
           <div class="product-img-frame">
-            <img src="images/04.png" alt="Зеркало гальвосканатора Wobble">
+            <img src="images/06.png" alt="Стекло защитное D=20; h=1,5 ЭИП 1728.400.501">
           </div>
-          <div class="product-category-code">ГАЛЬВОПРИВОД IPG</div>
-          <div class="product-title">Зеркало гальвосканатора Wobble (до 2500 Вт)</div>
+          <div class="product-category-code">АРТИКУЛ: COPOWIPO20X5011</div>
+          <div class="product-title">Стекло защитное D=20; h=1,5 ЭИП 1728.400.501 (упак. 5 шт.)</div>
           <div class="product-footer-row">
             <div>
-              <span class="product-price-label">в наличии</span>
-              <span class="product-price-val">от 65 000 ₽</span>
+              <span class="product-price-label">в наличии: 150+ упак</span>
+              <span class="product-price-val">12 800 ₽</span>
             </div>
             <a href="katalog.html" class="btn-add-plus" title="Запросить счет">+</a>
           </div>
         </div>
 
+        <!-- Позиция 4: Картридж фокусирующей линзы -->
         <div class="catalog-product-card">
           <div class="product-img-frame">
-            <img src="images/05.png" alt="Набор медных сопел Cu-ETP">
+            <img src="images/10.png" alt="Картридж фокус. линзы LightWeld 1728.462.000-00">
           </div>
-          <div class="product-category-code">ОСНАСТКА СВАРКИ</div>
-          <div class="product-title">Набор медных сопел Cu-ETP (6/9 мм, угол, срез)</div>
+          <div class="product-category-code">АРТИКУЛ: CDSBOM1728462XXR</div>
+          <div class="product-title">Картридж фокус. линзы LightWeld 1728.462.000-00 (упак.)</div>
           <div class="product-footer-row">
             <div>
-              <span class="product-price-label">в наличии</span>
-              <span class="product-price-val">от 14 800 ₽</span>
+              <span class="product-price-label">в наличии: 18 шт</span>
+              <span class="product-price-val">15 300 ₽</span>
             </div>
             <a href="katalog.html" class="btn-add-plus" title="Запросить счет">+</a>
           </div>
@@ -1112,8 +1120,8 @@
         </div>
       </div>
       <div class="footer-copyright">
-        <div>© 2026 LASER SERVICE ENGINEERING. ВСЕ ПРАВА ЗАЩИЩЕНЫ. РАБОТА С ЮРЛИЦАМИ (ИП, БЕЗ НДС).</div>
-        <div>ДИЗАЙН-СИСТЕМА: INDUSTRIAL MONOCHROME</div>
+        <div>© 2026 LASER SERVICE ENGINEERING. ВСЕ ПРАВА ЗАЩИЩЕНЫ. ОФИЦИАЛЬНЫЙ ДОГОВОР ПОСТАВКИ И СЕРВИСА.</div>
+        <div>РЕЕСТР ЗИП: IPG &amp; LASERONE ORIGINAL SPEC</div>
       </div>
     </div>
   </footer>
